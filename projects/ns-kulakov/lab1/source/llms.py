@@ -1,0 +1,1 @@
+llms_list = ['qwen3:4b-instruct-2507-q4_K_M', 'llama3.2:3b', 'mistral:7b-instruct']
