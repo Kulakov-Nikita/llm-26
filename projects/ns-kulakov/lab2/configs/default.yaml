@@ -1,0 +1,42 @@
+# Все параметры лабораторной №2. Пути указываются относительно корня проекта.
+default_preset: e1
+source: data/raw/openintro_statistics_4e.pdf
+source_url: https://www.openintro.org/book/os/
+download_url: https://upload.wikimedia.org/wikipedia/commons/6/60/Openintro_statistics_4th_edition.pdf
+document_id: openintro_statistics_4e
+pages: [168, 310]                 # физические страницы PDF, 1-based
+min_pages: 50
+
+embedding_model: BAAI/bge-m3
+device: cpu                        # cpu / cuda
+embedding_batch_size: 8
+include_headers: true
+
+qdrant_url: http://127.0.0.1:6333
+hnsw_m: 16
+hnsw_ef_construct: 100
+hnsw_ef_search: 64
+
+# Retrieval
+top_k: 5
+rrf_k: 60
+max_context_tokens: 2000
+
+# OpenAI-совместимый API Ollama
+llm_url: http://127.0.0.1:11434/v1
+llm_model: qwen3:4b-instruct-2507-q4_K_M
+llm_temperature: 0.2
+llm_max_tokens: 650
+llm_timeout: 120
+system_prompt: prompts/rag_system.md
+
+# REST API
+api_host: 127.0.0.1
+api_port: 8000
+
+compare_presets: [e1, e2, e3]
+experiments:
+  e1: {strategy: recursive, chunk_size: 300, overlap: 50, mode: dense}
+  e2: {strategy: markdown, chunk_size: 600, overlap: 100, mode: dense}
+  e3: {strategy: markdown, chunk_size: 600, overlap: 100, mode: hybrid}
+  e4: {strategy: markdown, chunk_size: 300, overlap: 50, mode: dense}

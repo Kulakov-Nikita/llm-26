@@ -1,0 +1,10 @@
+experiment,split,strategy,chunk_size,overlap,mode,embedding_model,hnsw_m,hnsw_ef_construct,hnsw_ef_search,latency_ms,recall@5,precision@5,mrr@5,recall@10,precision@10,mrr@10
+e1,dev,recursive,300,50,dense,BAAI/bge-m3,16,100,64,137.2317,1.0,0.2167,0.9583,1.0,0.1083,0.9583
+e1,test,recursive,300,50,dense,BAAI/bge-m3,16,100,64,142.01,1.0,0.2,0.8667,1.0,0.1,0.8667
+e1,all,recursive,300,50,dense,BAAI/bge-m3,16,100,64,138.8244,1.0,0.2111,0.9278,1.0,0.1056,0.9278
+e2,dev,markdown,600,100,dense,BAAI/bge-m3,16,100,64,139.3375,1.0,0.2167,0.8611,1.0,0.1083,0.8611
+e2,test,markdown,600,100,dense,BAAI/bge-m3,16,100,64,145.475,1.0,0.2,0.8889,1.0,0.1,0.8889
+e2,all,markdown,600,100,dense,BAAI/bge-m3,16,100,64,141.3833,1.0,0.2111,0.8704,1.0,0.1056,0.8704
+e3,dev,markdown,600,100,hybrid,BAAI/bge-m3,16,100,64,139.8542,0.9167,0.2,0.8333,0.9167,0.1,0.8333
+e3,test,markdown,600,100,hybrid,BAAI/bge-m3,16,100,64,140.3617,1.0,0.2,0.7222,1.0,0.1,0.7222
+e3,all,markdown,600,100,hybrid,BAAI/bge-m3,16,100,64,140.0233,0.9444,0.2,0.7963,0.9444,0.1,0.7963

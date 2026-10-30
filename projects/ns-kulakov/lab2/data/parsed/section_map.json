@@ -1,0 +1,93 @@
+[
+  {
+    "section_id": "5.1",
+    "title": "Point estimates and sampling variability",
+    "pdf_page": 168,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 170
+  },
+  {
+    "section_id": "5.2",
+    "title": "Confidence intervals for a proportion",
+    "pdf_page": 181,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 181
+  },
+  {
+    "section_id": "5.3",
+    "title": "Hypothesis testing for a proportion",
+    "pdf_page": 189,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 189
+  },
+  {
+    "section_id": "6.1",
+    "title": "Inference for a single proportion",
+    "pdf_page": 206,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 208
+  },
+  {
+    "section_id": "6.2",
+    "title": "Difference of two proportions",
+    "pdf_page": 217,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 217
+  },
+  {
+    "section_id": "6.3",
+    "title": "Testing for goodness of fit using chi-square",
+    "pdf_page": 229,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 229
+  },
+  {
+    "section_id": "6.4",
+    "title": "Testing for independence in two-way tables",
+    "pdf_page": 240,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 240
+  },
+  {
+    "section_id": "7.1",
+    "title": "One-sample means with the t-distribution",
+    "pdf_page": 249,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 251
+  },
+  {
+    "section_id": "7.2",
+    "title": "Paired data",
+    "pdf_page": 262,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 262
+  },
+  {
+    "section_id": "7.3",
+    "title": "Difference of two means",
+    "pdf_page": 267,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 267
+  },
+  {
+    "section_id": "7.4",
+    "title": "Power calculations for a difference of means",
+    "pdf_page": 278,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 278
+  },
+  {
+    "section_id": "7.5",
+    "title": "Comparing many means with ANOVA",
+    "pdf_page": 285,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 285
+  },
+  {
+    "section_id": "8.1",
+    "title": "Fitting a line, residuals, and correlation",
+    "pdf_page": 303,
+    "resolution": "heading_match",
+    "printed_page_in_toc": 304
+  }
+]
