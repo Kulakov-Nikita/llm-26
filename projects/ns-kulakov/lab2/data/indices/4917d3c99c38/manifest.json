@@ -1,0 +1,25 @@
+{
+  "document_id": "openintro_statistics_4e",
+  "source_url": "https://www.openintro.org/book/os/",
+  "document_sha256": "f0d07d331c3c551a110076f35741bc2c097f0652c2a35e7bc255f3bf896c7cba",
+  "parser_version": 6,
+  "chunking": {
+    "strategy": "recursive",
+    "chunk_size": 300,
+    "overlap": 50,
+    "include_headers": true
+  },
+  "embedding_model": "BAAI/bge-m3",
+  "chunk_tokenizer": "Qwen/Qwen3-4B-Instruct-2507",
+  "pages": [
+    168,
+    310
+  ],
+  "chunk_count": 495,
+  "vectors_shape": [
+    495,
+    1024
+  ],
+  "splitter_engine": "langchain-text-splitters",
+  "schema": 7
+}

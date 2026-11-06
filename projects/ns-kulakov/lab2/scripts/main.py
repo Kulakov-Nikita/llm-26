@@ -45,7 +45,15 @@ if __name__ == "__main__":
         "hnsw_ef_construct": args.hnsw_ef_construct, "hnsw_ef_search": args.hnsw_ef_search,
         "top_k": args.top_k,
     }
-    config = load_config(args.config, args.preset)
+    overrides = {key: value for key, value in overrides.items() if value is not None}
+    if command == "compare":
+        experiment_keys = {"strategy", "chunk_size", "overlap", "include_headers", "mode", "top_k"}
+        conflicts = sorted(experiment_keys.intersection(overrides))
+        if conflicts:
+            parser.error("Для compare нельзя переопределять параметры экспериментов: " + ", ".join(conflicts))
+        overrides = {key: value for key, value in overrides.items()
+                     if key in {"embedding_model", "device", "qdrant_url", "hnsw_m", "hnsw_ef_construct", "hnsw_ef_search"}}
+    config = load_config(args.config, args.preset, overrides)
 
     match command:
         case "parse":
@@ -53,15 +61,14 @@ if __name__ == "__main__":
         case "build":
             print(f"Индекс: {build_index(config, rebuild=args.rebuild)}")
         case "load":
-            print(f"Qdrant: {load_to_vector_store(config, reset=args.reset)}")
+            print(f"Qdrant: {load_to_vector_store(config, reset=args.reset or args.rebuild, rebuild=args.rebuild)}")
         case "evaluate":
             print(json.dumps(evaluate_retrieval(config, args.split), ensure_ascii=False, indent=2))
         case "compare":
             rows = []
             for preset in config["compare_presets"]:
-                experiment = load_config(args.config, preset)
-                build_index(experiment)
-                load_to_vector_store(experiment)
+                experiment = load_config(args.config, preset, overrides)
+                load_to_vector_store(experiment, reset=args.reset or args.rebuild, rebuild=args.rebuild)
                 rows.extend(evaluate_retrieval(experiment))
             print(f"Сравнение сохранено: {write_comparison(rows)}")
         case "ask" | "search":

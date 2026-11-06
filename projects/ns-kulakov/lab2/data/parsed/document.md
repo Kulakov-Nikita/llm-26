@@ -4,35 +4,11 @@
 
 ### PDF page 168
 
-168
-
 Chapter 5
 
 Foundations for inference
 
-
-
-
-
-5.1 Point estimates and sampling variability
-
-5.2 Conﬁdence intervals for a proportion
-
-5.3 Hypothesis testing for a proportion
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 169
-
-169
-
-
-
-
 
 Statistical inference  is primarily concerned with understanding and
 
@@ -41,7 +17,6 @@ quantifying the uncertainty of parameter estimates. While the equa-
 tions and details change depending on the setting, the foundations for
 
 inference are the same throughout all of statistics.
-
 
 We start with a familiar topic: the idea of using a sample proportion
 
@@ -57,33 +32,15 @@ the population, such as whether a survey provides strong evidence that
 
 a candidate has the support of a majority of the voting population.
 
-
-
-
-
 For videos, slides, and other resources, please visit
 www.openintro.org/os
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 170
 
-170                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-        5.1  Point estimates and sampling variability
-
-
-
-                Companies such as Pew Research frequently conduct polls as a way to understand the state
+Companies such as Pew Research frequently conduct polls as a way to understand the state
                 of public opinion or knowledge on many topics, including politics, scientiﬁc understanding, brand
                recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate
               the opinion or knowledge of the broader population.
-
 
             5.1.1  Point estimates and error
 
@@ -106,7 +63,6 @@ www.openintro.org/os
           Do you support your school by supporting funding for the new stadium? We try to minimize bias
              through thoughtful data collection procedures, which were discussed in Chapter 1 and are the topic
                 of many other books.
-
 
             5.1.2  Understanding the variability of a point estimate
 
@@ -136,16 +92,7 @@ www.openintro.org/os
                 388% written as a proportion would be 0.88. It is common to switch between proportion and percent. However,
                 formulas presented in this book always refer to the proportion, not the percent.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 171
-
-5.1. POINT ESTIMATES AND SAMPLING VARIABILITY                                          171
-
 
 code; we’ve written a short program in Figure 5.1 in case you are curious what the computer code
 looks like.  In this simulation, the sample gave a point estimate of  ˆp1 = 0.894. We know the
@@ -168,7 +115,6 @@ sum(sampled entries == "support") / 1000
           tical software called R. Each line that starts with # is a code comment, which is
         used to describe in regular language what the code is doing. We’ve provided soft-
        ware labs in R at openintro.org/stat/labs for anyone interested in learning more.
-
 
     One simulation isn’t enough to get a great sense of the distribution of estimates we might expect
 in the simulation, so we should run more simulations. In a second simulation, we get ˆp2 = 0.885,
@@ -193,14 +139,11 @@ These ﬁndings are encouraging! When the population proportion is p = 0.88 and 
 n = 1000, the sample proportion ˆp tends to give a pretty good estimate of the population proportion.
 We also have the interesting observation that the histogram resembles a normal distribution.
 
-
   SAMPLING DISTRIBUTIONS ARE NEVER OBSERVED, BUT WE KEEP THEM IN MIND
   In real-world applications, we never actually observe the sampling distribution, yet it is useful to
   always think of a point estimate as coming from such a hypothetical distribution. Understanding
   the sampling distribution will help us characterize and make sense of the point estimates that
   we do observe.
-
-
 
 EXAMPLE 5.1
 If we used a much smaller sample size of n = 50, would you guess that the standard error for ˆp
@@ -209,26 +152,14 @@ would be larger or smaller than when we used n = 1000?
 Intuitively, it seems like more data is better than less data, and generally that is correct! The typical
 error when p = 0.88 and n = 50 would be larger than the error we would expect when n = 1000.
 
-
     Example 5.1 highlights an important property we will see again and again: a bigger sample
 tends to provide a more precise point estimate than a smaller sample.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 172
 
-172                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-                          750
+750
 
                                                                                 Frequency 500                          250
-
 
                             0
                                    0.84            0.86            0.88            0.90            0.92
@@ -238,12 +169,10 @@ tends to provide a more precise point estimate than a smaller sample.
                     from a population where the population proportion is 0.88 and the sample size is
                  n = 1000.
 
-
             5.1.3  Central Limit Theorem
 
                The distribution in Figure 5.2 looks an awful lot like a normal distribution. That is no anomaly;
                     it is the result of a general principle called the Central Limit Theorem.
-
 
             CENTRAL LIMIT THEOREM AND THE SUCCESS-FAILURE CONDITION
             When observations are independent and the sample size is suﬃciently large, the sample propor-
@@ -256,18 +185,15 @@ tends to provide a more precise point estimate than a smaller sample.
                 In order for the Central Limit Theorem to hold, the sample size is typically considered suﬃciently
                   large when np ≥10 and n(1 −p) ≥10, which is called the success-failure condition.
 
-
                The Central Limit Theorem is incredibly important, and it provides a foundation for much
                 of statistics. As we begin applying the Central Limit Theorem, be mindful of the two technical
                conditions: the observations must be independent, and the sample size must be suﬃciently large
               such that np ≥10 and n(1 −p) ≥10.
 
-
           EXAMPLE 5.2
                Earlier we estimated the mean and standard error of ˆp using simulated data when p = 0.88 and
            n = 1000. Conﬁrm that the Central Limit Theorem applies and the sampling distribution is ap-
               proximately normal.
-
 
             Independence. There are n = 1000 observations for each sample proportion ˆp, and each of those
                     observations are independent draws. The most common way for observations to be considered
@@ -278,23 +204,12 @@ tends to provide a more precise point estimate than a smaller sample.
 
                        np = 1000 × 0.88 = 880 ≥10       n(1 −p) = 1000 × (1 −0.88) = 120 ≥10
 
-
            The independence and success-failure conditions are both satisﬁed, so the Central Limit Theorem
                 applies, and it’s reasonable to model ˆp using a normal distribution.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 173
 
-5.1. POINT ESTIMATES AND SAMPLING VARIABILITY                                          173
-
-
-
- HOW TO VERIFY SAMPLE OBSERVATIONS ARE INDEPENDENT
+HOW TO VERIFY SAMPLE OBSERVATIONS ARE INDEPENDENT
   Subjects in an experiment are considered independent if they undergo random assignment to
   the treatment groups.
 
@@ -303,13 +218,11 @@ tends to provide a more precise point estimate than a smaller sample.
    If a sample is from a seemingly random process, e.g. an occasional error on an assembly line,
   checking independence is more diﬃcult. In this case, use your best judgement.
 
-
    An additional condition that is sometimes added for samples from a population is that they
 are no larger than 10% of the population. When the sample exceeds 10% of the population size, the
 methods we discuss tend to overestimate the sampling error slightly versus what we would get using
 more advanced methods.4 This is very rarely an issue, and when it is an issue, our methods tend to
 be conservative, so we consider this additional check as optional.
-
 
 EXAMPLE 5.3
 Compute the theoretical mean and standard error of ˆp when p = 0.88 and n = 1000, according to
@@ -323,9 +236,6 @@ The calculation of the standard error of ˆp uses the following formula:
                          SEˆp =       =          = 0.010
                              n            1000
 
-
-
-
 EXAMPLE 5.4
 Estimate how frequently the sample proportion  ˆp should be within 0.02 (2%) of the population
 value, p = 0.88. Based on Examples 5.2 and 5.3, we know that the distribution is approximately
@@ -333,10 +243,6 @@ N(µˆp = 0.88, SEˆp = 0.010).
 
 After so much practice in Section 4.1, this normal distribution example will hopefully feel familiar!
 We would like to understand the fraction of ˆp’s between 0.86 and 0.90:
-
-
-
-
 
                                    0.86    0.88    0.90
 
@@ -351,34 +257,17 @@ and in any case we will ﬁnd that they are each 0.0228. The total tail areas ar
 which leaves the shaded area of 0.9544.  That is, about 95.44% of the sampling distribution in
 Figure 5.2 is within ±0.02 of the population proportion, p = 0.88.
 
-
-
-
-
    4For example, we could use what’s called the ﬁnite population correction factor:  if the sample is of size n
                                        q N−n
 and the population size is N, then we can multiple the typical standard error formula by  N−1 to obtain a smaller,
 more precise estimate of the actual standard error. When n < 0.1 × N, this correction factor is relatively small.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 174
 
-174                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-           GUIDED PRACTICE 5.5
+GUIDED PRACTICE 5.5
               In Example 5.1 we discussed how a smaller sample would tend to produce a less reliable estimate.
                                    q p(1−p)
              Explain how this intuition is reﬂected in the formula for SEˆp =     n   .5
-
-
-
 
             5.1.4  Applying the Central Limit Theorem to a real-world setting
 
@@ -413,24 +302,11 @@ more precise estimate of the actual standard error. When n < 0.1 × N, this corr
                calculation with 0.88 earlier. The computed standard error tends to be reasonably stable even when
               observing slightly diﬀerent proportions in one sample or another.
 
-
-
-
-
                     5Since the sample size n is in the denominator (on the bottom) of the fraction, a bigger sample size means the
                    entire expression when calculated will tend to be smaller. That is, a larger sample size would correspond to a smaller
                 standard error.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 175
-
-5.1. POINT ESTIMATES AND SAMPLING VARIABILITY                                          175
-
 
 5.1.5  More details regarding the Central Limit Theorem
 
@@ -457,8 +333,6 @@ proportions to understand the sampling distribution of ˆp when n = 10 and p = 0
 plotted in Figure 5.3 alongside a normal distribution with the same mean and variability. These
 distributions have a number of important diﬀerences.
 
-
-
      2000
 
      1000      Frequency
@@ -470,7 +344,6 @@ distributions have a number of important diﬀerences.
         Figure 5.3: Left: simulations of ˆp when the sample size is n = 10 and the population
         proportion is p = 0.25. Right: a normal distribution with the same mean (0.25)
        and standard deviation (0.137).
-
 
                                     Unimodal?  Smooth?  Symmetric?
                 Normal: N(0.25, 0.14)     Yes      Yes       Yes
@@ -496,117 +369,55 @@ some trends:
    4. When np and n(1 −p) are both very large, the distribution’s discreteness is hardly evident,
      and the distribution looks much more like a normal distribution.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 176
 
-176                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-                      n = 10             n = 25
-
-
+n = 10             n = 25
 
          p = 0.1
 
-
                                                     0.0      0.2      0.4      0.6      0.8      1.0        0.0      0.2      0.4      0.6      0.8      1.0
-
 
          p = 0.2
 
-
                                                     0.0      0.2      0.4      0.6      0.8      1.0        0.0      0.2      0.4      0.6      0.8      1.0
-
 
          p = 0.5
 
-
                                                     0.0      0.2      0.4      0.6      0.8      1.0        0.0      0.2      0.4      0.6      0.8      1.0
-
 
          p = 0.8
 
-
                                                     0.0      0.2      0.4      0.6      0.8      1.0        0.0      0.2      0.4      0.6      0.8      1.0
-
 
          p = 0.9
 
-
                                                     0.0      0.2      0.4      0.6      0.8      1.0        0.0      0.2      0.4      0.6      0.8      1.0
-
-
 
                       Figure 5.4: Sampling distributions for several scenarios of p and n.
                     Rows: p = 0.10, p = 0.20, p = 0.50, p = 0.80, and p = 0.90.
                     Columns: n = 10 and n = 25.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 177
 
-5.1. POINT ESTIMATES AND SAMPLING VARIABILITY                                          177
-
-
-     n = 50          n = 100         n = 250
-
-
-
-
+n = 50          n = 100         n = 250
 
     0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
 
-
-
-
+    0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
 
     0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
 
-
-
-
-
     0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
 
-
-
-
-
     0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
-
-
-
-
-
-    0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0       0.0    0.2    0.4    0.6    0.8    1.0
-
-
 
         Figure 5.5: Sampling distributions for several scenarios of p and n.
        Rows: p = 0.10, p = 0.20, p = 0.50, p = 0.80, and p = 0.90.
        Columns: n = 50, n = 100, and n = 250.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 178
 
-178                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-                So far we’ve only focused on the skew and discreteness of the distributions. We haven’t con-
+So far we’ve only focused on the skew and discreteness of the distributions. We haven’t con-
                sidered how the mean and standard error of the distributions change. Take a moment to look back
                at the graphs, and pay attention to three things:
 
@@ -628,7 +439,6 @@ some trends:
                values (x/n). It is always a matter of degree, and we will use the standard success-failure condition
              with minimums of 10 for np and n(1 −p) as our guideline within this book.
 
-
             5.1.6  Extending the framework for other statistics
 
                The strategy of using a sample statistic to estimate a parameter is quite common, and it’s
@@ -644,19 +454,9 @@ some trends:
                are the same, even if the details change a little. We’ve also sprinkled some other contexts into the
                 exercises to help you start thinking about how the ideas generalize.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 179
 
-5.1. POINT ESTIMATES AND SAMPLING VARIABILITY                                          179
-
-
 Exercises
-
 
 5.1  Identify the parameter, Part I. For each of the following situations, state whether the parameter of
 interest is a mean or a proportion. It may be helpful to examine whether individual responses are numerical
@@ -711,18 +511,9 @@ cover a $400 unexpected expense without borrowing money or going into debt.
 (g) Suppose the true population value was found to be 40%.  If we use this proportion to recompute the
     value in part (e) using p = 0.4 instead of ˆp, does the resulting value change much?
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.1 — Point estimates and sampling variability
-
 ### PDF page 180
 
-180                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-                5.5  Repeated water samples. A nonproﬁt wants to understand the fraction of households that have
+5.5  Repeated water samples. A nonproﬁt wants to understand the fraction of households that have
                 elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of
                  lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve
                water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this
@@ -752,26 +543,14 @@ cover a $400 unexpected expense without borrowing money or going into debt.
                       of this new distribution compare to the variability of the distribution when each sample contained 40
                     observations?
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 5.2 — Confidence intervals for a proportion
 
 ### PDF page 181
 
-5.2. CONFIDENCE INTERVALS FOR A PROPORTION                                             181
-
-
-5.2  Conﬁdence intervals for a proportion
-
-
-
-    The sample proportion  ˆp provides a single plausible value for the population proportion p.
+The sample proportion  ˆp provides a single plausible value for the population proportion p.
 However, the sample proportion isn’t perfect and will have some standard error associated with it.
 When stating an estimate for the population proportion, it is better practice to provide a plausible
 range of values instead of supplying just the point estimate.
-
 
 5.2.1  Capturing the population parameter
 
@@ -783,13 +562,9 @@ it represents a range of plausible values where we are likely to ﬁnd the popul
 the other hand, if we report a range of plausible values, representing a conﬁdence interval, we have
 a good shot at capturing the parameter.
 
-
 GUIDED PRACTICE 5.6
 If we want to be very certain we capture the population proportion in an interval, should we use a
 wider interval or a smaller interval?6
-
-
-
 
 5.2.2  Constructing a 95% conﬁdence interval
 
@@ -812,28 +587,12 @@ shows the process of creating 25 intervals from 25 samples from the simulation i
 24 of the resulting conﬁdence intervals contain the simulation’s population proportion of p = 0.88,
 and one interval does not.
 
-
-
-
-
     6If we want to be more certain we will capture the ﬁsh, we might use a wider net.  Likewise, we use a wider
 conﬁdence interval if we want to be more certain that we capture the parameter.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 182
 
-182                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-
-
-                                                                     G
+G
                                                                                           G
                                                                              G
                                                                                 G
@@ -866,8 +625,6 @@ conﬁdence interval if we want to be more certain that we capture the parameter
                       proportion p = 0.88. Only 1 of these 25 intervals did not capture the population
                        proportion, and this interval has been bolded.
 
-
-
           EXAMPLE 5.7
               In Figure 5.6, one interval does not contain p = 0.88. Does this imply that the population proportion
              used in the simulation could not have been p = 0.88?
@@ -877,15 +634,11 @@ conﬁdence interval if we want to be more certain that we capture the parameter
                 interval only provides a plausible range of values. While we might say other values are implausible
              based on the data, this does not mean they are impossible.
 
-
-
              95% CONFIDENCE INTERVAL FOR A PARAMETER
             When the distribution of a point estimate qualiﬁes for the Central Limit Theorem and therefore
                   closely follows a normal distribution, we can construct a 95% conﬁdence interval as
 
                                                  point estimate ± 1.96 × SE
-
-
 
           EXAMPLE 5.8
               In Section 5.1 we learned about a Pew Research poll where 88.7% of a random sample of 1000 Amer-
@@ -902,16 +655,7 @@ conﬁdence interval if we want to be more certain that we capture the parameter
              power is between 86.7% and 90.7%. (It’s common to round to the nearest percentage point or nearest
               tenth of a percentage point when reporting a conﬁdence interval.)
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 183
-
-5.2. CONFIDENCE INTERVALS FOR A PROPORTION                                             183
-
 
 5.2.3  Changing the conﬁdence level
 
@@ -931,7 +675,6 @@ The choice of 1.96 × SE was based on capturing 95% of the data since the estima
 standard errors of the parameter about 95% of the time. The choice of 1.96 corresponds to a 95%
 conﬁdence level.
 
-
 GUIDED PRACTICE 5.9
 If X is a normally distributed random variable, what is the probability of the value X being within
 2.58 standard deviations of the mean?7
@@ -942,16 +685,9 @@ conﬁdence interval formula to be 2.58. That is, the formula for a 99% conﬁde
 
                                   point estimate ± 2.58 × SE
 
-
-
                              99%, extends −2.58 to 2.58
 
-
                              95%, extends −1.96 to 1.96
-
-
-
-
 
        −3         −2         −1         0          1          2          3
                              Standard Deviations from the Mean
@@ -961,30 +697,17 @@ conﬁdence interval formula to be 2.58. That is, the formula for a 99% conﬁde
            is between -z⋆and z⋆, which corresponds to 0.5% in the lower tail and 0.5% in the
         upper tail: z⋆= 2.58.
 
-
-
-
    7This is equivalent to asking how often the Z-score will be larger than -2.58 but less than 2.58. For a picture, see
 Figure 5.7. To determine this probability, we can use statistical software, a calculator, or a table to look up -2.58
 and 2.58 for a normal distribution: 0.0049 and 0.9951. Thus, there is a 0.9951 −0.0049 ≈0.99 probability that an
 unobserved normal random variable X will be within 2.58 standard deviations of µ.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 184
 
-184                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-                  This approach – using the Z-scores in the normal model to compute conﬁdence levels – is
+This approach – using the Z-scores in the normal model to compute conﬁdence levels – is
               appropriate when a point estimate such as ˆp is associated with a normal distribution. For some other
               point estimates, a normal model is not a good ﬁt; in these cases, we’ll use alternative distributions
               that better represent the sampling distribution.
-
 
              CONFIDENCE INTERVAL USING ANY CONFIDENCE LEVEL
                        If a point estimate closely follows a normal model with standard error SE, then a conﬁdence
@@ -994,16 +717,12 @@ unobserved normal random variable X will be within 2.58 standard deviations of �
 
                where z⋆corresponds to the conﬁdence level selected.
 
-
                   Figure 5.7 provides a picture of how to identify z⋆based on a conﬁdence level. We select z⋆so
               that the area between -z⋆and z⋆in the standard normal distribution, N(0, 1), corresponds to the
              conﬁdence level.
 
-
             MARGIN OF ERROR
                 In a conﬁdence interval, z⋆× SE is called the margin of error.
-
-
 
           EXAMPLE 5.10
             Use the data in Example 5.8 to create a 90% conﬁdence interval for the proportion of American adults
@@ -1019,8 +738,6 @@ unobserved normal random variable X will be within 2.58 standard deviations of �
             That is, we are 90% conﬁdent that 87.1% to 90.4% of American adults supported the expansion of
                 solar power in 2018.
 
-
-
              CONFIDENCE INTERVAL FOR A SINGLE PROPORTION
               Once you’ve determined a one-proportion conﬁdence interval would be helpful for an application,
                  there are four steps to constructing the interval:
@@ -1034,16 +751,7 @@ unobserved normal random variable X will be within 2.58 standard deviations of �
 
               Conclude. Interpret the conﬁdence interval in the context of the problem.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 185
-
-5.2. CONFIDENCE INTERVALS FOR A PROPORTION                                             185
-
 
 5.2.4  More case studies
 
@@ -1053,7 +761,6 @@ Ebola. Soon thereafter, an NBC 4 New York/The Wall Street Journal/Marist Poll fo
 of New Yorkers favored a “mandatory 21-day quarantine for anyone who has come in contact with an
 Ebola patient”. This poll included responses of 1,042 New York adults between Oct 26th and 28th,
 2014.
-
 
 EXAMPLE 5.11
 What is the point estimate in this case, and is it reasonable to use a normal distribution to model
@@ -1065,7 +772,6 @@ simple random sample) and the success-failure condition (1042 × ˆp ≈854 and 
 both easily greater than 10). With the conditions met, we are assured that the sampling distribution
 of ˆp can be reasonably modeled using a normal distribution.
 
-
 EXAMPLE 5.12
 Estimate the standard error of ˆp = 0.82 from the Ebola survey.
 
@@ -1074,9 +780,6 @@ We’ll use the substitution approximation of p ≈ˆp = 0.82 to compute the sta
                r p(1 −p) r 0.82(1 −0.82)
                          SEˆp =       ≈          = 0.012
                              n            1042
-
-
-
 
 EXAMPLE 5.13
 Construct a 95% conﬁdence interval for p, the proportion of New York adults who supported a
@@ -1091,17 +794,12 @@ We are 95% conﬁdent that the proportion of New York adults in October 2014 who
 quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and
 0.844.
 
-
 GUIDED PRACTICE 5.14
 Answer the following two questions about the conﬁdence interval from Example 5.13:8
 
 (a) What does 95% conﬁdent mean in this context?
 
 (b) Do you think the conﬁdence interval is still valid for the opinions of New Yorkers today?
-
-
-
-
 
     8(a) If we took many such samples and computed a 95% conﬁdence interval for each, then about 95% of those
 intervals would contain the actual proportion of New York adults who supported a quarantine for anyone who has
@@ -1110,19 +808,9 @@ come into contact with an Ebola patient.
 had some time to step back, they may have changed their opinions. We would need to run a new poll if we wanted
 to get an estimate of the current proportion of New York adults who would support such a quarantine period.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 186
 
-186                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-           GUIDED PRACTICE 5.15
+GUIDED PRACTICE 5.15
               In the Pew Research poll about solar energy, they also inquired about other forms of energy, and
             84.8% of the 1000 respondents supported expanding the use of wind turbines.9
 
@@ -1132,11 +820,9 @@ to get an estimate of the current proportion of New York adults who would suppor
               (b) Create a 99% conﬁdence interval for the level of American support for expanding the use of
                 wind turbines for power generation.
 
-
             We can also construct conﬁdence intervals for other parameters, such as a population mean. In
                these cases, a conﬁdence interval would be computed in a similar way to that of a single proportion:
              a point estimate plus/minus some margin of error. We’ll dive into these details in later chapters.
-
 
             5.2.5  Interpreting conﬁdence intervals
 
@@ -1168,12 +854,10 @@ to get an estimate of the current proportion of New York adults who would suppor
            we rely on careful data collection procedures to help protect against bias in the examples we have
                considered, which is a common practice employed by data scientists to combat bias.
 
-
            GUIDED PRACTICE 5.16
               Consider the 90% conﬁdence interval for the solar energy survey: 87.1% to 90.4%.  If we ran the
               survey again, can we say that we’re 90% conﬁdent that the new survey’s proportion will be between
             87.1% and 90.4%?10
-
 
                      9(a) The survey was a random sample and counts are both ≥10 (1000 × 0.848 = 848 and 1000 × 0.152 = 152), so
                 independence and the success-failure condition are satisﬁed, and ˆp = 0.848 can be modeled using a normal distribution.
@@ -1188,19 +872,9 @@ to get an estimate of the current proportion of New York adults who would suppor
                  adults that support expanding the use of wind turbines in 2018 is between 81.9% and 87.7%.
                      10 No, a conﬁdence interval only provides a range of plausible values for a parameter, not future point estimates.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 187
 
-5.2. CONFIDENCE INTERVALS FOR A PROPORTION                                             187
-
-
 Exercises
-
 
 5.7  Chronic illness, Part I. In 2013, the Pew Research Foundation reported that “45% of U.S. adults report
 that they live with one or more chronic conditions”.11 However, this value was based on a sample, so it may
@@ -1243,26 +917,13 @@ following statements as true or false. Provide an explanation to justify each of
    some news through Twitter, this conﬁdence interval will be wider than a corresponding 99% conﬁdence
      interval.
 
-
-
-
-
   11Pew Research Center, Washington, D.C. The Diagnosis Diﬀerence, November 26, 2013.
   12Pew Research Center, Washington, D.C. Twitter News Consumers: Young, Mobile and Educated, November 4,
 2013.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.2 — Confidence intervals for a proportion
-
 ### PDF page 188
 
-188                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-               5.11  Waiting at an ER, Part I. A hospital administrator hoping to improve wait times decides to estimate
+5.11  Waiting at an ER, Part I. A hospital administrator hoping to improve wait times decides to estimate
                the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients
              and determines the time (in minutes) between when they checked in to the ER until they were ﬁrst seen by
               a doctor. A 95% conﬁdence interval based on this sample is (128 minutes, 147 minutes), which is based on
@@ -1307,22 +968,11 @@ following statements as true or false. Provide an explanation to justify each of
               conﬁdence interval for the fraction of all shoppers during the year whose visit was because of a coupon they’d
                 received in the mail.
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 5.3 — Hypothesis testing for a proportion
 
 ### PDF page 189
 
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                189
-
-
-5.3  Hypothesis testing for a proportion
-
-
-
-    The following question comes from a book written by Hans Rosling, Anna Rosling R¨onnlund,
+The following question comes from a book written by Hans Rosling, Anna Rosling R¨onnlund,
 and Ola Rosling called Factfulness:
 
     How many of the world’s 1 year old children today have been vaccinated against some
@@ -1336,7 +986,6 @@ Write down what your answer (or guess), and when you’re ready, ﬁnd the answe
      In this section, we’ll be exploring how people with a 4-year college degree perform on this and
 other world health questions as we learn about hypothesis tests, which are a framework used to
 rigorously evaluate competing ideas and claims.
-
 
 5.3.1  Hypothesis testing framework
 
@@ -1353,7 +1002,6 @@ These competing ideas are called hypotheses. We call H0 the null hypothesis and 
 hypothesis. When there is a subscript 0 like in H0, data scientists pronounce it as “nought” (e.g. H0
 is pronounced “H-nought”).
 
-
   NULL AND ALTERNATIVE HYPOTHESES
   The null hypothesis (H0) often represents a skeptical perspective or a claim to be tested.
   The alternative hypothesis (HA) represents an alternative claim under consideration and is
@@ -1361,7 +1009,6 @@ is pronounced “H-nought”).
 
   Our job as data scientists is to play the role of a skeptic: before we buy into the alternative
   hypothesis, we need to see strong supporting evidence.
-
 
     The null hypothesis often represents a skeptical position or a perspective of “no diﬀerence”. In
 our ﬁrst example, we’ll consider whether the typical person does any diﬀerent than random guessing
@@ -1377,23 +1024,11 @@ if there is suﬃcient evidence that supports the claim, we set aside our skepti
 hypothesis in favor of the alternative. The hallmarks of hypothesis testing are also found in the
 US court system.
 
-
-
   13The correct answer is (c): 80% of the world’s 1 year olds have been vaccinated against some disease.
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
 
 ### PDF page 190
 
-190                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-           GUIDED PRACTICE 5.17
+GUIDED PRACTICE 5.17
          A US court considers two possible claims about a defendant: she is either innocent or guilty. If we
                 set these claims up in a hypothesis framework, which would be the null hypothesis and which the
                alternative?14
@@ -1420,7 +1055,6 @@ US court system.
            common to label the null value with the same symbol as the parameter but with a subscript ‘0’.
             That is, in this case, the null value is p0 = 0.333 (pronounced “p-nought equals 0.333”).
 
-
           EXAMPLE 5.18
                  It may seem impossible that the proportion of people who get the correct answer is exactly 33.3%.
                    If we don’t believe the null hypothesis, should we simply reject it?
@@ -1434,15 +1068,10 @@ US court system.
               guessing on Roslings’ question? Without data that strongly points in one direction or the other, it
                    is both uninteresting and pointless to reject H0.
 
-
            GUIDED PRACTICE 5.19
              Another example of a real-world hypothesis testing situation is evaluating whether a new drug is
                better or worse than an existing drug at treating a particular disease. What should we use for the
                 null and alternative hypotheses in this case?15
-
-
-
-
 
                  14The jury considers whether the evidence is so convincing (strong) that there is no reasonable doubt regarding the
                  person’s guilt; in such a case, the jury rejects innocence (the null hypothesis) and concludes the defendant is guilty
@@ -1451,16 +1080,7 @@ US court system.
                   alternative hypothesis (HA) is that the new drug performs diﬀerently than the original, i.e.  it could perform better
                  or worse.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 191
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                191
-
 
 5.3.2  Testing hypotheses using conﬁdence intervals
 
@@ -1478,7 +1098,6 @@ about p. We have a nagging concern:  is this deviation of 24% from 33.3% simply 
 or does the data provide strong evidence that the population proportion is diﬀerent from 33.3%?
      In Section 5.2, we learned how to quantify the uncertainty in our estimate using conﬁdence
 intervals. The same method for measuring variability can be useful for the hypothesis test.
-
 
 EXAMPLE 5.20
 Check whether it is reasonable to construct a conﬁdence interval for p using the sample data, and if
@@ -1504,15 +1123,12 @@ particular question about infant vaccination is between 12.2% and 35.8%.
 plausible values from the conﬁdence interval, we cannot say the null value is implausible.16 That
 is, the data do not provide suﬃcient evidence to reject the notion that the performance of collegeeducated adults was diﬀerent than random guessing, and we do not reject the null hypothesis, H0.
 
-
 EXAMPLE 5.21
 Explain why we cannot conclude that college-educated adults simply guessed on the infant vaccination question.
 
 While we failed to reject H0, that does not necessarily mean the null hypothesis is true. Perhaps
 there was an actual diﬀerence, but we were not able to detect it with the relatively small sample
 of 50.
-
-
 
   DOUBLE NEGATIVES CAN SOMETIMES BE USED IN STATISTICS
   In many statistical explanations, we use double negatives. For instance, we might say that the
@@ -1523,19 +1139,9 @@ of 50.
   16Arguably this method is slightly imprecise. As we’ll see in a few pages, the standard error is often computed
 slightly diﬀerently in the context of a hypothesis test for a proportion.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 192
 
-192                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-           GUIDED PRACTICE 5.22
+GUIDED PRACTICE 5.22
                Let’s move onto a second question posed by the Roslings:
 
                   There are 2 billion children in the world today aged 0-15 years old, how many children
@@ -1549,15 +1155,10 @@ slightly diﬀerently in the context of a hypothesis test for a proportion.
               guessing on this question. Also, see if you can guess the correct answer before checking the answer
                 in the footnote!17
 
-
-
            GUIDED PRACTICE 5.23
              This time we took a larger sample of 228 college-educated adults, 34 (14.9%) selected the correct
              answer to the question in Guided Practice 5.22: 2 billion. Can we model the sample proportion
               using a normal distribution and construct a conﬁdence interval?18
-
-
-
 
           EXAMPLE 5.24
            Compute a 95% conﬁdence interval for the fraction of college-educated adults who answered the
@@ -1585,7 +1186,6 @@ slightly diﬀerently in the context of a hypothesis test for a proportion.
                       if using a diﬀerent conﬁdence level.  Therefore, when we make a conclusion based on conﬁdence
                 interval, we should also be sure it is clear what conﬁdence level we used.
 
-
                The worse-than-random performance on this last question is not a ﬂuke: there are many such
              world health questions where people do worse than random guessing. In general, the answers suggest
               that people tend to be more pessimistic about progress than reality suggests. This topic is discussed
@@ -1602,16 +1202,7 @@ slightly diﬀerently in the context of a hypothesis test for a proportion.
                 Success-failure. We’ll use ˆp in place of p to check: nˆp = 34 and n(1 −ˆp) = 194. Both are greater than 10, so the
                    success-failure condition is satisﬁed.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 193
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                193
-
 
 5.3.3  Decision errors
 
@@ -1635,13 +1226,9 @@ are four possible scenarios, which are summarized in Figure 5.8.
    A Type 1 Error is rejecting the null hypothesis when H0 is actually true. A Type 2 Error
 is failing to reject the null hypothesis when the alternative is actually true.
 
-
 GUIDED PRACTICE 5.25
 In a US court, the defendant is either innocent (H0) or guilty (HA). What does a Type 1 Error
 represent in this context? What does a Type 2 Error represent? Figure 5.8 may be useful.19
-
-
-
 
 EXAMPLE 5.26
 How could we reduce the Type 1 Error rate in US courts? What inﬂuence would this have on the
@@ -1652,11 +1239,9 @@ doubt” to “beyond a conceivable doubt” so fewer people would be wrongly co
 would also make it more diﬃcult to convict the people who are actually guilty, so we would make
 more Type 2 Errors.
 
-
 GUIDED PRACTICE 5.27
 How could we reduce the Type 2 Error rate in US courts? What inﬂuence would this have on the
 Type 1 Error rate?20
-
 
      Exercises 5.25-5.27 provide an important lesson:  if we reduce how often we make one type of
 error, we generally make more of the other type.
@@ -1668,7 +1253,6 @@ to incorrectly reject H0 more than 5% of the time. This corresponds to a signi�
 us to incorrectly reject H0. We often write the signiﬁcance level using α (the Greek letter alpha):
 α = 0.05. We discuss the appropriateness of diﬀerent signiﬁcance levels in Section 5.3.5.
 
-
    19If the court makes a Type 1 Error, this means the defendant is innocent (H0 true) but wrongly convicted. Note
 that a Type 1 Error is only possible if we’ve rejected the null hypothesis.
  A Type 2 Error means the court failed to reject H0 (i.e. failed to convict the person) when she was in fact guilty
@@ -1677,18 +1261,9 @@ that a Type 1 Error is only possible if we’ve rejected the null hypothesis.
 conviction from “beyond a reasonable doubt” to “beyond a little doubt”. Lowering the bar for guilt will also result
 in more wrongful convictions, raising the Type 1 Error rate.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 194
 
-194                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-                          If we use a 95% conﬁdence interval to evaluate a hypothesis test and the null hypothesis happens
+If we use a 95% conﬁdence interval to evaluate a hypothesis test and the null hypothesis happens
                to be true, we will make an error whenever the point estimate is at least 1.96 standard errors away
              from the population parameter. This happens about 5% of the time (2.5% in each tail). Similarly,
               using a 99% conﬁdence interval to evaluate a hypothesis is equivalent to a signiﬁcance level of
@@ -1702,22 +1277,17 @@ in more wrongful convictions, raising the Type 1 Error rate.
              which will enable us to both better understand the strength of evidence and work in more complex
              data scenarios in later sections.
 
-
             5.3.4  Formal testing using p-values
 
                The p-value is a way of quantifying the strength of the evidence against the null hypothesis
             and in favor of the alternative hypothesis. Statistical hypothesis testing typically uses the p-value
             method rather than making a decision based on conﬁdence intervals.
 
-
               P-VALUE
              The p-value is the probability of observing data at least as favorable to the alternative hy-
                  pothesis as our current data set, if the null hypothesis were true. We typically use a summary
                     statistic of the data, in this section the sample proportion, to help compute the p-value and
                  evaluate the hypotheses.
-
-
-
 
           EXAMPLE 5.28
            Pew Research asked a random sample of 1000 American adults whether they supported the increased
@@ -1735,22 +1305,11 @@ in more wrongful convictions, raising the Type 1 Error rate.
 
               In this case, the null value is p0 = 0.5.
 
-
              When evaluating hypotheses for proportions using the p-value method, we will slightly modify
            how we check the success-failure condition and compute the standard error for the single proportion
                 case. These changes aren’t dramatic, but pay close attention to how we use the null value, p0.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 195
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                195
-
-
 
 EXAMPLE 5.29
 Pew Research’s sample show that 37% of American adults support increased usage of coal. We now
@@ -1758,7 +1317,6 @@ wonder, does 37% represent a real diﬀerence from the null hypothesis of 50%? W
 sampling distribution of ˆp look like if the null hypothesis were true?
 
 If the null hypothesis were true, the population proportion would be the null value, 0.5. We previously learned that the sampling distribution of ˆp will be normal when two conditions are met:
-
 
 Independence. The poll was based on a simple random sample, so independence is satisﬁed.
 
@@ -1785,18 +1343,12 @@ calculation rather than ˆp.
 Ultimately,  if the null hypothesis were true, then the sample proportion should follow a normal
 distribution with mean 0.5 and a standard error of 0.016. This distribution is shown in Figure 5.9.
 
-
-
                 Observed p^ = 0.37
-
-
 
                         0.37                  0.50
 
         Figure 5.9: If the null hypothesis were true, this normal distribution describes the
          distribution of ˆp.
-
-
 
   CHECKING SUCCESS-FAILURE AND COMPUTING SEˆP FOR A HYPOTHESIS TEST
   When using the p-value method to evaluate a hypothesis test, we check the conditions for ˆp and
@@ -1806,25 +1358,14 @@ distribution with mean 0.5 and a standard error of 0.016. This distribution is s
   diﬀerent mindset than when we compute a conﬁdence interval. This is why we use p0 instead
    of ˆp when we check conditions and compute the standard error in this context.
 
-
    When we identify the sampling distribution under the null hypothesis, it has a special name:
 the null distribution. The p-value represents the probability of the observed ˆp, or a ˆp that is more
 extreme, if the null hypothesis were true. To ﬁnd the p-value, we generally ﬁnd the null distribution,
 and then we ﬁnd a tail area in that distribution corresponding to our point estimate.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 196
 
-196                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-          EXAMPLE 5.30
+EXAMPLE 5.30
                    If the null hypothesis were true, determine the chance of ﬁnding ˆp at least as far into the tails as
                0.37 under the null distribution, which is a normal distribution with mean µ = 0.5 and SE = 0.016.
 
@@ -1849,17 +1390,12 @@ and then we ﬁnd a tail area in that distribution corresponding to our point es
            The p-value represents the probability of observing such an extreme sample proportion by chance,
                       if the null hypothesis were true.
 
-
-
                                             Tail Area for p^                       Equally unlikely if H0 is true
-
 
                                       0.37                  0.50                  0.63
 
                       Figure 5.10:  If H0 were true, then the values above 0.63 are just as unlikely as
                        values below 0.37.
-
-
 
           EXAMPLE 5.31
           How should we evaluate the hypotheses using the p-value of 4.4×10−16? Use the standard signiﬁcance
@@ -1868,13 +1404,11 @@ and then we ﬁnd a tail area in that distribution corresponding to our point es
                    If the null hypothesis were true, there’s only an incredibly small chance of observing such an extreme
                deviation of ˆp from 0.5. This means one of the following must be true:
 
-
                     1. The null hypothesis is true, and we just happened to get observe something so extreme that
                    only happens about once in every 23 quadrillion times (1 quadrillion = 1 million × 1 billion).
 
                     2. The alternative hypothesis is true, which would be consistent with observing a sample propor-
                      tion far from 0.5.
-
 
            The ﬁrst scenario is laughably improbable, while the second scenario seems much more plausible.
 
@@ -1883,19 +1417,9 @@ and then we ﬁnd a tail area in that distribution corresponding to our point es
               the data provide strong evidence against H0. The data indicate the direction of the diﬀerence: a
               majority of Americans do not support expanding the use of coal-powered energy.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 197
 
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                197
-
-
-
-  COMPARE THE P-VALUE TO α TO EVALUATE H0H0H0
+COMPARE THE P-VALUE TO α TO EVALUATE H0H0H0
   When the p-value is less than the signiﬁcance level, α, reject H0. We would report a conclusion
   that the data provide strong evidence supporting the alternative hypothesis.
 
@@ -1904,15 +1428,9 @@ and then we ﬁnd a tail area in that distribution corresponding to our point es
 
   In either case, it is important to describe the conclusion in the context of the data.
 
-
-
-
 GUIDED PRACTICE 5.32
 Do a majority of Americans support or oppose nuclear arms reduction?  Set up hypotheses to
 evaluate this question.21
-
-
-
 
 EXAMPLE 5.33
 A simple random sample of 1028 US adults in March 2013 show that 56% support nuclear arms
@@ -1920,7 +1438,6 @@ reduction. Does this provide convincing evidence that a majority of Americans su
 arms reduction at the 5% signiﬁcance level?
 
 First, check conditions:
-
 
 Independence. The poll was of a simple random sample of US adults, meaning the observations
       are independent.
@@ -1945,37 +1462,20 @@ Based on the normal model, the test statistic can be computed as the Z-score of 
 
 It’s generally helpful to draw null distribution and the tail areas of interest for computing the p-value:
 
-
                          lower tail                 upper tail
 
-
                                                   0.5          0.56
-
 
 The upper tail area is about 0.0001, and we double this tail area to get the p-value: 0.0002. Because
 the p-value is smaller than 0.05, we reject H0. The poll provides convincing evidence that a majority
 of Americans supported nuclear arms reduction eﬀorts in March 2013.
 
-
-
-
-
   21We would like to understand if a majority supports or opposes, or ultimately, if there is no diﬀerence. If p is the
 proportion of Americans who support nuclear arms reduction, then H0: p = 0.50 and HA:  p̸ = 0.50.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 198
 
-198                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-
-             HYPOTHESIS TESTING FOR A SINGLE PROPORTION
+HYPOTHESIS TESTING FOR A SINGLE PROPORTION
               Once you’ve determined a one-proportion hypothesis test is the correct procedure, there are
                  four steps to completing the test:
 
@@ -1990,8 +1490,6 @@ proportion of Americans who support nuclear arms reduction, then H0: p = 0.50 an
 
               Conclude. Evaluate the hypothesis test by comparing the p-value to α, and provide a conclu-
                        sion in the context of the problem.
-
-
 
             5.3.5  Choosing a signiﬁcance level
 
@@ -2010,7 +1508,6 @@ proportion of Americans who support nuclear arms reduction, then H0: p = 0.50 an
              reduced while not aﬀecting the Type 1 Error rate. Of course, collecting extra data is often costly,
                so there is typically a cost-beneﬁt analysis to be considered.
 
-
           EXAMPLE 5.34
          A car manufacturer is considering switching to a new, higher quality piece of equipment that con-
                structs vehicle door hinges. They ﬁgure that they will save money in the long run if this new machine
@@ -2024,17 +1521,7 @@ proportion of Americans who support nuclear arms reduction, then H0: p = 0.50 an
               the car and company. A signiﬁcance level of 0.05 seems reasonable since neither a Type 1 or Type 2
               Error should be dangerous or (relatively) much more expensive.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 199
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                199
-
-
 
 EXAMPLE 5.35
 The same car manufacturer is considering a slightly more expensive supplier for parts related to
@@ -2047,15 +1534,11 @@ the car company should be eager to switch to the slightly more expensive manufac
 even if the evidence of increased safety is only moderately strong. A slightly larger signiﬁcance level,
 such as α = 0.10, might be appropriate.
 
-
 GUIDED PRACTICE 5.36
 A part inside of a machine is very expensive to replace. However, the machine usually functions
 properly even if this part is broken, so the part is replaced only if we are extremely certain it is
 broken based on a series of measurements.  Identify appropriate hypotheses for this test (in plain
 language) and suggest an appropriate signiﬁcance level.22
-
-
-
 
  WHY IS 0.05 THE DEFAULT?
   The α = 0.05 threshold is most common.  But why? Maybe the standard level should be
@@ -2063,9 +1546,6 @@ language) and suggest an appropriate signiﬁcance level.22
   good job! We’ve made a 5-minute task to help clarify why 0.05:
 
                                 www.openintro.org/why05
-
-
-
 
 5.3.6  Statistical signiﬁcance versus practical signiﬁcance
 
@@ -2084,27 +1564,14 @@ diﬀerence that is meaningful, we could detect it. While larger sample sizes ma
 calculations are especially helpful when considering costs or potential risks, such as possible health
 impacts to volunteers in a medical study.
 
-
-
-
-
   22Here the null hypothesis is that the part is not broken, and the alternative is that it is broken. If we don’t have
 suﬃcient evidence to reject H0, we would not replace the part.  It sounds like failing to ﬁx the part if it is broken
 (H0 false, HA true) is not very problematic, and replacing the part is expensive. Thus, we should require very strong
 evidence against H0 before we replace the part. Choose a small signiﬁcance level, such as α = 0.01.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 200
 
-200                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-            5.3.7  One-sided hypothesis tests (special topic)
+5.3.7  One-sided hypothesis tests (special topic)
 
                 So far we’ve only considered what are called two-sided hypothesis tests, where we care about
                detecting whether p is either above or below some null value p0. There is a second type of hypothesis
@@ -2128,7 +1595,6 @@ evidence against H0 before we replace the part. Choose a small signiﬁcance lev
                alternative hypothesis goes down. However, one-sided tests aren’t all sunshine and rainbows: the
              heavy price paid is that any interesting ﬁndings in the opposite direction must be disregarded.
 
-
           EXAMPLE 5.37
               In Section 1.1, we encountered an example where doctors were interested in determining whether
                stents would help people who had a high risk of stroke. The researchers believed the stents would
@@ -2139,7 +1605,6 @@ evidence against H0 before we replace the part. Choose a small signiﬁcance lev
                research suggested stents helped in patients with heart attacks. It would surely have been tempting
                to use a one-sided test in this situation, and had they done this, they would have limited their ability
                to identify potential harm to patients.
-
 
                 Example 5.37 highlights that using a one-sided hypothesis creates a risk of overlooking data
               supporting the opposite conclusion. We could have made a similar error when reviewing the Roslings’
@@ -2157,17 +1622,7 @@ evidence against H0 before we replace the part. Choose a small signiﬁcance lev
              These considerations can be subtle, so exercise caution. We will only apply two-sided tests in the
                 rest of this book.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 201
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                201
-
-
 
 EXAMPLE 5.38
 Why can’t we simply run a one-sided test that goes in the direction of the data?
@@ -2187,19 +1642,9 @@ Then if H0 were true, there’s a 10% chance of being in one of the two tails, s
 actually α = 0.10, not 0.05. That is, not being careful about when to use one-sided tests eﬀectively
 undermines the methods we’re working so hard to develop and utilize.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 202
 
-202                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-           Exercises
-
+Exercises
 
                5.15  Identify hypotheses, Part I. Write the null and alternative hypotheses in words and then symbols for
                each of the following situations.
@@ -2254,22 +1699,9 @@ undermines the methods we’re working so hard to develop and utilize.
                  (c) Without actually calculating the interval, determine if the claim of the researcher from part (b) would
                  be supported based on a 90% conﬁdence interval?
 
-
-
-
-
                 23Pew Research Center, A Majority of Teens Have Experienced Some Form of Cyberbullying. September 27, 2018.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 203
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                203
-
 
 5.20  Waiting at an ER, Part II. Exercise 5.11 provides a 95% conﬁdence interval for the mean waiting time
 at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this
@@ -2328,26 +1760,11 @@ under the scenarios.
 (d) The probability of making a Type 2 Error when the alternative hypothesis is true and the signiﬁcance
      level is (I) 0.05 or (II) 0.10.
 
-
-
-
-
   24Rasmussen Reports survey, Most Favor Minimum Wage of $10.50 Or Higher, April 16, 2019.
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
 
 ### PDF page 204
 
-204                                   CHAPTER 5. FOUNDATIONS FOR INFERENCE
-
-
-       Chapter exercises
-
-
+Chapter exercises
 
                5.27  Relaxing after work. The General Social Survey asked the question: “After an average work day,
               about how many hours do you have to relax or pursue activities that you enjoy?” to a random sample of
@@ -2403,22 +1820,9 @@ under the scenarios.
                 (b) The p-value for this hypothesis test is approximately 0.35. Explain what this means in context of the
                    hypothesis test and the data.
 
-
-
-
-
                    25National Opinion Research Center, General Social Survey, 2018.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 5.3 — Hypothesis testing for a proportion
-
 ### PDF page 205
-
-5.3. HYPOTHESIS TESTING FOR A PROPORTION                                                205
-
 
 5.32  Nearsighted. It is believed that nearsightedness aﬀects about 8% of all children. In a random sample
 of 194 children, 21 are nearsighted. Conduct a hypothesis test for the following question: do these data
@@ -2452,52 +1856,18 @@ workforce as doctors for 21 diﬀerent positions.26
 (b) Men were, on average, paid more in 19 of those 21 positions. Complete a hypothesis test using your
     hypotheses from part (a).
 
-
-
-
-
   26Lo Sasso AT et al. “The $16,819 Pay Gap For Newly Trained Physicians: The Unexplained Trend Of Men
 Earning More Than Women”. In: Health Aﬀairs 30.2 (2011).
-
----
-
-# OpenIntro Statistics, 4th edition
 
 ## 6.1 — Inference for a single proportion
 
 ### PDF page 206
 
-206
-
 Chapter 6
 
 Inference for categorical data
 
-
-
-
-
-6.1 Inference for a single proportion
-
-6.2 Difference of two proportions
-
-6.3 Testing for goodness of ﬁt using chi-square
-
-6.4 Testing for independence in two-way tables
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 207
-
-207
-
-
-
-
 
 In this chapter, we apply the methods and ideas from Chapter 5 in
 
@@ -2515,38 +1885,19 @@ contingency tables; while we will use a diﬀerent distribution in this
 
 context, the core ideas of hypothesis testing remain the same.
 
-
-
-
-
 For videos, slides, and other resources, please visit
 www.openintro.org/os
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 208
 
-208                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-        6.1  Inference for a single proportion
-
-
-
-            We encountered inference methods for a single proportion in Chapter 5, exploring point esti-
+We encountered inference methods for a single proportion in Chapter 5, exploring point esti-
               mates, conﬁdence intervals, and hypothesis tests. In this section, we’ll do a review of these topics and
                 also how to choose an appropriate sample size when collecting data for single proportion contexts.
-
 
             6.1.1  Identifying when the sample proportion is nearly normal
 
             A sample proportion ˆp can be modeled using a normal distribution when the sample observations
                are independent and the sample size is suﬃciently large.
-
 
              SAMPLING DISTRIBUTION OF  ˆpˆpˆp
              The sampling distribution for ˆp based on a sample of size n from a population with a true
@@ -2561,12 +1912,10 @@ www.openintro.org/os
                     q p(1−p)
                p and standard error SE =      n     .
 
-
                    Typically we don’t know the true proportion p, so we substitute some value to check conditions
             and estimate the standard error. For conﬁdence intervals, the sample proportion ˆp is used to check
               the success-failure condition and compute the standard error. For hypothesis tests, typically the
                 null value – that is, the proportion claimed in the null hypothesis – is used in place of p.
-
 
             6.1.2  Conﬁdence intervals for a proportion
 
@@ -2574,8 +1923,6 @@ www.openintro.org/os
              be modeled using a normal distribution, the conﬁdence interval for p takes the form
 
                                                                                        ˆp ± z⋆× SE
-
-
 
           EXAMPLE 6.1
          A simple random sample of 826 payday loan borrowers was surveyed to better understand their
@@ -2592,24 +1939,11 @@ www.openintro.org/os
 
               Since both values are at least 10, we can use the normal distribution to model ˆp.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 209
-
-6.1. INFERENCE FOR A SINGLE PROPORTION                                                  209
-
-
 
 GUIDED PRACTICE 6.2
 Estimate the standard error of ˆp = 0.70. Because p is unknown and the standard error is for a
 conﬁdence interval, use ˆp in place of p in the formula.1
-
-
-
 
 EXAMPLE 6.3
 Construct a 95% conﬁdence interval for p, the proportion of payday borrowers who support increased
@@ -2622,8 +1956,6 @@ SE = 0.016 from Guided Practice 6.2, the conﬁdence interval is
 
 We are 95% conﬁdent that the true proportion of payday borrowers who supported regulation at
 the time of the poll was between 0.669 and 0.731.
-
-
 
   CONFIDENCE INTERVAL FOR A SINGLE PROPORTION
   Once you’ve determined a one-proportion conﬁdence interval would be helpful for an application,
@@ -2638,9 +1970,7 @@ the time of the poll was between 0.669 and 0.731.
 
   Conclude. Interpret the conﬁdence interval in the context of the problem.
 
-
 For additional one-proportion conﬁdence interval examples, see Section 5.2.
-
 
 6.1.3  Hypothesis testing for a proportion
 
@@ -2648,43 +1978,24 @@ For additional one-proportion conﬁdence interval examples, see Section 5.2.
 and evaluate debt payments against the borrower’s ﬁnances. We would like to know: would borrowers
 support this form of regulation?
 
-
 GUIDED PRACTICE 6.4
 Set up hypotheses to evaluate whether borrowers have a majority support or majority opposition
 for this type of regulation.2
-
 
     To apply the normal distribution framework in the context of a hypothesis test for a proportion,
 the independence and success-failure conditions must be satisﬁed. In a hypothesis test, the successfailure condition is checked using the null proportion: we verify np0 and n(1 −p0) are at least 10,
 where p0 is the null value.
 
-
-
-
-
    1SE = q p(1−p)n  ≈ q 0.70(1−0.70)826   = 0.016.
    2H0: p = 0.50. HA:  p̸ = 0.50.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 210
 
-210                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-           GUIDED PRACTICE 6.5
+GUIDED PRACTICE 6.5
           Do payday loan borrowers support a regulation that would require lenders to pull their credit report
             and evaluate their debt payments? From a random sample of 826 borrowers, 51% said they would
              support such a regulation.  Is it reasonable to model ˆp = 0.51 using a normal distribution for a
               hypothesis test here?3
-
-
-
 
           EXAMPLE 6.6
              Using the hypotheses and data from Guided Practice 6.4 and 6.5, evaluate whether the poll provides
@@ -2700,12 +2011,7 @@ where p0 is the null value.
 
          A picture of the normal model is shown below with the p-value represented by the shaded region.
 
-
-
-
-
                                            0.45   0.47   0.48   0.5   0.52   0.53   0.55
-
 
             Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:
 
@@ -2717,8 +2023,6 @@ where p0 is the null value.
              Because the p-value is larger than 0.05, we do not reject H0. The poll does not provide convincing
               evidence that a majority of payday loan borrowers support or oppose regulations around credit
               checks and evaluation of debt payments.
-
-
 
              HYPOTHESIS TESTING FOR A SINGLE PROPORTION
               Once you’ve determined a one-proportion hypothesis test is the correct procedure, there are
@@ -2736,23 +2040,12 @@ where p0 is the null value.
               Conclude. Evaluate the hypothesis test by comparing the p-value to α, and provide a conclu-
                        sion in the context of the problem.
 
-
              For additional one-proportion hypothesis test examples, see Section 5.3.
-
 
                    3Independence holds since the poll is based on a random sample. The success-failure condition also holds, which
                        is checked using the null value (p0 = 0.5) from H0: np0 = 826 × 0.5 = 413, n(1 −p0) = 826 × 0.5 = 413.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 211
-
-6.1. INFERENCE FOR A SINGLE PROPORTION                                                  211
-
 
 6.1.4 When one or more conditions aren’t met
 
@@ -2778,25 +2071,15 @@ conﬁdently apply to correct the inherent biases of data from a convenience sam
 just the ﬁrst book in what is a large library of statistical methods that are suitable for a very wide
 range of data and contexts.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 212
 
-212                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-            6.1.5  Choosing a sample size when estimating a proportion
+6.1.5  Choosing a sample size when estimating a proportion
 
              When collecting data, we choose a sample size suitable for the purpose of the study. Often
               times this means choosing a sample size large enough that the margin of error – which is the
               part we add and subtract from the point estimate in a conﬁdence interval – is suﬃciently small that
               the sample is useful. For example, our task might be to ﬁnd a sample size n so that the sample
               proportion is within ±0.04 of the actual proportion in a 95% conﬁdence interval.
-
 
           EXAMPLE 6.7
          A university newspaper is conducting a survey to determine what fraction of students support a
@@ -2835,21 +2118,10 @@ range of data and contexts.
          We would need over 600.25 participants, which means we need 601 participants or more, to ensure
               the sample proportion is within 0.04 of the true proportion with 95% conﬁdence.
 
-
              When an estimate of the proportion is available, we use it in place of the worst case proportion
                value, 0.5.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 213
-
-6.1. INFERENCE FOR A SINGLE PROPORTION                                                  213
-
-
 
 GUIDED PRACTICE 6.8
 A manager is about to oversee the mass production of a new tire model in her factory, and she would
@@ -2859,9 +2131,6 @@ in the ﬁrst model, 6.2% of the second model, and 1.3% of the third model. The 
 to examine enough tires to estimate the failure rate of the new tire model to within about 1% with
 a 90% conﬁdence level. There are three diﬀerent failure rates to choose from. Perform the sample
 size computation for each separately, and identify three sample sizes to consider.4
-
-
-
 
 EXAMPLE 6.9
 The sample sizes vary widely in Guided Practice 6.8. Which of the three would you suggest using?
@@ -2877,18 +2146,12 @@ instance, if we sampled n = 1584 tires and found a failure rate of 0.5%, the nor
 would not be reasonable, and we would require more advanced statistical methods for creating the
 conﬁdence interval.
 
-
-
 GUIDED PRACTICE 6.10
 Suppose we want to continually track the support of payday borrowers for regulation on lenders,
 where we would conduct a new poll every month. Running such frequent polls is expensive, so we
 decide a wider margin of error of 5% for each individual survey would be acceptable. Based on
 the original sample of borrowers where 70% supported some form of regulation, how big should our
 monthly sample be for a margin of error of 0.05 with 95% conﬁdence?5
-
-
-
-
 
    4For a 90% conﬁdence interval, z⋆= 1.65, and since an estimate of the proportion 0.017 is available, we’ll use it
 in the margin of error formula:
@@ -2910,19 +2173,9 @@ A sample size of 323 or more would be reasonable. (Reminder: always round up for
 that we plan to track this poll over time, we also may want to periodically repeat these calculations to ensure that
 we’re being thoughtful in our sample size recommendations in case the baseline rate ﬂuctuates.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 214
 
-214                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-           Exercises
-
+Exercises
 
                 6.1  Vegetarian college students. Suppose that 8% of college students are vegetarians. Determine if the
                 following statements are true or false, and explain your reasoning.
@@ -2971,23 +2224,10 @@ we’re being thoughtful in our sample size recommendations in case the baseline
                   economic slump would be considered unusual.
                  (e) Tripling the sample size will reduce the standard error of the sample proportion by one-third.
 
-
-
-
-
                   6A. Vaughn. “Poll ﬁnds young adults optimistic, but not about money”. In: Los Angeles Times (2011).
                    7Demos.org. “The State of Young America: The Poll”. In: (2011).
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 215
-
-6.1. INFERENCE FOR A SINGLE PROPORTION                                                  215
-
 
 6.5  Gender equality. The General Social Survey asked a random sample of 1,390 Americans the following
 question: “On the whole, do you think it should or should not be the government’s responsibility to promote
@@ -3055,18 +2295,9 @@ abroad program in college.12
   12studentPOLL, College-Bound Students’ Interests in Study Abroad and Other International Learning Activities,
 January 2008.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.1 — Inference for a single proportion
-
 ### PDF page 216
 
-216                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-               6.10  Legalization of marijuana, Part I. The General Social Survey asked 1,578 US residents: “Do you
+6.10  Legalization of marijuana, Part I. The General Social Survey asked 1,578 US residents: “Do you
                think the use of marijuana should be made legal, or not?” 61% of the respondents said it should be made
                   legal.13
 
@@ -3124,43 +2355,26 @@ January 2008.
               sample where about 61% of US residents thought marijuana should be made legal. If we wanted to limit the
               margin of error of a 95% conﬁdence interval to 2%, about how many Americans would we need to survey?
 
-
-
-
-
                    13National Opinion Research Center, General Social Survey, 2018.
                    14Kaiser Family Foundation, The Public On Next Steps For The ACA And Proposals To Expand Coverage, data
                   collected between Jan 9-14, 2019.
                 15Pew Research Center Publications, Is College Worth It?, data collected between March 15-29, 2011.
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 6.2 — Difference of two proportions
 
 ### PDF page 217
 
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      217
-
-
-6.2  Difference of two proportions
-
-
-
-   We would like to extend the methods from Section 6.1 to apply conﬁdence intervals and hypothesis tests to diﬀerences in population proportions: p1 −p2. In our investigations, we’ll identify
+We would like to extend the methods from Section 6.1 to apply conﬁdence intervals and hypothesis tests to diﬀerences in population proportions: p1 −p2. In our investigations, we’ll identify
 a reasonable point estimate of p1 −p2 based on the sample, and you may have already guessed its
 form:  ˆp1 −ˆp2. Next, we’ll apply the same processes we used in the single-proportion context: we
 verify that the point estimate can be modeled using a normal distribution, we compute the estimate’s
 standard error, and we apply our inferential framework.
-
 
 6.2.1  Sampling distribution of the difference of two proportions
 
      Like with ˆp, the diﬀerence of two sample proportions ˆp1 −ˆp2 can be modeled using a normal
 distribution when certain conditions are met. First, we require a broader independence condition,
 and secondly, the success-failure condition must be met by both groups.
-
 
   CONDITIONS FOR THE SAMPLING DISTRIBUTION OF ˆp1ˆp1ˆp1 −ˆp2−ˆp2−ˆp2 TO BE NORMAL
   The diﬀerence ˆp1 −ˆp2 can be modeled using a normal distribution when
@@ -3180,8 +2394,6 @@ and secondly, the success-failure condition must be met by both groups.
 
   where p1 and p2 represent the population proportions, and n1 and n2 represent the sample sizes.
 
-
-
 6.2.2  Conﬁdence intervals for p1p1p1 −p2−p2−p2
 
 We can apply the generic conﬁdence interval formula for a diﬀerence of two proportions, where we
@@ -3195,19 +2407,9 @@ We can also follow the same Prepare, Check, Calculate, Conclude steps for comput
 interval or completing a hypothesis test. The details change a little, but the general approach remain
 the same. Think about these steps when you apply statistical methods.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 218
 
-218                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-          EXAMPLE 6.11
+EXAMPLE 6.11
          We consider an experiment for patients who underwent cardiopulmonary resuscitation (CPR) for a
               heart attack and were subsequently admitted to a hospital. These patients were randomly divided
                into a treatment group where they received a blood thinner or the control group where they did not
@@ -3223,8 +2425,6 @@ the same. Think about these steps when you apply statistical methods.
             With both conditions satisﬁed, the diﬀerence in sample proportions can be reasonably modeled using
              a normal distribution for these data.
 
-
-
                                                       Survived  Died     Total
                                         Control          11      39       50
                                      Treatment        14      26       40
@@ -3232,8 +2432,6 @@ the same. Think about these steps when you apply statistical methods.
 
                       Figure 6.1: Results for the CPR study. Patients in the treatment group were given
                      a blood thinner, and patients in the control group were not.
-
-
 
           EXAMPLE 6.12
              Create and interpret a 90% conﬁdence interval of the diﬀerence for the survival rates in the CPR
@@ -3260,17 +2458,7 @@ the same. Think about these steps when you apply statistical methods.
               the interval, we do not have enough information to say whether blood thinners help or harm heart
               attack patients who have been admitted after they have undergone CPR.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 219
-
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      219
-
-
 
 GUIDED PRACTICE 6.13
 A 5-year experiment was conducted to evaluate the eﬀectiveness of ﬁsh oils on reducing cardiovascular
@@ -3283,9 +2471,6 @@ attack outcomes in these patients:
 
 Create a 95% conﬁdence interval for the eﬀect of ﬁsh oils on heart attacks for patients who are
 well-represented by those in the study. Also interpret the interval in the context of the study.16
-
-
-
 
 6.2.3  Hypothesis tests for the difference of two proportions
 
@@ -3309,14 +2494,8 @@ in breast cancer deaths in the mammogram group.
 
                       Figure 6.2: Summary results for breast cancer study.
 
-
-
 GUIDED PRACTICE 6.14
 Is this study an experiment or an observational study?17
-
-
-
-
 
    16 Because the patients were randomized, the subjects are independent, both within and between the two groups.
 The success-failure condition is also met for both groups as all counts are at least 10. This satisﬁes the conditions
@@ -3334,22 +2513,11 @@ the data provide strong evidence that ﬁsh oil supplements reduce heart attacks
    17This is an experiment. Patients were randomized to receive mammograms or a standard breast cancer exam. We
 will be able to make causal conclusions based on this study.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 220
 
-220                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-           GUIDED PRACTICE 6.15
+GUIDED PRACTICE 6.15
               Set up hypotheses to test whether there was a diﬀerence in breast cancer deaths in the mammogram
             and control groups.18
-
 
                    In Example 6.16, we will check the conditions for using a normal distribution to analyze the
                 results of the study. The details are very similar to that of conﬁdence intervals. However, when the
@@ -3368,7 +2536,6 @@ will be able to make causal conclusions based on this study.
               best estimate of the proportions pmgm and pctrl  if the null hypothesis is true that pmgm = pctrl.
          We will also use this pooled proportion when computing the standard error.
 
-
           EXAMPLE 6.16
                  Is it reasonable to model the diﬀerence in proportions using a normal distribution in this study?
 
@@ -3382,7 +2549,6 @@ will be able to make causal conclusions based on this study.
 
            The success-failure condition is satisﬁed since all values are at least 10.  With both conditions
                satisﬁed, we can safely model the diﬀerence in proportions using a normal distribution.
-
 
             USE THE POOLED PROPORTION WHEN H0H0H0 IS p1p1p1 −p2−p2−p2 === 000
             When the null hypothesis is that the proportions are equal, use the pooled proportion (ˆppooled)
@@ -3400,12 +2566,9 @@ will be able to make causal conclusions based on this study.
 
                   Similarly, ˆp2n2 represents the number of successes in sample 2.
 
-
                    In Example 6.16, the pooled proportion was used to check the success-failure condition.19 In the
               next example, we see the second place where the pooled proportion comes into play: the standard
                error calculation.
-
-
 
                   18H0: the breast cancer death rate for patients screened using mammograms is the same as the breast cancer death
                   rate for patients in the control, pmgm −pctrl = 0.
@@ -3414,17 +2577,7 @@ will be able to make causal conclusions based on this study.
                    19For an example of a two-proportion hypothesis test that does not require the success-failure condition to be met,
                   see Section 2.3.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 221
-
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      221
-
-
 
 EXAMPLE 6.17
 Compute the point estimate of the diﬀerence in breast cancer death rates in the two groups, and
@@ -3445,9 +2598,6 @@ Next, the standard error is calculated using the pooled proportion, ˆppooled:
             SE =            +           = 0.00070
                          nmgm                   nctrl
 
-
-
-
 EXAMPLE 6.18
 Using the point estimate ˆpmgm −ˆpctrl = −0.00012 and standard error SE = 0.00070, calculate a
 p-value for the hypothesis test and write a conclusion.
@@ -3458,18 +2608,12 @@ Just like in past tests, we ﬁrst compute a test statistic and draw a picture:
              Z =                =        = −0.17
                        SE                 0.00070
 
-
-
-
-
                                       −0.0014          0           0.0014
-
 
 The lower tail area is 0.4325, which we double to get the p-value: 0.8650. Because this p-value is
 larger than 0.05, we do not reject the null hypothesis. That is, the diﬀerence in breast cancer death
 rates is reasonably explained by chance, and we do not observe beneﬁts or harm from mammograms
 relative to a regular breast exam.
-
 
     Can we conclude that mammograms have no beneﬁts or harm? Here are a few considerations
 to keep in mind when reviewing the mammogram study as well as any other medical study:
@@ -3494,18 +2638,9 @@ These considerations highlight the complexity around medical care and treatment 
 Experts and medical boards who study medical treatments use considerations like those above to
 provide their best recommendation based on the current evidence.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 222
 
-222                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-            6.2.4  More on 2-proportion hypothesis tests (special topic)
+6.2.4  More on 2-proportion hypothesis tests (special topic)
 
              When we conduct a 2-proportion hypothesis test, usually H0 is p1 −p2 = 0. However, there
                are rare situations where we want to check for some diﬀerence in p1 and p2 that is some value other
@@ -3513,40 +2648,21 @@ provide their best recommendation based on the current evidence.
               contexts like these, we generally use ˆp1 and ˆp2 to check the success-failure condition and construct
               the standard error.
 
-
            GUIDED PRACTICE 6.19
          A quadcopter company is considering a new manufacturer for rotor blades. The new manufacturer
              would be more expensive, but they claim their higher-quality blades are more reliable, with 3% more
               blades passing inspection than their competitor. Set up appropriate hypotheses for the test.20
-
-
-
-
 
                                   Figure 6.3: A Phantom quadcopter.
                  —————————–
                                     Photo by David J (http://ﬂic.kr/p/oiWLNu). CC-BY 2.0 license.
                                        This photo has been cropped and a border has been added.
 
-
-
-
-
                   20H0: The higher-quality blades will pass inspection 3% more frequently than the standard-quality blades. phighQ−
                  pstandard = 0.03. HA: The higher-quality blades will pass inspection some amount diﬀerent than 3% more often than
                  the standard-quality blades. phighQ −pstandard̸ = 0.03.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 223
-
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      223
-
-
 
 EXAMPLE 6.20
 The quality control engineer from Guided Practice 6.19 collects a sample of blades, examining 1000
@@ -3582,12 +2698,7 @@ than 0.05.  Since we observed a larger-than-3% increase in blades that pass insp
 statistically signiﬁcant evidence that the higher-quality blades pass inspection more than 3% as
 often as the currently used blades, exceeding the company’s claims.
 
-
-
-
                                                             0.006
-
-
 
                                            0.03        0.059
                                                                           (null value)
@@ -3595,18 +2706,9 @@ often as the currently used blades, exceeding the company’s claims.
         Figure 6.4: Distribution of the test statistic if the null hypothesis was true. The
         p-value is represented by the shaded areas.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 224
 
-224                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-            6.2.5  Examining the standard error formula (special topic)
+6.2.5  Examining the standard error formula (special topic)
 
                   This subsection covers more theoretical topics that oﬀer deeper insights into the origins of the
               standard error formula for the diﬀerence of two proportions. Ultimately, all of the standard error
@@ -3629,7 +2731,6 @@ often as the currently used blades, exceeding the company’s claims.
 
              This special relationship follows from probability theory.
 
-
            GUIDED PRACTICE 6.21
                Prerequisite: Section 3.4. We can rewrite the equation above in a diﬀerent way:
 
@@ -3638,28 +2739,14 @@ often as the currently used blades, exceeding the company’s claims.
              Explain where this formula comes from using the formula for the variability of the sum of two random
                 variables.21
 
-
-
-
-
                  21The standard error squared represents the variance of the estimate. If X and Y are two random variables with
                  variances σ2x and σ2y, then the variance of X −Y  is σ2x + σ2y.  Likewise, the variance corresponding to ˆp1 −ˆp2 is
                σ2                             ˆp1            + σ2ˆp2. Because σ2ˆp1 and σ2ˆp2 are just another way of writing SE2ˆp1 and SE2ˆp2, the variance associated with ˆp1 −ˆp2
              may be written as SE2 + SE2                                                             ˆp1         ˆp2.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 225
 
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      225
-
-
 Exercises
-
 
 6.17  Social experiment, Part  I. A “social experiment” conducted by a TV program questioned what
 people do when they see a very obviously bruised woman getting picked on by her boyfriend. On two
@@ -3708,27 +2795,14 @@ statement you identify as false.23
 (e) The 95% conﬁdence interval for (pfemale −pmale) cannot be calculated with only the information given
     in this exercise.
 
-
-
-
-
    22B. Turnbull et al. “Survivorship of Heart Transplant Data”. In: Journal of the American Statistical Association
 69 (1974), pp. 74–80.
   23L Ellis and C Ficek.  “Color preferences according to gender and sexual orientation”.  In:  Personality and
 Individual Diﬀerences 31.8 (2001), pp. 1375–1379.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 226
 
-226                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-               6.20  Government shutdown. The United States federal government shutdown of 2018–2019 occurred
+6.20  Government shutdown. The United States federal government shutdown of 2018–2019 occurred
               from December 22, 2018 until January 25, 2019, a span of 35 days. A Survey USA poll of 614 randomly
               sampled Americans during this time period reported that 48% of those who make less than $40,000 per
                year and 55% of those who make $40,000 or more per year said the government shutdown has not at all
@@ -3768,7 +2842,6 @@ Individual Diﬀerences 31.8 (2001), pp. 1375–1379.
                not know enough to say?” Below is the distribution of responses, separated based on whether or not the
                respondent graduated from college.26
 
-
                 (a) What percent of college graduates and what percent of the
                     non-college graduates in this sample do not know enough to                       College Grad
                   have an opinion on drilling for oil and natural gas oﬀthe                    Yes   No
@@ -3777,7 +2850,6 @@ Individual Diﬀerences 31.8 (2001), pp. 1375–1379.
                    strong evidence that the proportion of college graduates who     Do not know   104    131
                  do not have an opinion on this issue is diﬀerent than that of       Total         438    389
                     non-college graduates.
-
 
                6.24  Sleep deprivation, CA vs. OR, Part II. Exercise 6.22 provides data on sleep deprivation rates of
                 Californians and Oregonians. The proportion of California residents who reported insuﬃcient rest or sleep
@@ -3789,23 +2861,11 @@ Individual Diﬀerences 31.8 (2001), pp. 1375–1379.
                 (b) It is possible the conclusion of the test in part (a) is incorrect. If this is the case, what type of error was
                 made?
 
-
-
-
                   24Survey USA, News Poll #24568, data collected on April 21, 2019.
                 25CDC, Perceived Insuﬃcient Rest or Sleep Among Adults — United States, 2008.
                   26Survey USA, Election Poll #16804, data collected July 8-11, 2010.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 227
-
-6.2. DIFFERENCE OF TWO PROPORTIONS                                                      227
-
 
 6.25  Offshore drilling, Part II. Results of a poll evaluating support for drilling for oil and natural gas oﬀ
 the coast of California were introduced in Exercise 6.23.
@@ -3857,25 +2917,12 @@ Conduct a hypothesis test to evaluate if these data provide evidence of a diﬀe
 of truck drivers and non-transportation workers (the control group) who get less than 6 hours of sleep per
 day, i.e. are considered sleep deprived.
 
-
-
-
-
    27S. Condon. “Poll: 4 in 5 Support Full-Body Airport Scanners”. In: CBS News (2010).
    28National Sleep Foundation, 2012 Sleep in America Poll: Transportation Workers’ Sleep, 2012.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.2 — Difference of two proportions
-
 ### PDF page 228
 
-228                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-               6.28  Prenatal vitamins and Autism.  Researchers studying the link between prenatal vitamin use and
+6.28  Prenatal vitamins and Autism.  Researchers studying the link between prenatal vitamin use and
               autism surveyed the mothers of a random sample of children aged 24 - 60 months with autism and conducted
                another separate random sample for children with typical development. The table below shows the number of
               mothers in each group who did and did not use prenatal vitamins during the three months before pregnancy
@@ -3918,32 +2965,17 @@ day, i.e. are considered sleep deprived.
                  of the semester, and this time 60% of the students responded yes. Can she used a two-proportion method
               from this section for this analysis? Explain your reasoning.
 
-
-
-
-
                    29R.J. Schmidt et al. “Prenatal vitamins, one-carbon metabolism gene variants, and risk for autism”. In: Epidemi-
                  ology 22.4 (2011), p. 476.
                   30R.C. Rabin. “Patterns: Prenatal Vitamins May Ward OﬀAutism”. In: New York Times (2011).
                     31S. Lockman et al. “Response to antiretroviral therapy after a single, peripartum dose of nevirapine”. In: Obstet-
                     rical & gynecological survey 62.6 (2007), p. 361.
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 6.3 — Testing for goodness of fit using chi-square
 
 ### PDF page 229
 
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      229
-
-
-6.3  Testing for goodness of ﬁt using chi-square
-
-
-
-     In this section, we develop a method for assessing a null model when the data are binned. This
+In this section, we develop a method for assessing a null model when the data are binned. This
 technique is commonly used in two circumstances:
 
    • Given a sample of cases that can be classiﬁed into several groups, determine if the sample is
@@ -3965,7 +2997,6 @@ voters.
 
               Figure 6.5: Representation by race in a city’s juries and population.
 
-
     While the proportions in the juries do not precisely represent the population proportions, it is
 unclear whether these data provide convincing evidence that the sample is not representative. If the
 jurors really were randomly sampled from the registered voters, we might expect small diﬀerences
@@ -3977,10 +3008,7 @@ is independent of the stock’s behavior on previous days.
      In these problems, we would like to examine all bins simultaneously, not simply compare one
 or two bins at a time, which will require us to develop a new test statistic.
 
-
 6.3.1  Creating a test statistic for one-way tables
-
-
 
 EXAMPLE 6.22
 Of the people in the city, 275 served on a jury. If the individuals are randomly selected to serve on a
@@ -3993,32 +3021,20 @@ About 72% of the population is white, so we would expect about 72% of the jurors
 Similarly, we would expect about 7% of the jurors to be black, which would correspond to about
 0.07 × 275 = 19.25 black jurors.
 
-
 GUIDED PRACTICE 6.23
 Twelve percent of the population is Hispanic and 9% represent other races. How many of the 275
 jurors would we expect to be Hispanic or from another race? Answers can be found in Figure 6.6.
 
-
     The sample proportion represented from each race among the 275 jurors was not a precise
 match for any ethnic group.  While some sampling variation is expected, we would expect the
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 230
 
-230                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-                        Race               White  Black   Hispanic  Other      Total
+Race               White  Black   Hispanic  Other      Total
                          Observed data         205     26       25       19       275
                          Expected counts       198    19.25     33      24.75      275
 
                                   Figure 6.6: Actual and expected make-up of the jurors.
-
 
              sample proportions to be fairly similar to the population proportions if there is no bias on juries.
          We need to test whether the diﬀerences are strong enough to provide convincing evidence that the
@@ -4032,7 +3048,6 @@ match for any ethnic group.  While some sampling variation is expected, we would
            To evaluate these hypotheses, we quantify how diﬀerent the observed counts are from the expected
                counts. Strong evidence for the alternative hypothesis would come in the form of unusually large
                deviations in the groups from what would be expected based on sampling variation alone.
-
 
             6.3.2  The chi-square test statistic
 
@@ -4067,8 +3082,6 @@ match for any ethnic group.  While some sampling variation is expected, we would
                 Z2 = √    = 1.54       Z3 = √   = −1.39       Z4 = √    = −1.16
                              19.25                       33                           24.75
 
-
-
          We would like to use a single test statistic to determine if these four standardized diﬀerences are
                 irregularly far from zero. That is, Z1, Z2, Z3, and Z4 must be combined somehow to help determine
                       if they – as a group – tend to be unusually far from zero. A ﬁrst thought might be to take the
@@ -4081,16 +3094,7 @@ match for any ethnic group.  While some sampling variation is expected, we would
                  at one count. However, we are computing many standardized diﬀerences and adding them together. It can be shown
                – though not here – that the square root of the count is a better way to standardize the count diﬀerences.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 231
-
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      231
-
 
 Indeed, this does give one number summarizing how far the actual counts are from what was expected. However, it is more common to add the squared values:
 
@@ -4115,7 +3119,6 @@ counts.  In Section 6.3.4, we will see that  if the null hypothesis is true, the
 distribution called a chi-square distribution.  Using this distribution, we will be able to obtain a
 p-value to evaluate the hypotheses.
 
-
 6.3.3  The chi-square distribution and ﬁnding areas
 
     The chi-square distribution is sometimes used to characterize data sets and statistics that
@@ -4123,28 +3126,20 @@ are always positive and typically right skewed. Recall a normal distribution had
 mean and standard deviation – that could be used to describe its exact characteristics. The chisquare distribution has just one parameter called degrees of freedom (df), which inﬂuences the
 shape, center, and spread of the distribution.
 
-
 GUIDED PRACTICE 6.24
 Figure 6.7 shows three chi-square distributions.
 (a) How does the center of the distribution change when the degrees of freedom is larger?
 (b) What about the variability (spread)?
 (c) How does the shape change?33
 
-
-
                                                                Degrees of Freedom
                                                                         2
                                                                         4
                                                                         9
 
-
-
-
-
             0            5           10           15           20           25
 
            Figure 6.7: Three chi-square distributions with varying degrees of freedom.
-
 
    33(a) The center becomes larger.  If took a careful look, we could see that the mean of each distribution is equal
 to the distribution’s degrees of freedom. (b) The variability increases as the degrees of freedom increases.  (c) The
@@ -4152,18 +3147,9 @@ distribution is very strongly skewed for df = 2, and then the distributions beco
 degrees of freedom df = 4 and df = 9. We would see this trend continue if we examined distributions with even more
 larger degrees of freedom.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 232
 
-232                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-                  Figure 6.7 and Guided Practice 6.24 demonstrate three general properties of chi-square distri-
+Figure 6.7 and Guided Practice 6.24 demonstrate three general properties of chi-square distri-
               butions as the degrees of freedom increases: the distribution becomes more symmetric, the center
             moves to the right, and the variability inﬂates.
                Our principal interest in the chi-square distribution is the calculation of p-values, which (as
@@ -4173,7 +3159,6 @@ larger degrees of freedom.
                 in Appendix C.3, which is also where you may ﬁnd the table. For the examples below, use your
                preferred approach to conﬁrm you get the same answers.
 
-
           EXAMPLE 6.25
               Figure 6.8(a) shows a chi-square distribution with 3 degrees of freedom and an upper shaded tail
                starting at 6.25. Find the shaded area.
@@ -4182,16 +3167,12 @@ larger degrees of freedom.
               square distribution with 3 degrees of freedom (df) and a cutoﬀof 6.25 is 0.1001. That is, the shaded
              upper tail of Figure 6.8(a) has area 0.1.
 
-
-
-
           EXAMPLE 6.26
               Figure 6.8(b) shows the upper tail of a chi-square distribution with 2 degrees of freedom. The bound
                 for this upper tail is at 4.3. Find the tail area.
 
              Using software, we can ﬁnd that the tail area shaded in Figure 6.8(b) to be 0.1165. If using a table,
            we would only be able to ﬁnd a range of values for the tail area: between 0.1 and 0.2.
-
 
           EXAMPLE 6.27
               Figure 6.8(c) shows an upper tail for a chi-square distribution with 5 degrees of freedom and a cutoﬀ
@@ -4200,67 +3181,35 @@ larger degrees of freedom.
              Using software, we would obtain a tail area of 0.4038. If using the table in Appendix C.3, we would
              have identiﬁed that the tail area is larger than 0.3 but not be able to give the precise value.
 
-
            GUIDED PRACTICE 6.28
               Figure 6.8(d) shows a cutoﬀof 11.7 on a chi-square distribution with 7 degrees of freedom. Find the
               area of the upper tail.34
-
-
-
 
            GUIDED PRACTICE 6.29
               Figure 6.8(e) shows a cutoﬀof 10 on a chi-square distribution with 4 degrees of freedom. Find the
               area of the upper tail.35
 
-
-
-
            GUIDED PRACTICE 6.30
               Figure 6.8(f) shows a cutoﬀof 9.21 with a chi-square distribution with 3 df. Find the area of the
              upper tail.36
-
-
-
-
 
                      34 The area is 0.1109. If using a table, we would identify that it falls between 0.1 and 0.2.
                     35Precise value: 0.0404. If using the table: between 0.02 and 0.05.
                     36Precise value: 0.0266. If using the table: between 0.02 and 0.05.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 233
 
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      233
-
-
-
-
-
-     0              5              10             15         0              5              10             15
+0              5              10             15         0              5              10             15
 
                             (a)                                                      (b)
-
-
-
-
 
      0        5        10       15       20       25         0        5        10       15       20       25
 
                              (c)                                                      (d)
 
-
-
-
-
      0            5           10           15                 0              5              10             15
 
                              (e)                                                               (f)
-
 
         Figure 6.8:  (a) Chi-square distribution with 3 degrees of freedom, area above
          6.25 shaded. (b) 2 degrees of freedom, area above 4.3 shaded. (c) 5 degrees of
@@ -4268,18 +3217,9 @@ larger degrees of freedom.
         (e) 4 degrees of freedom, area above 10 shaded.  (f) 3 degrees of freedom, area
         above 9.21 shaded.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 234
 
-234                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-            6.3.4  Finding a p-value for a chi-square distribution
+6.3.4  Finding a p-value for a chi-square distribution
 
                    In Section 6.3.2, we identiﬁed a new test statistic (X2) within the context of assessing whether
                there was evidence of racial bias in how jurors were sampled. The null hypothesis represented the
@@ -4293,7 +3233,6 @@ larger degrees of freedom.
                 case. Under certain conditions, the statistic X2 follows a chi-square distribution with k −1 degrees
                 of freedom, where k is the number of bins.
 
-
           EXAMPLE 6.31
           How many categories were there in the juror example? How many degrees of freedom should be
                associated with the chi-square distribution used for X2?
@@ -4302,12 +3241,10 @@ larger degrees of freedom.
                to the rule above, the test statistic X2 should then follow a chi-square distribution with k −1 = 3
               degrees of freedom if H0 is true.
 
-
                    Just like we checked sample size conditions to use a normal distribution in earlier sections, we
             must also check a sample size condition to safely apply the chi-square distribution for X2. Each
               expected count must be at least 5. In the juror example, the expected counts were 198, 19.25, 33,
             and 24.75, all easily above 5, so we can apply the chi-square model to the test statistic, X2 = 5.89.
-
 
           EXAMPLE 6.32
                    If the null hypothesis is true, the test statistic X2 = 5.89 would be closely associated with a chi-
@@ -4320,28 +3257,14 @@ larger degrees of freedom.
               area is 0.1171. Generally we do not reject the null hypothesis with such a large p-value. In other
               words, the data do not provide convincing evidence of racial bias in the juror selection.
 
-
-
-
-
                                     0           5           10          15
 
                       Figure 6.9: The p-value for the juror hypothesis test is shaded in the chi-square
                         distribution with df = 3.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 235
 
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      235
-
-
-
-  CHI-SQUARE TEST FOR ONE-WAY TABLE
+CHI-SQUARE TEST FOR ONE-WAY TABLE
   Suppose we are to evaluate whether there is convincing evidence that a set of observed counts
   O1, O2, ..., Ok in k categories are unusually diﬀerent from what might be expected under a null
   hypothesis. Call the expected counts that are based on the null hypothesis E1, E2, ..., Ek.  If
@@ -4356,8 +3279,6 @@ larger degrees of freedom.
   bution. We consider the upper tail because larger values of X2 would provide greater evidence
   against the null hypothesis.
 
-
-
   CONDITIONS FOR THE CHI-SQUARE TEST
   There are two conditions that must be checked before performing a chi-square test:
 
@@ -4369,22 +3290,12 @@ larger degrees of freedom.
 
   Failing to check conditions may aﬀect the test’s error rates.
 
-
    When examining a table with just two bins, pick a single bin and use the one-proportion
 methods introduced in Section 6.1.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 236
 
-236                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-            6.3.5  Evaluating goodness of ﬁt for a distribution
+6.3.5  Evaluating goodness of ﬁt for a distribution
 
                    Section 4.2 would be useful background reading for this example, but it is not a prerequisite.
             We can apply the chi-square testing framework to the second problem in this section: evaluating
@@ -4442,21 +3353,9 @@ methods introduced in Section 6.1.
             by the total count to obtain the expected counts. That is, this strategy identiﬁes what proportion
                 of the total count we would expect to be in each bin.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 237
 
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      237
-
-
-
-
-
-           Days                 1    2    3    4   5   6  7+      Total
+Days                 1    2    3    4   5   6  7+      Total
             Observed            717  369  155  69  28  14   10      1362
             Geometric Model     743  338  154  70  32  14   12      1362
 
@@ -4468,20 +3367,14 @@ methods introduced in Section 6.1.
         geometric model about 0.4552 × 0.545 = 11.28% of the time, which corresponds to
         0.1128 × 1362 = 154 streaks.
 
-
-
-
-
            800                                                                         Observed
                                                                             Expected
 
            600
 
-
            400                         Frequency
 
            200
-
 
              0
 
@@ -4491,19 +3384,9 @@ methods introduced in Section 6.1.
         Figure 6.12: Side-by-side bar plot of the observed and expected counts for each
         waiting time.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 238
 
-238                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-          EXAMPLE 6.33
+EXAMPLE 6.33
           Do you notice any unusually large deviations in the graph? Can you tell if these deviations are due
                to chance just by looking?
 
@@ -4512,21 +3395,14 @@ methods introduced in Section 6.1.
              be due to chance or whether they are so strong that the data provide convincing evidence against
               the null hypothesis. However, we can perform a chi-square test using the counts in Figure 6.11.
 
-
            GUIDED PRACTICE 6.34
               Figure 6.11 provides a set of count data for waiting times (O1 = 717, O2 = 369, ...) and expected
               counts under the geometric distribution (E1 = 743, E2 = 338, ...). Compute the chi-square test
                  statistic, X2.37
 
-
-
-
            GUIDED PRACTICE 6.35
              Because the expected counts are all at least 5, we can safely apply the chi-square distribution to
             X2. However, how many degrees of freedom should we use?38
-
-
-
 
           EXAMPLE 6.36
                    If the observed counts follow the geometric model, then the chi-square test statistic X2 = 4.61 would
@@ -4537,22 +3413,13 @@ methods introduced in Section 6.1.
               the wait times follow a geometric distribution for the last 10 years of data for the S&P500, i.e. we
              cannot reject the notion that trading days are independent.
 
-
-
-
-
                                                                           Area representing
                                                                                     the p−value
-
-
-
 
                                0           5           10          15          20          25
 
                       Figure 6.13: Chi-square distribution with 6 degrees of freedom. The p-value for
                       the stock analysis is shaded.
-
-
 
           EXAMPLE 6.37
               In Example 6.36, we did not reject the null hypothesis that the trading days are independent during
@@ -4566,19 +3433,9 @@ methods introduced in Section 6.1.
                 37X2 = (717−743)2743  + (369−338)2338  + · · · + (10−12)212  = 4.61
                   38There are k = 7 groups, so we use df = k −1 = 6.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.3 — Testing for goodness of fit using chi-square
-
 ### PDF page 239
 
-6.3. TESTING FOR GOODNESS OF FIT USING CHI-SQUARE                                      239
-
-
 Exercises
-
 
 6.31  True or false, Part I. Determine if the statements below are true or false. For each false statement,
 suggest an alternative wording to make it a true statement.
@@ -4621,9 +3478,6 @@ as woods, 16 as cultivated grassplot, and 61 as deciduous forests. The table bel
                Woods   Cultivated grassplot   Deciduous forests   Other   Total
                     4             16                 61          345    426
 
-
-
-
 (a) Write the hypotheses for testing if barking deer prefer to forage in cer-
     tain habitats over others.
 (b) What type of test can we use to answer this research question?
@@ -4635,29 +3489,14 @@ as woods, 16 as cultivated grassplot, and 61 as deciduous forests. The table bel
                                                                                      (http://ﬂic.kr/p/4Xjdkk)
                                                          CC BY 2.0 license
 
-
-
-
-
    39Liwei Teng et al. “Forage and bed sites characteristics of Indian muntjac (Muntiacus muntjak) in Hainan Island,
 China”. In: Ecological Research 19.6 (2004), pp. 675–681.
-
----
-
-# OpenIntro Statistics, 4th edition
 
 ## 6.4 — Testing for independence in two-way tables
 
 ### PDF page 240
 
-240                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-        6.4  Testing for independence in two-way tables
-
-
-
-            We all buy used products – cars, computers, textbooks, and so on – and we sometimes assume
+We all buy used products – cars, computers, textbooks, and so on – and we sometimes assume
               the sellers of those products will be forthright about any underlying problems with what they’re
                  selling. This is not something we should take for granted. Researchers recruited 219 participants in
              a study where they would sell a used iPod40 that was known to have frozen twice in the past. The
@@ -4690,43 +3529,25 @@ China”. In: Ecological Research 19.6 (2004), pp. 675–681.
                       Figure 6.14: Summary of the iPod study, where a question was posed to the study
                         participant who acted
 
-
-
-
              DIFFERENCES OF ONE-WAY TABLES VS TWO-WAY TABLES
           A one-way table describes counts for each outcome in a single variable. A two-way table
                  describes counts for combinations of outcomes for two variables. When we consider a two-way
                   table, we often would like to know, are these variables related in any way? That is, are they
                dependent (versus independent)?
 
-
                The hypothesis test for the iPod experiment is really about assessing whether there is statis-
                  tically signiﬁcant evidence that the success each question had on getting the participant to disclose
               the problem with the iPod. In other words, the goal is to check whether the buyer’s question was
              independent of whether the seller disclosed a problem.
 
-
-
-
-
                    40For readers not as old as the authors, an iPod is basically an iPhone without any cellular service, assuming it
               was one of the later generations. Earlier generations were more basic.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 241
-
-6.4. TESTING FOR INDEPENDENCE IN TWO-WAY TABLES                                      241
-
 
 6.4.1  Expected counts in two-way tables
 
 Like with one-way tables, we will need to compute estimated counts for each cell in a two-way table.
-
 
 EXAMPLE 6.38
 From the experiment, we can compute the proportion of all sellers who disclosed the freezing problem
@@ -4738,12 +3559,10 @@ We would predict that 0.2785×73 = 20.33 sellers would disclose the problem. Obv
 fewer than this, though it is not yet clear if that is due to chance variation or whether that is because
 the questions vary in how eﬀective they are at getting to the truth.
 
-
 GUIDED PRACTICE 6.39
  If the questions were actually equally eﬀective, meaning about 27.85% of respondents would disclose
 the freezing issue regardless of what question they were asked, about how many sellers would we
 expect to hide the freezing problem from the Positive Assumption group?41
-
 
    We can compute the expected number of sellers who we would expect to disclose or hide the
 freezing issue for all groups, if the questions had no impact on what they disclosed, using the same
@@ -4757,7 +3576,6 @@ added in parentheses.
        Total             73         73                  73                   219
 
                 Figure 6.15: The observed counts and the (expected counts).
-
 
     The examples and exercises above provided some help in computing expected counts. In general,
 expected counts for a two-way table may be computed using the row totals, column totals, and the
@@ -4788,26 +3606,14 @@ variable.
   41We would expect (1 −0.2785) × 73 = 52.67. It is okay that this result, like the result from Example 6.38, is a
 fraction.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 242
 
-242                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-            COMPUTING EXPECTED COUNTS IN A TWO-WAY TABLE
+COMPUTING EXPECTED COUNTS IN A TWO-WAY TABLE
              To identify the expected count for the ith row and jth column, compute
 
                                                         (row i total) × (column j total)
                              Expected Countrow i, col j =
                                                                           table total
-
-
 
             6.4.2  The chi-square test for two-way tables
 
@@ -4846,7 +3652,6 @@ fraction.
              then the test statistic X2 = 40.13 closely follows a chi-square distribution with 2 degrees of freedom.
              Using this information, we can compute the p-value for the test, which is depicted in Figure 6.16.
 
-
             COMPUTING DEGREES OF FREEDOM FOR A TWO-WAY TABLE
             When applying the chi-square test to a two-way table, we use
 
@@ -4854,38 +3659,19 @@ fraction.
 
                where R is the number of rows in the table and C is the number of columns.
 
-
              When analyzing 2-by-2 contingency tables, one guideline is to use the two-proportion methods
               introduced in Section 6.2.
 
-
-
-
-
                      42Recall: in the one-way table, the degrees of freedom was the number of cells minus 1.
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
 
 ### PDF page 243
 
-6.4. TESTING FOR INDEPENDENCE IN TWO-WAY TABLES                                      243
-
-
-
-
-
-                                                                    Tail area (1 / 500 million)
+Tail area (1 / 500 million)
                                                                           is too small to see
 
                   0        10       20       30       40       50
 
               Figure 6.16: Visualization of the p-value for X2 = 40.13 when df = 2.
-
-
 
 EXAMPLE 6.40
 Find the p-value and draw a conclusion about whether the question aﬀects the sellers likelihood of
@@ -4897,9 +3683,6 @@ we would identify the p-value is smaller than 0.001.) Using a signiﬁcance leve
 hypothesis is rejected since the p-value is smaller. That is, the data provide convincing evidence that
 the question asked did aﬀect a seller’s likelihood to tell the truth about problems with the iPod.
 
-
-
-
 EXAMPLE 6.41
 Figure 6.17 summarizes the results of an experiment evaluating three treatments for Type 2 Diabetes
 in patients aged 10-17 who were being treated with metformin. The three treatments considered
@@ -4907,13 +3690,10 @@ were continued treatment with metformin (met), treatment with metformin combined
 either lacked glycemic control (failure) or did not lack that control (success). What are appropriate
 hypotheses for this test?
 
-
  H0: There is no diﬀerence in the eﬀectiveness of the three treatments.
 
 HA: There is some diﬀerence in eﬀectiveness between the three treatments, e.g. perhaps the rosi
      treatment performed better than lifestyle.
-
-
 
                                             Failure   Success   Total
                          lifestyle    109      125     234
@@ -4923,39 +3703,19 @@ HA: There is some diﬀerence in eﬀectiveness between the three treatments, e.
 
                       Figure 6.17: Results for the Type 2 Diabetes study.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 244
 
-244                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-
-           GUIDED PRACTICE 6.42
+GUIDED PRACTICE 6.42
          A chi-square test for a two-way table may be used to test the hypotheses in Example 6.41. As a
                ﬁrst step, compute the expected values for each of the six table cells.43
 
-
-
-
            GUIDED PRACTICE 6.43
            Compute the chi-square test statistic for the data in Figure 6.17.44
-
-
-
 
            GUIDED PRACTICE 6.44
              Because there are 3 rows and 2 columns, the degrees of freedom for the test is df = (3−1)×(2−1) = 2.
             Use X2 = 8.16, df = 2, evaluate whether to reject the null hypothesis using a signiﬁcance level
                 of 0.05.45
-
-
-
-
 
                  43The expected count for row one / column one is found by multiplying the row one total (234) and column one
                    total (319), then dividing by the table total (699): 234×319699  = 106.8. Similarly for the second column and the ﬁrst
@@ -4966,19 +3726,9 @@ HA: There is some diﬀerence in eﬀectiveness between the three treatments, e.
                  p-value is less than 0.05, and we conclude that at least one of the treatments is more or less eﬀective than the others
                  at treating Type 2 Diabetes for glycemic control.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 245
 
-6.4. TESTING FOR INDEPENDENCE IN TWO-WAY TABLES                                      245
-
-
 Exercises
-
 
 6.35  Quitters. Does being part of a support group aﬀect the ability of people to quit smoking? A county
 health department enrolled 300 smokers in a randomized experiment. 150 participants were assigned to a
@@ -5042,24 +3792,12 @@ people are working to eliminate entirely. The results for the second year of the
     Use these results to evaluate the hypotheses from part (a), and provide a conclusion in the context of
     the problem.
 
-
    46Christopher King et al. “A Trial of a Triple-Drug Treatment for Lymphatic Filariasis”. In: New England Journal
 of Medicine 379 (2018), pp. 1801–1810.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 246
 
-246                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-       Chapter exercises
-
-
+Chapter exercises
 
                6.39  Active learning. A teacher wanting to increase the active learning component of her course is con-
                cerned about student reactions to changes she is planning to make. She conducts a survey in her class,
@@ -5114,23 +3852,10 @@ of Medicine 379 (2018), pp. 1801–1810.
                      relevant. Interpret the interval in this context, and comment on whether or not the conﬁdence interval
                     agrees with the conclusion of the hypothesis test.
 
-
-
-
-
                 47Pew Research Center Publications, Civil War at 150: Still Relevant, Still Divisive, data collected between March
                30 - April 3, 2011.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 247
-
-6.4. TESTING FOR INDEPENDENCE IN TWO-WAY TABLES                                      247
-
 
 6.43  College smokers. We are interested in estimating the proportion of students at a university who
 smoke. Out of a random sample of 200 students from this university, 40 students smoke.
@@ -5188,25 +3913,12 @@ Use these data to evaluate whether players choose between these three options ra
 are favored above others. Make sure to clearly outline each step of your analysis, and interpret your results
 in context of the data and the research question.
 
-
-
-
-
    48Gallup Wellbeing, Employed Americans in Better Health Than the Unemployed, data collected Jan. 2, 2011 -
 May 21, 2012.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 6.4 — Testing for independence in two-way tables
-
 ### PDF page 248
 
-248                              CHAPTER 6. INFERENCE FOR CATEGORICAL DATA
-
-
-               6.48  2010 Healthcare Law. On June 28, 2012 the U.S. Supreme Court upheld the much debated 2010
+6.48  2010 Healthcare Law. On June 28, 2012 the U.S. Supreme Court upheld the much debated 2010
                 healthcare law, declaring it constitutional. A Gallup poll released the day after this decision indicates that
             46% of 1,012 Americans agree with this decision. At a 95% conﬁdence level, this sample has a 3% margin of
                   error. Based on this information, determine if the following statements are true or false, and explain your
@@ -5257,10 +3969,6 @@ May 21, 2012.
                    that women load up on extra coﬀee” based on just this study.53 Do you agree with this statement?
                   Explain your reasoning.
 
-
-
-
-
                    49Gallup, Americans Issue Split Decision on Healthcare Ruling, data collected June 28, 2012.
                 50Pew Internet, Cell Internet Use 2012, data collected between March 15 - April 13, 2012.
                     51S. Chang. “The Chinese Love to Use Feature Phone to Access the Internet”. In: M.I.C Gadget (2012).
@@ -5268,51 +3976,17 @@ May 21, 2012.
                   (2011), p. 1571.
                   53A. O’Connor. “Coﬀee Drinking Linked to Less Depression in Women”. In: New York Times (2011).
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 7.1 — One-sample means with the t-distribution
 
 ### PDF page 249
-
-249
 
 Chapter 7
 
 Inference for numerical data
 
-
-
-
-
-7.1 One-sample means with the t-distribution
-
-7.2 Paired data
-
-7.3 Difference of two means
-
-7.4 Power calculations for a difference of means
-
-7.5 Comparing many means with ANOVA
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 250
 
-250
-
-
-
-
-
-         Chapter 5 introduced a framework for statistical inference based on
-
-         conﬁdence intervals and hypotheses using the normal distribution for
+conﬁdence intervals and hypotheses using the normal distribution for
 
          sample proportions.  In this chapter, we encounter several new point
 
@@ -5324,27 +3998,10 @@ Inference for numerical data
 
            test statistic, and apply the ideas of inference.
 
-
-
-
-
          For videos, slides, and other resources, please visit
         www.openintro.org/os
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 251
-
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         251
-
-
-7.1  One-sample means with the t-distribution
-
-
 
 Similar to how we can model the behavior of the sample proportion ˆp using a normal distribution,
 the sample mean ¯x can also be modeled using a normal distribution when certain conditions are
@@ -5352,13 +4009,11 @@ met. However, we’ll soon learn that a new distribution, called the t-distribut
 useful when working with the sample mean. We’ll ﬁrst learn about this new distribution, then we’ll
 use it to construct conﬁdence intervals and conduct hypothesis tests for the mean.
 
-
 7.1.1  The sampling distribution of  ¯x¯x¯x
 
     The sample mean tends to follow a normal distribution centered at the population mean, µ,
 when certain conditions are met.  Additionally, we can compute a standard error for the sample
 mean using the population standard deviation σ and the sample size n.
-
 
   CENTRAL LIMIT THEOREM FOR THE SAMPLE MEAN
   When we collect a suﬃciently large sample of n independent observations from a population
@@ -5367,7 +4022,6 @@ mean using the population standard deviation σ and the sample size n.
 
                                                           σ
                Mean = µ                Standard Error (SE) = √n
-
 
 Before diving into conﬁdence intervals and hypothesis tests using ¯x, we ﬁrst need to cover two topics:
 
@@ -5378,7 +4032,6 @@ Before diving into conﬁdence intervals and hypothesis tests using ¯x, we ﬁr
    • The standard error is dependent on the population standard deviation, σ. However, we rarely
     know σ, and instead we must estimate it. Because this estimation is itself imperfect, we use a
     new distribution called the t-distribution to ﬁx this problem, which we discuss in Section 7.1.3.
-
 
 7.1.2  Evaluating the two conditions required for modeling  ¯x¯x¯x
 
@@ -5394,7 +4047,6 @@ Normality. When a sample is small, we also require that the sample observations 
       larger sample sizes. This condition is obviously vague, making it diﬃcult to evaluate, so next
     we introduce a couple rules of thumb to make checking this condition easier.
 
-
   RULES OF THUMB: HOW TO PERFORM THE NORMALITY CHECK
   There is no perfect way to check the normality condition, so instead we use two rules of thumb:
 
@@ -5405,21 +4057,11 @@ Normality. When a sample is small, we also require that the sample observations 
       we typically assume the sampling distribution of ¯x is nearly normal, even if the underlying
         distribution of individual observations is not.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 252
 
-252                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-                   In this ﬁrst course in statistics, you aren’t expected to develop perfect judgement on the nor-
+In this ﬁrst course in statistics, you aren’t expected to develop perfect judgement on the nor-
               mality condition. However, you are expected to be able to handle clear cut cases based on the rules
                 of thumb.1
-
 
           EXAMPLE 7.1
               Consider the following two plots that come from simple random samples from diﬀerent populations.
@@ -5449,7 +4091,6 @@ Normality. When a sample is small, we also require that the sample observations 
               roughly 5 times further from the center of the distribution than the next furthest observation. This
                    is an example of a particularly extreme outlier, so the normality condition would not be satisﬁed.
 
-
                    In practice, it’s typical to also do a mental check to evaluate whether we have reason to believe
               the underlying population would have moderate skew (if n < 30) or have particularly extreme outliers
              (n ≥30) beyond what we observe in the data. For example, consider the number of followers for each
@@ -5458,7 +4099,6 @@ Normality. When a sample is small, we also require that the sample observations 
                tens of millions of followers, meaning the distribution is extremely skewed. When we know the data
             come from such an extremely skewed distribution, it takes some eﬀort to understand what sample
                  size is large enough for the normality condition to be satisﬁed.
-
 
             7.1.3  Introducing the t-distribution
 
@@ -5479,34 +4119,19 @@ Normality. When a sample is small, we also require that the sample observations 
                  1More nuanced guidelines would consider further relaxing the particularly extreme outlier check when the sample
                     size is very large. However, we’ll leave further discussion here to a future course.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 253
 
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         253
-
-
-     We’ll ﬁnd it useful to use a new distribution for inference calculations called the t-distribution.
+We’ll ﬁnd it useful to use a new distribution for inference calculations called the t-distribution.
 A t-distribution, shown as a solid line in Figure 7.1, has a bell shape. However, its tails are thicker
 than the normal distribution’s, meaning observations are more likely to fall beyond two standard deviations from the mean than under the normal distribution. The extra thick tails of the t-distribution
 are exactly the correction needed to resolve the problem of using s in place of σ in the SE calculation.
 
-
                                                      Normal
                                                                       t−distribution
-
-
-
-
 
                    −4       −2        0        2        4
 
               Figure 7.1: Comparison of a t-distribution and a normal distribution.
-
 
     The t-distribution is always centered at zero and has a single parameter: degrees of freedom.
 The degrees of freedom (dfdfdf) describes the precise form of the bell-shaped t-distribution. Several
@@ -5516,30 +4141,22 @@ size is n. That is, when we have more observations, the degrees of freedom will 
 t-distribution will look more like the standard normal distribution; when the degrees of freedom is
 about 30 or more, the t-distribution is nearly indistinguishable from the normal distribution.
 
-
                                                                     normal
                                                                                                                               t, df = 8
                                                                                                                               t, df = 4
                                                                                                                               t, df = 2
                                                                                                                               t, df = 1
 
-
-
-
                    −4         −2          0          2          4
 
         Figure 7.2: The larger the degrees of freedom, the more closely the t-distribution
         resembles the standard normal distribution.
-
-
-
 
   DEGREES OF FREEDOM (dfdfdf)
   The degrees of freedom describes the shape of the t-distribution. The larger the degrees of
   freedom, the more closely the distribution approximates the normal model.
 
   When modeling ¯x using the t-distribution, use df = n −1.
-
 
     The t-distribution allows us greater ﬂexibility than the normal distribution when analyzing
 numerical data.  In practice, it’s common to use statistical software, such as R, Python, or SAS
@@ -5549,28 +4166,12 @@ usage instructions and examples for those who wish to use this option. No matter
 choose, apply your method using the examples below to conﬁrm your working understanding of the
 t-distribution.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 254
 
-254                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-
-
-                                               −4       −2       0        2        4
+−4       −2       0        2        4
 
                       Figure 7.3: The t-distribution with 18 degrees of freedom. The area below -2.10
                      has been shaded.
-
-
-
-
 
                                −4     −2      0      2      4       −4    −2     0      2      4
 
@@ -5578,16 +4179,11 @@ t-distribution.
                      above 1.65 shaded. Right: The t-distribution with 2 degrees of freedom, with the
                       area further than 3 units from 0 shaded.
 
-
-
           EXAMPLE 7.2
            What proportion of the t-distribution with 18 degrees of freedom falls below -2.10?
 
               Just like a normal probability problem, we ﬁrst draw the picture in Figure 7.3 and shade the area
              below -2.10. Using statistical software, we can obtain a precise value: 0.0250.
-
-
-
 
           EXAMPLE 7.3
          A t-distribution with 20 degrees of freedom is shown in the left panel of Figure 7.4. Estimate the
@@ -5595,9 +4191,6 @@ t-distribution.
 
             With a normal distribution, this would correspond to about 0.05, so we should expect the t-
                distribution to give us a value in this neighborhood. Using statistical software: 0.0573.
-
-
-
 
           EXAMPLE 7.4
          A t-distribution with 2 degrees of freedom is shown in the right panel of Figure 7.4. Estimate the
@@ -5608,28 +4201,14 @@ t-distribution.
                99.7 rule. For a t-distribution with df = 2, the area in both tails beyond 3 units totals 0.0955. This
               area is dramatically diﬀerent than what we obtain from the normal distribution.
 
-
            GUIDED PRACTICE 7.5
            What proportion of the t-distribution with 19 degrees of freedom falls above -1.79 units? Use your
                preferred method for ﬁnding tail areas.2
 
-
-
-
-
                2We want to ﬁnd the shaded area above -1.79 (we leave the picture to you). The lower tail area has an area of
                   0.0447, so the upper area would have an area of 1 −0.0447 = 0.9553.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 255
-
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         255
-
 
 7.1.4  One sample t-conﬁdence intervals
 
@@ -5637,14 +4216,9 @@ t-distribution.
 mercury content of dolphin muscle. Elevated mercury concentrations are an important problem for
 both dolphins and other animals, like humans, who occasionally eat them.
 
-
-
-
-
                     Figure 7.5: A Risso’s dolphin.
           —————————–
                      Photo by Mike Baird (www.bairdphotos.com). CC BY 2.0 license.
-
 
    We will identify a conﬁdence interval for the average mercury content in dolphin muscle using a
 sample of 19 Risso’s dolphins from the Taiji area in Japan. The data are summarized in Figure 7.6.
@@ -5657,8 +4231,6 @@ outliers.
         Figure 7.6: Summary of mercury content in the muscle of 19 Risso’s dolphins from
         the Taiji area. Measurements are in micrograms of mercury per wet gram of muscle
         (µg/wet g).
-
-
 
 EXAMPLE 7.6
 Are the independence and normality conditions satisﬁed for this data set?
@@ -5673,29 +4245,18 @@ interval. We revise the conﬁdence interval formula slightly when using the t-d
                                                                               s
              point estimate ± t⋆df × SE      →                     ¯x ± t⋆df × √n
 
-
 EXAMPLE 7.7
 Using the summary statistics in Figure 7.6, compute the standard error for the average mercury
 content in the n = 19 dolphins.
 
                               √We plug in s and n into the formula: SE = s/√n = 2.3/  19 = 0.528.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 256
 
-256                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               The value t⋆df is a cutoﬀwe obtain based on the conﬁdence level and the t-distribution with df
+The value t⋆df is a cutoﬀwe obtain based on the conﬁdence level and the t-distribution with df
               degrees of freedom. That cutoﬀis found in the same way as with a normal distribution: we ﬁnd
                  t⋆df such that the fraction of the t-distribution with df degrees of freedom within a distance t⋆df of 0
              matches the conﬁdence level of interest.
-
 
           EXAMPLE 7.8
           When n = 19, what is the appropriate degrees of freedom? Find t⋆df for this degrees of freedom and
@@ -5705,7 +4266,6 @@ content in the n = 19 dolphins.
              Using statistical software, we ﬁnd the cutoﬀwhere the upper tail is equal to 2.5%: t⋆18 = 2.10. The
               area below -2.10 will also be equal to 2.5%. That is, 95% of the t-distribution with df = 18 lies
               within 2.10 units of 0.
-
 
           EXAMPLE 7.9
            Compute and interpret the 95% conﬁdence interval for the average mercury content in Risso’s
@@ -5718,9 +4278,6 @@ content in the n = 19 dolphins.
          We are 95% conﬁdent the average mercury content of muscles in Risso’s dolphins is between 3.29
             and 5.51 µg/wet gram, which is considered extremely high.
 
-
-
-
               FINDING A t-CONFIDENCE INTERVAL FOR THE MEAN
               Based on a sample of n independent and nearly normal observations, a conﬁdence interval for
                 the population mean is
@@ -5731,17 +4288,12 @@ content in the n = 19 dolphins.
                where ¯x is the sample mean, t⋆df corresponds to the conﬁdence level and degrees of freedom df,
               and SE is the standard error as estimated by the sample.
 
-
-
            GUIDED PRACTICE 7.10
             The FDA’s webpage provides some data on mercury content of ﬁsh. Based on a sample of 15 croaker
               white ﬁsh (Paciﬁc), a sample mean and standard deviation were computed as 0.287 and 0.069 ppm
                (parts per million), respectively. The 15 observations ranged from 0.18 to 0.41 ppm. We will assume
                these observations are independent. Based on the summary statistics of the data, do you have any
                objections to the normality condition of the individual observations?3
-
-
-
 
           EXAMPLE 7.11
              Estimate the standard error of ¯x = 0.287 ppm using the data summaries in Guided Practice 7.10.
@@ -5756,19 +4308,9 @@ content in the n = 19 dolphins.
                  3The sample size is under 30, so we check for obvious outliers:  since all observations are within 2 standard
                  deviations of the mean, there are no such clear outliers.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 257
 
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         257
-
-
-
-  CONFIDENCE INTERVAL FOR A SINGLE MEAN
+CONFIDENCE INTERVAL FOR A SINGLE MEAN
   Once you’ve determined a one-mean conﬁdence interval would be helpful for an application,
   there are four steps to constructing the interval:
 
@@ -5780,20 +4322,12 @@ content in the n = 19 dolphins.
 
   Conclude. Interpret the conﬁdence interval in the context of the problem.
 
-
-
 GUIDED PRACTICE 7.12
 Using the information and results of Guided Practice 7.10 and Example 7.11, compute a 90% conﬁdence interval for the average mercury content of croaker white ﬁsh (Paciﬁc).4
-
-
-
 
 GUIDED PRACTICE 7.13
 The 90% conﬁdence interval from Guided Practice 7.12 is 0.256 ppm to 0.318 ppm. Can we say that
 90% of croaker white ﬁsh (Paciﬁc) have mercury levels between 0.256 and 0.318 ppm?5
-
-
-
 
 7.1.5  One sample t-tests
 
@@ -5804,12 +4338,8 @@ minutes (93 minutes and about 17 seconds). We want to determine using data from 
 in the 2017 Cherry Blossom Race whether runners in this race are getting faster or slower, versus
 the other possibility that there has been no change.
 
-
 GUIDED PRACTICE 7.14
 What are appropriate hypotheses for this context?6
-
-
-
 
 GUIDED PRACTICE 7.15
 The data come from a simple random sample of all participants, so the observations are independent.
@@ -5822,8 +4352,6 @@ value, null value, and standard error; however, we call it a T-score since we us
 calculating the tail area. Then we ﬁnd the p-value using the same ideas we used previously: ﬁnd
 the one-tail area under the sampling distribution, and double it.
 
-
-
     4 ¯x ± t⋆14 × SE →0.287 ± 1.76 × 0.0178 →(0.256, 0.318). We are 90% conﬁdent that the average mercury
 content of croaker white ﬁsh (Paciﬁc) is between 0.256 and 0.318 ppm.
     5 No, a conﬁdence interval only provides a range of plausible values for a population parameter, in this case the
@@ -5833,18 +4361,9 @@ run time for 2017 was diﬀerent than that of 2006. µ̸ = 93.29 minutes.
    7With a sample of 100, we should only be concerned if there is are particularly extreme outliers. The histogram
 of the data doesn’t show any outliers of concern (and arguably, no outliers at all).
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 258
 
-258                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-                               20
+20
 
                                15
 
@@ -5856,8 +4375,6 @@ of the data doesn’t show any outliers of concern (and arguably, no outliers at
                                                    Time (Minutes)
 
                          Figure 7.7: A histogram of time for the sample Cherry Blossom Race data.
-
-
 
           EXAMPLE 7.16
             With both the independence and normality conditions satisﬁed, we can proceed with a hypothesis
@@ -5884,8 +4401,6 @@ of the data doesn’t show any outliers of concern (and arguably, no outliers at
               the 2006 average. Since the observed value is above the null value and we have rejected the null
                hypothesis, we would conclude that runners in the race were slower on average in 2017 than in 2006.
 
-
-
              HYPOTHESIS TESTING FOR A SINGLE MEAN
               Once you’ve determined a one-mean hypothesis test is the correct procedure, there are four
                  steps to completing the test:
@@ -5900,19 +4415,9 @@ of the data doesn’t show any outliers of concern (and arguably, no outliers at
               Conclude. Evaluate the hypothesis test by comparing the p-value to α, and provide a conclu-
                        sion in the context of the problem.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 259
 
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         259
-
-
 Exercises
-
 
 7.1   Identify the critical t. An independent random sample is selected from an approximately normal
 population with unknown standard deviation. Find the degrees of freedom and the critical t-value (t⋆) for
@@ -5931,12 +4436,7 @@ freedom. Determine which is which, and explain your reasoning.
                                                                            dashed
                                                                                          dotted
 
-
-
-
-
                                     −4        −2         0         2         4
-
 
 7.3  Find the p-value, Part I. An independent random sample is selected from an approximately normal
 population with an unknown standard deviation. Find the p-value for the given sample size and test statistic.
@@ -5964,18 +4464,9 @@ population distribution is approximately normal and the population standard devi
 conﬁdence interval is based on a simple random sample of 25 observations. Calculate the sample mean, the
 margin of error, and the sample standard deviation.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 260
 
-260                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-                7.7  Sleep habits of New Yorkers. New York is known as “the city that never sleeps”. A random sample
+7.7  Sleep habits of New Yorkers. New York is known as “the city that never sleeps”. A random sample
                  of 25 New Yorkers were asked how much sleep they get per night. Statistical summaries of these data are
              shown below. The point estimate suggests New Yorkers sleep less than 8 hours a night on average. Is the
                  result statistically signiﬁcant?
@@ -6027,22 +4518,9 @@ margin of error, and the sample standard deviation.
           We know that the sample standard deviation is 8 and the sample size is 20. For what sample mean would
                the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisﬁed.
 
-
-
-
-
                   8G. Heinz et al. “Exploring relationships in body dimensions”. In: Journal of Statistics Education 11.2 (2003).
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.1 — One-sample means with the t-distribution
-
 ### PDF page 261
-
-7.1. ONE-SAMPLE MEANS WITH THE T-DISTRIBUTION                                         261
-
 
 7.10  t⋆vs. z⋆. For a given conﬁdence level, t⋆df  is larger than z⋆. Explain how t∗df being slightly larger
 than z∗aﬀects the width of the conﬁdence interval.
@@ -6082,29 +4560,14 @@ this college as part of a class project. They want their margin of error to be n
     whether his sample should be larger or smaller than Raina’s, and explain your reasoning.
 (c) Calculate the minimum required sample size for Luke.
 
-
-
-
-
    9WI Mortada et al. “Study of lead exposure from automobile exhaust as a risk for nephrotoxicity among traﬃc
 policemen.” In: American journal of nephrology 21.4 (2000), pp. 274–279.
-
----
-
-# OpenIntro Statistics, 4th edition
 
 ## 7.2 — Paired data
 
 ### PDF page 262
 
-262                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-        7.2  Paired data
-
-
-
-              In an earlier edition of this textbook, we found that Amazon prices were, on average, lower than
+In an earlier edition of this textbook, we found that Amazon prices were, on average, lower than
               those of the UCLA Bookstore for UCLA courses in 2010. It’s been several years, and many stores
              have adapted to the online market, so we wondered, how is the UCLA Bookstore doing today?
             We sampled 201 UCLA courses.  Of those, 68 required books could be found on Amazon.
@@ -6119,19 +4582,14 @@ policemen.” In: American journal of nephrology 21.4 (2000), pp. 274–279.
 
                                      Figure 7.8: Four cases of the textbooks data set.
 
-
-
             7.2.1  Paired observations
 
                 Each textbook has two corresponding prices in the data set: one for the UCLA Bookstore and
              one for Amazon. When two sets of observations have this special correspondence, they are said to
              be paired.
 
-
-              PAIRED DATA
             Two sets of observations are paired  if each observation in one set has a special correspondence
                  or connection with exactly one observation in the other data set.
-
 
                To analyze paired data, it is often useful to look at the diﬀerence in outcomes of each pair of
                observations. In the textbook data, we look at the diﬀerences in prices, which is represented as the
@@ -6145,7 +4603,6 @@ policemen.” In: American journal of nephrology 21.4 (2000), pp. 274–279.
                    is 13.50 −12.53 = 0.97. A histogram of the diﬀerences is shown in Figure 7.9. Using diﬀerences
              between paired observations is a common and useful way to analyze paired data.
 
-
                                  30
 
                                  20
@@ -6157,16 +4614,7 @@ policemen.” In: American journal of nephrology 21.4 (2000), pp. 274–279.
 
                            Figure 7.9: Histogram of the diﬀerence in price for each book sampled.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.2 — Paired data
-
 ### PDF page 263
-
-7.2. PAIRED DATA                                                                              263
-
 
 7.2.2  Inference for paired data
 
@@ -6176,8 +4624,6 @@ policemen.” In: American journal of nephrology 21.4 (2000), pp. 274–279.
                                   68      3.58     13.42
 
                   Figure 7.10: Summary statistics for the 68 price diﬀerences.
-
-
 
 EXAMPLE 7.17
 Set up a hypothesis test to determine whether, on average, there is a diﬀerence between Amazon’s
@@ -6193,7 +4639,6 @@ Next, we check the independence and normality conditions. The observations are b
 random sample, so independence is reasonable. While there are some outliers, n = 68 and none
 of the outliers are particularly extreme, so the normality of ¯x is satisﬁed. With these conditions
 satisﬁed, we can move forward with the t-distribution.
-
 
 EXAMPLE 7.18
 Complete the hypothesis test started in Example 7.17.
@@ -6213,12 +4658,7 @@ The test statistic is the T-score of ¯xdiﬀunder the null condition that the a
 To visualize the p-value, the sampling distribution of ¯xdiﬀis drawn as though H0 is true, and the
 p-value is represented by the two shaded tails:
 
-
-
-
-
                                                 µ0 = 0              xdiff = 2.98
-
 
 The degrees of freedom is df = 68 −1 = 67. Using statistical software, we ﬁnd the one-tail area of
 0.0156. Doubling this area gives the p-value: 0.0312.
@@ -6226,31 +4666,15 @@ The degrees of freedom is df = 68 −1 = 67. Using statistical software, we ﬁn
 Because the p-value is less than 0.05, we reject the null hypothesis. Amazon prices are, on average,
 lower than the UCLA Bookstore prices for UCLA courses.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.2 — Paired data
-
 ### PDF page 264
 
-264                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-           GUIDED PRACTICE 7.19
+GUIDED PRACTICE 7.19
              Create a 95% conﬁdence interval for the average price diﬀerence between books at the UCLA book-
                store and books on Amazon.10
-
-
 
            GUIDED PRACTICE 7.20
          We have strong evidence that Amazon is, on average, less expensive. How should this conclusion
               aﬀect UCLA student buying habits? Should UCLA students always buy their books on Amazon?11
-
-
-
-
 
                    10Conditions have already veriﬁed and the standard error computed in Example 7.17. To ﬁnd the interval, identify
                    t⋆67 using statistical software or the t-table (t⋆67 = 2.00), and plug it, the point estimate, and the standard error into
@@ -6272,19 +4696,9 @@ lower than the UCLA Bookstore prices for UCLA courses.
               making the case to use Amazon over the UCLA Bookstore quite compelling at that time. Now we frequently check
                  multiple websites to ﬁnd the best price.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.2 — Paired data
-
 ### PDF page 265
 
-7.2. PAIRED DATA                                                                              265
-
-
 Exercises
-
 
 7.15  Air quality. Air quality measurements were collected in a random sample of 25 country capitals in
 2013, and then again in the same cities in 2014. We would like to use these data to compare average air
@@ -6346,23 +4760,11 @@ determining whether these data provide strong evidence that there were more days
      of days exceeding 90°F from 1948 and 2018 to include 0? Explain
     your reasoning.
 
-
-
-
   12NOAA, www.ncdc.noaa.gov/cdo-web/datasets, April 24, 2019.
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.2 — Paired data
 
 ### PDF page 266
 
-266                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.20  High School and Beyond, Part I. The National Center of Education Statistics conducted a survey of
+7.20  High School and Beyond, Part I. The National Center of Education Statistics conducted a survey of
                high school seniors, collecting test data on reading, writing, and several other subjects. Here we examine a
                simple random sample of 200 students from this survey. Side-by-side box plots of reading and writing scores
                 as well as a histogram of the diﬀerences in scores are shown below.
@@ -6410,20 +4812,9 @@ determining whether these data provide strong evidence that there were more days
                  (c) Does the conﬁdence interval provide convincing evidence that there is a real diﬀerence in the average
                     scores? Explain.
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 7.3 — Difference of two means
 
 ### PDF page 267
-
-7.3. DIFFERENCE OF TWO MEANS                                                              267
-
-
-7.3  Difference of two means
-
-
 
 In this section we consider a diﬀerence in two population means, µ1 −µ2, under the condition that
 the data are not paired. Just as with a single sample, we identify conditions to ensure we can use
@@ -6435,7 +4826,6 @@ of newborns, and exploring whether there is statistically signiﬁcant evidence 
 an exam is harder than another variation.  This section is motivated by questions like “Is there
 convincing evidence that newborns from mothers who smoke have a diﬀerent average birth weight
 than newborns from mothers who don’t smoke?”
-
 
 7.3.1  Conﬁdence interval for a difference of means
 
@@ -6463,7 +4853,6 @@ new conditions. Like the 2-proportion cases, we will require a more robust versi
 so we are conﬁdent the two groups are also independent. Secondly, we also check for normality in
 each group separately, which in practice is a check for outliers.
 
-
   USING THE t-DISTRIBUTION FOR A DIFFERENCE IN MEANS
   The t-distribution can be used for inference when working with the standardized diﬀerence of
   two means if
@@ -6483,19 +4872,9 @@ each group separately, which in practice is a check for outliers.
   software, so instead you may use the smaller of n1 −1 and n2 −1 for the degrees of freedom if
   software isn’t readily available.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 268
 
-268                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.21
+EXAMPLE 7.21
            Can the t-distribution be used to make inference using the point estimate, ¯xesc −¯xcontrol = 7.83?
 
                 First, we check for independence. Because the sheep were randomized into the groups, independence
@@ -6505,7 +4884,6 @@ each group separately, which in practice is a check for outliers.
                  variability, but this is not the same as having clear outliers.)
 
             With both conditions met, we can use the t-distribution to model the diﬀerence of sample means.
-
 
                                         Embryonic stem cell transplant
                                 3
@@ -6542,17 +4920,7 @@ each group separately, which in practice is a check for outliers.
                 t-table to ﬁnd tail areas. For transparency in the Examples and Guided Practice, we’ll use the latter
              approach for ﬁnding df; in the case of the ESC example, this means we’ll use df = 8.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 269
-
-7.3. DIFFERENCE OF TWO MEANS                                                              269
-
-
 
 EXAMPLE 7.22
 Calculate a 95% conﬁdence interval for the eﬀect of ESCs on the change in heart pumping capacity
@@ -6572,7 +4940,6 @@ we can enter the values into the conﬁdence interval formula:
 We are 95% conﬁdent that embryonic stem cells improve the heart’s pumping function in sheep that
 have suﬀered a heart attack by 3.32% to 12.34%.
 
-
 As with past statistical inference applications, there is a well-trodden procedure.
 
 Prepare. Retrieve critical contextual information, and if appropriate, set up hypotheses.
@@ -6585,7 +4952,6 @@ Calculate. Find the standard error, and then construct a conﬁdence interval, o
 Conclude. Interpret the results in the context of the application.
 
 The details change a little from one setting to the next, but this general approach remain the same.
-
 
 7.3.2  Hypothesis tests for the difference of two means
 
@@ -6607,19 +4973,9 @@ nonsmoking group contains 100 cases.
         Figure 7.13: Four cases from the ncbirths data set. The value “NA”, shown for
         the ﬁrst two entries of the ﬁrst variable, indicates that piece of data is missing.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 270
 
-270                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.23
+EXAMPLE 7.23
               Set up appropriate hypotheses to evaluate whether there is a relationship between a mother smoking
             and average birth weight.
 
@@ -6631,7 +4987,6 @@ nonsmoking group contains 100 cases.
 
            HA: There is some diﬀerence in average newborn weights from mothers who did and did not smoke
                   (µn −µs̸ = 0).
-
 
             We check the two conditions necessary to model the diﬀerence in sample means using the
                 t-distribution.
@@ -6647,18 +5002,12 @@ nonsmoking group contains 100 cases.
 
                         Mothers Who Smoked                    Mothers Who Did Not Smoke
 
-
-
-
-
                   0      2      4      6      8      10          0      2      4      6      8      10
                              Newborn Weights (lbs)                              Newborn Weights (lbs)
 
                       Figure 7.14: The left panel represents birth weights for infants whose mothers
                      smoked. The right panel represents the birth weights for infants whose mothers
                  who did not smoke.
-
-
 
            GUIDED PRACTICE 7.24
            The summary statistics in Figure 7.15 may be useful for this Guided Practice.13
@@ -6667,8 +5016,6 @@ nonsmoking group contains 100 cases.
 
               (b) Compute the standard error of the point estimate from part (a).
 
-
-
                                                    smoker  nonsmoker
                                     mean           6.78         7.18
                                                            st. dev.         1.43         1.60
@@ -6676,24 +5023,13 @@ nonsmoking group contains 100 cases.
 
                                 Figure 7.15: Summary statistics for the ncbirths data set.
 
-
                     13(a) The diﬀerence in sample means is an appropriate point estimate: ¯xn −¯xs = 0.40. (b) The standard error of
                  the estimate can be calculated using the standard error formula:
 
                        s     s     s                                                                 σ2n     σ2s        s2n      s2s      1.602    1.432                             SE =    +  ≈    +  =     +    = 0.26
                                           nn   ns     nn   ns      100     50
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 271
-
-7.3. DIFFERENCE OF TWO MEANS                                                              271
-
-
 
 EXAMPLE 7.25
 Complete the hypothesis test started in Example 7.23 and Guided Practice 7.24. Use a signiﬁcance
@@ -6708,12 +5044,7 @@ We can ﬁnd the test statistic for this test using the values from Guided Pract
 
 The p-value is represented by the two shaded tails in the following plot:
 
-
-
-
-
                                           µn −µs = 0 obs. diff
-
 
 We ﬁnd the single tail area using software (or the t-table in Appendix C.2). We’ll use the smaller of
 nn −1 = 99 and ns −1 = 49 as the degrees of freedom: df = 49. The one tail area is 0.065; doubling
@@ -6724,18 +5055,13 @@ is insuﬃcient evidence to say there is a diﬀerence in average birth weight o
 Carolina mothers who did smoke during pregnancy and newborns from North Carolina mothers who
 did not smoke during pregnancy.
 
-
 GUIDED PRACTICE 7.26
 We’ve seen much research suggesting smoking is harmful during pregnancy, so how could we fail to
 reject the null hypothesis in Example 7.25? 14
 
-
-
-
 GUIDED PRACTICE 7.27
 If we made a Type 2 Error and there is a diﬀerence, what could we have done diﬀerently in data
 collection to be more likely to detect the diﬀerence?15
-
 
      Public service announcement: while we have used this relatively small data set as an example,
 larger data sets show that women who smoke tend to have smaller newborns. In fact, some in the
@@ -6751,28 +5077,15 @@ tobacco industry actually had the audacity to tout that as a beneﬁt of smoking
 Fact check: the babies from women who smoke are not actually as healthy as the babies from women
 who do not smoke.16
 
-
-
-
-
    14It is possible that there is a diﬀerence but we did not detect it. If there is a diﬀerence, we made a Type 2 Error.
   15We could have collected more data.  If the sample sizes are larger, we tend to have a better shot at ﬁnding a
 diﬀerence if one exists. In fact, this is exactly what we would ﬁnd if we examined a larger data set!
   16You can watch an episode of John Oliver on Last Week Tonight to explore the present day oﬀenses of the tobacco
 industry. Please be aware that there is some adult language: youtu.be/6UsHHOCH4q8.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 272
 
-272                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-            7.3.3  Case study: two versions of a course exam
+7.3.3  Case study: two versions of a course exam
 
              An instructor decided to run two slight variations of the same exam. Prior to passing out the
              exams, she shuﬄed the exams together to ensure each student received a random version. Summary
@@ -6787,14 +5100,9 @@ industry. Please be aware that there is some adult language: youtu.be/6UsHHOCH4q
 
                               Figure 7.16: Summary statistics of scores for each exam version.
 
-
-
            GUIDED PRACTICE 7.28
              Construct hypotheses to evaluate whether the observed diﬀerence in sample means, ¯xA −¯xB = 5.3,
                    is due to chance. We will later evaluate these hypotheses using α = 0.01.17
-
-
-
 
            GUIDED PRACTICE 7.29
            To evaluate the hypotheses in Guided Practice 7.28 using the t-distribution, we must ﬁrst verify
@@ -6803,7 +5111,6 @@ industry. Please be aware that there is some adult language: youtu.be/6UsHHOCH4q
                (a) Does it seem reasonable that the scores are independent?
 
               (b) Any concerns about outliers?
-
 
                    After verifying the conditions for each sample and conﬁrming the samples are independent of
               each other, we are ready to conduct the test using the t-distribution. In this case, we are estimating
@@ -6822,39 +5129,20 @@ industry. Please be aware that there is some adult language: youtu.be/6UsHHOCH4q
                     If we have a computer handy, we can identify the degrees of freedom as 45.97. Otherwise we use the
                smaller of n1 −1 and n2 −1: df = 26.
 
-
-
-
-
                   17H0: the exams are equally diﬃcult, on average. µA −µB = 0. HA: one exam was more diﬃcult than the other,
                on average. µA −µB̸ = 0.
                     18(a) Since the exams were shuﬄed, the “treatment” in this case was randomly assigned, so independence within
               and between groups is satisﬁed. (b) The summary statistics suggest the data are roughly symmetric about the mean,
               and the min/max values don’t suggest any outliers of concern.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 273
 
-7.3. DIFFERENCE OF TWO MEANS                                                              273
-
-
-
-                                           T = 1.15
-
-
-
+T = 1.15
 
                      −3    −2    −1     0     1     2     3
 
         Figure 7.17: The t-distribution with 26 degrees of freedom and the p-value from
        exam example represented as the shaded areas.
-
-
 
 EXAMPLE 7.30
 Identify the p-value depicted in Figure 7.17 using df = 26, and provide a conclusion in the context
@@ -6867,9 +5155,6 @@ In Guided Practice 7.28, we speciﬁed that we would use α = 0.01. Since the p-
 α, we do not reject the null hypothesis. That is, the data do not convincingly show that one exam
 version is more diﬃcult than the other, and the teacher should not be convinced that she should
 add points to the Version B exam scores.
-
-
-
 
 7.3.4  Pooled standard deviation estimate (special topic)
 
@@ -6896,26 +5181,15 @@ of the standard deviation for each group and using a larger degrees of freedom p
 t-distribution. Both of these changes may permit a more accurate model of the sampling distribution
 of ¯x1 −¯x2, if the standard deviations of the two groups are indeed equal.
 
-
   POOL STANDARD DEVIATIONS ONLY AFTER CAREFUL CONSIDERATION
  A pooled standard deviation is only appropriate when background research indicates the pop-
   ulation standard deviations are nearly equal. When the sample size is large and the condition
   may be adequately checked with data, the beneﬁts of pooling the standard deviations greatly
   diminishes.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 274
 
-274                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-           Exercises
-
+Exercises
 
                7.23  Friday the 13th, Part I. In the early 1990’s, researchers in the UK collected data on traﬃc ﬂow, number
                  of shoppers, and traﬃc accident related emergency room admissions on Friday the 13th and the previous
@@ -6974,23 +5248,10 @@ of ¯x1 −¯x2, if the standard deviations of the two groups are indeed equal.
               n          23        23
                                                                                           0.99 carats   1 carat
 
-
-
-
-
                     19T.J. Scanlon et al. “Is Friday the 13th Bad For Your Health?” In: BMJ 307 (1993), pp. 1584–1586.
                   20H. Wickham. ggplot2: elegant graphics for data analysis. Springer New York, 2009.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 275
-
-7.3. DIFFERENCE OF TWO MEANS                                                              275
-
 
 7.25  Friday the 13th, Part II. The Friday the 13th study reported in Exercise 7.23 also provides data on
 traﬃc accident related emergency room admissions. The distributions of these counts from Friday the 6th
@@ -6999,9 +5260,7 @@ assume that conditions for inference are met.
 
           2                                     2                                     2
 
-
           1                                     1                                     1
-
 
           0                                     0                                     0
                     5           10                   5           10                            −5           0
@@ -7029,14 +5288,12 @@ You may assume the conditions for inference are met.
                           SD       $13.32     $16.13
                                n          23        23
 
-
 7.27  Chicken diet and weight, Part I. Chicken farming is a multi-billion dollar industry, and any methods
 that increase the growth rate of young chicks can reduce consumer costs while increasing company proﬁts,
 possibly by millions of dollars. An experiment was conducted to measure and compare the eﬀectiveness of
 various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into
 six groups, and each group was given a diﬀerent feed supplement. Below are some summary statistics from
 this data set along with box plots showing the distribution of weights by feed type.21
-
 
                                                                       G
    400                                                               G
@@ -7060,21 +5317,11 @@ this data set along with box plots showing the distribution of weights by feed t
  (c) What type of error might we have committed? Explain.
 (d) Would your conclusion change if we used α = 0.01?
 
-
    21Chicken Weights by Feed Type, from the datasets package in R..
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
 
 ### PDF page 276
 
-276                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.28  Fuel efﬁciency of manual and automatic cars, Part I. Each year the US Environmental Protection
+7.28  Fuel efﬁciency of manual and automatic cars, Part I. Each year the US Environmental Protection
              Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics
              on fuel eﬃciency (in miles/gallon) from random samples of cars with manual and automatic transmissions.
            Do these data provide strong evidence of a diﬀerence between the average fuel eﬃciency of cars with manual
@@ -7083,14 +5330,12 @@ this data set along with box plots showing the distribution of weights by feed t
 
                                                           35
 
-
                                  City MPG
                           Automatic  Manual               25
                 Mean     16.12       19.85
               SD         3.58        4.51
                  n          26         26
                                                           15
-
 
                                                                            automatic        manual
 
@@ -7109,7 +5354,6 @@ this data set along with box plots showing the distribution of weights by feed t
 
                                                           35
 
-
                        Hwy MPG
                           Automatic  Manual               25
                 Mean     22.92       27.88
@@ -7117,28 +5361,14 @@ this data set along with box plots showing the distribution of weights by feed t
                  n          26         26
                                                           15
 
-
                                                                            automatic        manual
 
                                                               Hwy MPG
 
-
-
-
-
                    22U.S. Department of Energy, Fuel Economy Data, 2012 Dataﬁle.
                    23U.S. Department of Energy, Fuel Economy Data, 2012 Dataﬁle.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.3 — Difference of two means
-
 ### PDF page 277
-
-7.3. DIFFERENCE OF TWO MEANS                                                              277
-
 
 7.31  Prison isolation experiment, Part I. Subjects from Central Prison in Raleigh, NC, volunteered for
 an experiment involving an “isolation” experience. The goal of the experiment was to ﬁnd a treatment
@@ -7157,8 +5387,6 @@ before and after the treatment. Distributions of the diﬀerences between pre an
 eﬀectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret
 results in the context of the data.24
 
-
-
    6                                                    4                                                4
 
    4
@@ -7175,7 +5403,6 @@ results in the context of the data.24
                           SD      12.3   7.94    8.57
                                n        14    14     14
 
-
 7.32  True / False: comparing means. Determine if the following statements are true or false, and explain
 your reasoning for statements you identify as false.
 
@@ -7185,28 +5412,13 @@ your reasoning for statements you identify as false.
 (c) We use a pooled standard error for calculating the standard error of the diﬀerence between means when
     sample sizes of groups are equal to each other.
 
-
-
-
-
    24Prison isolation experiment, stat.duke.edu/resources/datasets/prison-isolation.
-
----
-
-# OpenIntro Statistics, 4th edition
 
 ## 7.4 — Power calculations for a difference of means
 
 ### PDF page 278
 
-278                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-        7.4  Power calculations for a difference of means
-
-
-
-             Often times in experiment planning, there are two competing considerations:
+Often times in experiment planning, there are two competing considerations:
 
                 • We want to collect enough data that we can detect important eﬀects.
 
@@ -7217,12 +5429,10 @@ your reasoning for statements you identify as false.
               the subject are people, and we will determine an appropriate sample size where we can be 80% sure
               that we would detect any practically important eﬀects.25
 
-
             7.4.1  Going through the motions of a test
 
                  We’re going to go through the motions of a hypothesis test.  This will help us frame our
                calculations for determining an appropriate sample size for the study.
-
 
           EXAMPLE 7.31
              Suppose a pharmaceutical company has developed a new drug for lowering blood pressure, and they
@@ -7238,7 +5448,6 @@ your reasoning for statements you identify as false.
                    µtrmt −µctrl = 0.
            HA: The new drug’s performance diﬀers from the standard medication.
                    µtrmt −µctrl̸ = 0.
-
 
           EXAMPLE 7.32
            The researchers would like to run the clinical trial on patients with systolic blood pressures between
@@ -7256,8 +5465,6 @@ your reasoning for statements you identify as false.
              This may be an imperfect estimate of SE¯xtrmt−¯xctrl, since the standard deviation estimate we used
            may not be perfectly correct for this group of patients. However, it is suﬃcient for our purposes.
 
-
-
                  25Even though we don’t cover it explicitly, similar sample size planning is also helpful for observational studies.
                    26In this particular study, we’d generally measure each patient’s blood pressure at the beginning and end of the
                   study, and then the outcome measurement for the study would be the average change in blood pressure. That is, both
@@ -7266,17 +5473,7 @@ your reasoning for statements you identify as false.
                  In the calculations we perform here, we’ll suppose that 12 mmHg is the predicted standard deviation of a patient’s
                 blood pressure diﬀerence over the course of the study.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 279
-
-7.4. POWER CALCULATIONS FOR A DIFFERENCE OF MEANS                                   279
-
-
 
 EXAMPLE 7.33
 What does the null distribution of ¯xtrmt −¯xctrl look like?
@@ -7287,13 +5484,8 @@ under the null hypothesis, its mean would be 0.
 
                                                            Null distribution
 
-
-
-
-
         −9        −6        −3         0         3         6         9
                                                               xtrmt −xctrl
-
 
 EXAMPLE 7.34
 For what values of ¯xtrmt −¯xctrl would we reject the null hypothesis?
@@ -7306,21 +5498,17 @@ Lower 2.5%: For the normal model, this is 1.96 standard errors below 0, so any d
 Upper 2.5%: For the normal model, this is 1.96 standard errors above 0, so any diﬀerence larger
      than 1.96 × 1.70 = 3.332 mmHg.
 
-
 The boundaries of these rejection regions are shown below:
 
                                                            Null distribution
-
 
                                  Do not                   Reject H0                                        Reject H0                                                   reject H0
 
         −9        −6        −3         0         3         6         9
                                                               xtrmt −xctrl
 
-
      Next, we’ll perform some hypothetical calculations to determine the probability we reject the
 null hypothesis, if the alternative hypothesis were actually true.
-
 
 7.4.2  Computing the power for a 2-sample test
 
@@ -7333,19 +5521,9 @@ care about ﬁnding any eﬀect on blood pressure that is 3 mmHg or larger vs th
 Here, 3 mmHg is the minimum eﬀect size of interest, and we want to know how likely we are to
 detect this size of an eﬀect in the study.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 280
 
-280                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.35
+EXAMPLE 7.35
              Suppose we decided to move forward with 100 patients per treatment group and the new drug
               reduces blood pressure by an additional 3 mmHg relative to the standard medication. What is the
                probability that we detect a drop?
@@ -7361,17 +5539,12 @@ detect this size of an eﬀect in the study.
                                    Distribution with                              Null distribution
                                            µtrmt −µctrl = −3
 
-
-
-
                       −9         −6         −3          0          3          6          9
                                                                                              xtrmt −xctrl
-
 
                 • The rejection regions, which are outside of the dotted lines above.
 
                 • The fraction of the distribution that falls in the rejection region.
-
 
               In short, we need to calculate the probability that x < −3.332 for a normal distribution with mean
                 -3 and standard deviation 1.7. To do so, we ﬁrst shade the area we want to calculate:
@@ -7379,12 +5552,8 @@ detect this size of an eﬀect in the study.
                                 Distribution with                            Null distribution
                                        µtrmt −µctrl = −3
 
-
-
-
                     −9        −6        −3         0         3         6         9
                                                                                    xtrmt −xctrl
-
 
                We’ll use a normal approximation, which is good approximation when the degrees of freedom is
              about 30 or more. We’ll start by calculating the Z-score and ﬁnd the tail area using either statistical
@@ -7404,16 +5573,7 @@ detect this size of an eﬀect in the study.
                       if the sample size is too small, we’d need to revert back to using the t-distribution. We’ll discuss
                 this a bit further at the end of this section.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 281
-
-7.4. POWER CALCULATIONS FOR A DIFFERENCE OF MEANS                                   281
-
 
 7.4.3  Determining a proper sample size
 
@@ -7443,7 +5603,6 @@ a change of 3 mmHg was deemed to be the minimum diﬀerence that was practically
 ﬁrst step, we could calculate power for several diﬀerent sample sizes.  For instance, let’s try 500
 patients per group.
 
-
 GUIDED PRACTICE 7.36
 Calculate the power to detect a change of -3 mmHg when using a sample size of 500 per group.27
 
@@ -7455,7 +5614,6 @@ Calculate the power to detect a change of -3 mmHg when using a sample size of 50
 (c) Identify the alternative distribution when µtrmt −µctrl = −3.
 
 (d) Compute the probability we reject the null hypothesis.
-
 
     The researchers decided 3 mmHg was the minimum diﬀerence that was practically important,
 and with a sample size of 500, we can be very certain (97.7% or better) that we will detect any such
@@ -7474,7 +5632,6 @@ that’s close to 80%, but there’s a better way. We should solve the problem b
                   Distribution with                      Null distribution
                        µtrmt −µctrl = −3
 
-
        −9        −6        −3         0         3         6         9
                                                               xtrmt −xctrl
 The rejection regions are the areas on the outside of the two dotted lines and are at ±0.76 × 1.96 = ±1.49.
@@ -7482,19 +5639,9 @@ The rejection regions are the areas on the outside of the two dotted lines and a
 ﬁnd the tail area: Z = −1.49−(−3)0.76   = 1.99 →0.977. With 500 patients per group, we would be about 97.7% sure
 (or more) that we’d detect any eﬀects that are at least 3 mmHg in size.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 282
 
-282                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.37
+EXAMPLE 7.37
            What sample size will lead to a power of 80%?
 
                We’ll assume we have a large enough sample that the normal distribution is a good approximation
@@ -7512,7 +5659,6 @@ The rejection regions are the areas on the outside of the two dotted lines and a
 
                     −9        −6        −3         0         3         6         9
                                                                                    xtrmt −xctrl
-
 
                Additionally, the rejection region extends 1.96 × SE from the center of the null distribution for
           α = 0.05. This allows us to calculate the target distance between the center of the null and alternative
@@ -7532,7 +5678,6 @@ The rejection regions are the areas on the outside of the two dotted lines and a
                                    n =   × 122 + 122 = 250.88
                                                     32
 
-
          We should target 251 patients per group in order to achieve 80% power at the 0.05 signiﬁcance level
                 for this context.
 
@@ -7545,34 +5690,20 @@ The rejection regions are the areas on the outside of the two dotted lines and a
               degrees of freedom implied by the initial sample size. The revised sample size target would generally
              have then been a little larger.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 283
-
-7.4. POWER CALCULATIONS FOR A DIFFERENCE OF MEANS                                   283
-
-
 
 GUIDED PRACTICE 7.38
 Suppose the targeted power was 90% and we were using α = 0.01. How many standard errors should
 separate the centers of the null and alternative distribution, where the alternative distribution is
 centered at the minimum eﬀect size of interest?28
 
-
-
 GUIDED PRACTICE 7.39
 What are some considerations that are important in determining what the power should be for an
 experiment?29
 
-
      Figure 7.18 shows the power for sample sizes from 20 patients to 5,000 patients when α = 0.05
 and the true diﬀerence is -3. This curve was constructed by writing a program to compute the power
 for many diﬀerent sample sizes.
-
 
            1.0
 
@@ -7593,7 +5724,6 @@ for many diﬀerent sample sizes.
         about 250 to 350 observations doesn’t provide much additional value in detecting
        an eﬀect when α = 0.05.
 
-
     Power calculations for expensive or risky experiments are critical. However, what about experiments that are inexpensive and where the ethical considerations are minimal? For example, if we are
 doing ﬁnal testing on a new feature on a popular website, how would our sample size considerations
 change? As before, we’d want to make sure the sample is big enough. However, suppose the feature
@@ -7601,10 +5731,6 @@ has undergone some testing and is known to perform well (e.g. the website’s us
 feature). Then it may be reasonable to run a larger experiment if there’s value from having a more
 precise estimate of the feature’s eﬀect, such as helping guide the development of the next useful
 feature.
-
-
-
-
 
    28First, ﬁnd the Z-score such that 90% of the distribution is below it: Z = 1.28. Next, ﬁnd the cutoﬀs for the
 rejection regions: ±2.58. Then the diﬀerence in centers should be about 1.28 × SE + 2.58 × SE = 3.86 × SE.
@@ -7614,19 +5740,9 @@ rejection regions: ±2.58. Then the diﬀerence in centers should be about 1.28 
     • The cost of enrolling more patients.
     • The potential downside of not detecting an eﬀect of interest.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.4 — Power calculations for a difference of means
-
 ### PDF page 284
 
-284                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-           Exercises
-
+Exercises
 
                7.33  Increasing corn yield. A large farm wants to try out a new type of fertilizer to evaluate whether
                      it will improve the farm’s corn production. The land is broken into plots that produce an average of 1,215
@@ -7644,20 +5760,9 @@ rejection regions: ±2.58. Then the diﬀerence in centers should be about 1.28 
             new interface or the current interface. How many new enrollees do they need for each interface to detect an
                eﬀect size of 0.5 surveys per enrollee, if the desired power level is 80%?
 
----
-
-# OpenIntro Statistics, 4th edition
-
 ## 7.5 — Comparing many means with ANOVA
 
 ### PDF page 285
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  285
-
-
-7.5  Comparing many means with ANOVA
-
-
 
 Sometimes we want to compare means across many groups. We might initially think to do pairwise
 comparisons. For example, if there were three groups, we might be tempted to compare the ﬁrst
@@ -7667,7 +5772,6 @@ and do many comparisons, it is likely that we will eventually ﬁnd a diﬀerenc
 if there is no diﬀerence in the populations. Instead, we should apply a holistic test to check whether
 there is evidence that at least one pair groups are in fact diﬀerent, and this is where ANOVA saves
 the day.
-
 
 7.5.1  Core ideas of ANOVA
 
@@ -7690,7 +5794,6 @@ Generally we must check three conditions on the data before performing ANOVA:
 When these three conditions are met, we may perform an ANOVA to determine whether the data
 provide strong evidence against the null hypothesis that all the µi are equal.
 
-
 EXAMPLE 7.40
 College departments commonly run multiple lectures of the same introductory course each semester
 because of high demand. Consider a statistics department that runs three lectures of an introductory
@@ -7711,19 +5814,9 @@ diﬀerences among the group means. We will soon learn that assessing the variab
 means relative to the variability among individual observations within each group is key to ANOVA’s
 success.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 286
 
-286                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.41
+EXAMPLE 7.41
             Examine Figure 7.19. Compare groups I, II, and III. Can you visually determine if the diﬀerences in
               the group centers is due to chance or not? Now compare groups IV, V, and VI. Do these diﬀerences
              appear to be due to chance?
@@ -7734,9 +5827,6 @@ success.
                to have a higher mean than that of the other two groups. Investigating groups IV, V, and VI, we
                see the diﬀerences in the groups’ centers are noticeable because those diﬀerences are large relative
                to the variability in the individual observations within each group.
-
-
-
 
                              4
 
@@ -7752,9 +5842,6 @@ success.
                                                                    IV     V       VI
 
                              Figure 7.19: Side-by-side dot plot for the outcomes for six groups.
-
-
-
 
             7.5.2  Is batting performance related to player position in MLB?
 
@@ -7778,18 +5865,9 @@ success.
 
                                     Figure 7.20: Six cases from the bat18 data matrix.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 287
 
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  287
-
-
-                variable   description
+variable   description
                name       Player name
                team      The abbreviated name of the player’s team
                position  The player’s primary ﬁeld position (OF, IF, C)
@@ -7803,14 +5881,9 @@ success.
 
               Figure 7.21: Variables and their descriptions for the bat18 data set.
 
-
-
 GUIDED PRACTICE 7.42
 The null hypothesis under consideration is the following:  µOF = µIF = µC.  Write the null and
 corresponding alternative hypotheses in plain language.30
-
-
-
 
 EXAMPLE 7.43
 The player positions have been divided into three groups: outﬁeld (OF), inﬁeld (IF), and catcher (C).
@@ -7818,7 +5891,6 @@ What would be an appropriate point estimate of the on-base percentage by outﬁe
 
 A good estimate of the on-base percentage by outﬁelders would be the sample average of OBP for
 just those players whose position is outﬁeld: ¯xOF = 0.320.
-
 
      Figure 7.22 provides summary statistics for each group. A side-by-side box plot for the onbase percentage is shown in Figure 7.23. Notice that the variability appears to be approximately
 constant across groups; nearly constant variance across groups is an important assumption that
@@ -7831,8 +5903,6 @@ must be satisﬁed before we consider the ANOVA approach.
 
          Figure 7.22: Summary statistics of on-base percentage, split by player position.
 
-
-
                            0.45
 
                            0.40
@@ -7843,7 +5913,6 @@ must be satisﬁed before we consider the ANOVA approach.
                            0.25                                                        On−Base
                            0.20
 
-
                               OF              IF         C
                                                               Position
 
@@ -7851,23 +5920,12 @@ must be satisﬁed before we consider the ANOVA approach.
          three groups. With over a hundred players in both the inﬁeld and outﬁeld groups,
         the apparent outliers are not a concern.
 
-
   30H0: The average on-base percentage is equal across the three positions. HA: The average on-base percentage
 varies across some (or all) groups.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 288
 
-288                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-          EXAMPLE 7.44
+EXAMPLE 7.44
            The largest diﬀerence between the sample means is between the catcher and the outﬁelder positions.
               Consider again the original hypotheses:
 
@@ -7893,29 +5951,15 @@ varies across some (or all) groups.
               formally test diﬀerences for a few pairs of classes, we informally evaluated the other classes by eye
                before choosing the most extreme cases for a comparison.
 
-
                   For additional information on the ideas expressed in Example 7.44, we recommend reading
              about the prosecutor’s fallacy.31
                    In the next section we will learn how to use the F statistic and ANOVA to test whether observed
               diﬀerences in sample means could have happened just by chance even if there was no diﬀerence in
               the respective population means.
 
-
-
-
-
                     31See, for example, statmodeling.stat.columbia.edu/2007/05/18/the prosecutors.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 289
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  289
-
 
 7.5.3  Analysis of variance (ANOVA) and the F -test
 
@@ -7946,20 +5990,15 @@ the fraction of MSG and MSE:
 The MSG represents a measure of the between-group variability, and MSE measures the variability
 within each of the groups.
 
-
 GUIDED PRACTICE 7.45
 For the baseball data, MSG = 0.00803 and MSE = 0.00158.  Identify the degrees of freedom
 associated with MSG and MSE and verify the F statistic is approximately 5.077.34
-
 
    We can use the F statistic to evaluate the hypotheses in what is called an F -test. A p-value
 can be computed from the F statistic using an F distribution, which has two associated parameters:
 df1 and df2. For the F statistic in ANOVA, df1 = dfG and df2 = dfE. An F distribution with 2 and
 426 degrees of freedom, corresponding to the F statistic for the baseball hypothesis test, is shown
 in Figure 7.24.
-
-
-
 
    32Let ¯x represent the mean of outcomes across all groups. Then the mean square between groups is computed as
 
@@ -7987,34 +6026,18 @@ For additional details on ANOVA calculations, see www.openintro.org/d?ﬁle=stat
 n−k = 426. Then the F statistic is computed as the ratio of MSG and MSE: F = MSEMSG = 0.001580.00803 = 5.082 ≈5.077.
 (F = 5.077 was computed by using values for MSG and MSE that were not rounded.)
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 290
 
-290                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-
-
-
-                                                                           Small tail area
-
-
+Small tail area
 
                                        0          2          4          6          8
 
                                 Figure 7.24: An F distribution with df1 = 2 and df2 = 426.
 
-
                The larger the observed variability in the sample means (MSG) relative to the within-group
                observations (MSE), the larger F will be and the stronger the evidence against the null hypothesis.
              Because larger values of F represent stronger evidence against the null hypothesis, we use the upper
                   tail of the distribution to compute a p-value.
-
 
              THE F STATISTIC AND THE F -TEST
                 Analysis of variance (ANOVA) is used to test whether the mean outcome diﬀers across 2 or
@@ -8023,8 +6046,6 @@ n−k = 426. Then the F statistic is computed as the ratio of MSG and MSE: F = M
                  conditions are satisﬁed, the statistic F follows an F distribution with parameters df1 = k −1
               and df2 = n −k. The upper tail of the F distribution is used to represent the p-value.
 
-
-
           EXAMPLE 7.46
            The p-value corresponding to the shaded area in Figure 7.24 is equal to about 0.0066. Does this
               provide strong evidence against the null hypothesis?
@@ -8032,8 +6053,6 @@ n−k = 426. Then the F statistic is computed as the ratio of MSG and MSE: F = M
            The p-value is smaller than 0.05, indicating the evidence is strong enough to reject the null hypothesis
                at a signiﬁcance level of 0.05. That is, the data provide strong evidence that the average on-base
               percentage varies by player’s primary ﬁeld position.
-
-
 
             7.5.4  Reading an ANOVA table from software
 
@@ -8053,16 +6072,7 @@ n−k = 426. Then the F statistic is computed as the ratio of MSG and MSE: F = M
                       Figure 7.25: ANOVA summary for testing whether the average on-base percentage
                        diﬀers across player positions.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 291
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  291
-
 
 7.5.5  Graphical diagnostics for an ANOVA analysis
 
@@ -8093,32 +6103,20 @@ Approximately normal. As with one- and two-sample testing for means, the normali
 
                     Figure 7.26: Histograms of OBP for each ﬁeld position.
 
-
 Constant variance. The last assumption is that the variance in the groups is about equal from
      one group to the next. This assumption can be checked by examining a side-by-side box plot
       of the outcomes across the groups, as in Figure 7.23 on page 287. In this case, the variability
        is similar in the four groups but not identical. We see in Table 7.22 on page 287 that the
      standard deviation doesn’t vary much from one group to the next.
 
-
-
   DIAGNOSTICS FOR AN ANOVA ANALYSIS
   Independence is always important to an ANOVA analysis. The normality condition is very
   important when the sample sizes for each group are relatively small. The constant variance
   condition is especially important when the sample sizes diﬀer between groups.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 292
 
-292                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-            7.5.6  Multiple comparisons and controlling Type 1 Error rate
+7.5.6  Multiple comparisons and controlling Type 1 Error rate
 
              When we reject the null hypothesis in an ANOVA analysis, we might wonder, which of these
              groups have diﬀerent means? To answer this question, we compare the means of each possible pair
@@ -8128,7 +6126,6 @@ Constant variance. The last assumption is that the variance in the groups is abo
                   t-test, but we use a modiﬁed signiﬁcance level and a pooled estimate of the standard deviation across
               groups. Usually this pooled standard deviation can be found in the ANOVA table, e.g. along the
             bottom of Figure 7.25.
-
 
           EXAMPLE 7.47
             Example 7.40 on page 285 discussed three statistics lectures, all taught during the same semester.
@@ -8149,8 +6146,6 @@ Constant variance. The last assumption is that the variance in the groups is abo
            The box plots show approximately equal variability, which can be veriﬁed in Figure 7.27, supporting
               the constant variance assumption.
 
-
-
                                                  Class i   A   B   C
                                                   ni        58    55    51
                                                                               ¯xi       75.1   72.0   78.9
@@ -8159,9 +6154,7 @@ Constant variance. The last assumption is that the variance in the groups is abo
                       Figure 7.27: Summary statistics for the ﬁrst midterm scores in three diﬀerent
                          lectures of the same course.
 
-
                            100
-
 
                             80                                                         Scores
 
@@ -8175,23 +6168,11 @@ Constant variance. The last assumption is that the variance in the groups is abo
                       Figure 7.28: Side-by-side box plot for the ﬁrst midterm scores in three diﬀerent
                          lectures of the same course.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 293
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  293
-
-
 
 GUIDED PRACTICE 7.48
 ANOVA was conducted for the midterm data, and summary results are shown in Figure 7.29. What
 should we conclude?35
-
-
 
                            Df  Sum Sq  Mean Sq  F value  Pr(>F)
                      lecture       2    1290.11     645.06      3.48    0.0330
@@ -8206,7 +6187,6 @@ chapters, a two-sample t-test could be used to test for diﬀerences in each pos
 However, one pitfall was discussed in Example 7.44 on page 288: when we run so many tests, the
 Type 1 Error rate increases. This issue is resolved by using a modiﬁed signiﬁcance level.
 
-
   MULTIPLE COMPARISONS AND THE BONFERRONI CORRECTION FOR α
   The scenario of testing many pairs of groups is called multiple comparisons. The Bonferroni
   correction suggests that a more stringent signiﬁcance level is more appropriate for these tests:
@@ -8215,8 +6195,6 @@ Type 1 Error rate increases. This issue is resolved by using a modiﬁed signi�
 
   where K is the number of comparisons being considered (formally or informally).  If there are
   k groups, then usually all possible pairs are compared and K = k(k−1)2    .
-
-
 
 EXAMPLE 7.49
 In Guided Practice 7.48, you found strong evidence of diﬀerences in the average midterm grades
@@ -8244,24 +6222,12 @@ is larger than α∗, so there is not strong evidence of a diﬀerence in the me
 Lecture B versus Lecture C: The estimated diﬀerence and standard error are 6.9 and 2.65, respectively. This results in a T score of 2.60 on df = 161 and a two-sided p-value of 0.0102. This p-value
 is smaller than α∗. Here we ﬁnd strong evidence of a diﬀerence in the means of lectures B and C.
 
-
-
-
   35The p-value of the test is 0.0330, less than the default signiﬁcance level of 0.05. Therefore, we reject the null
 hypothesis and conclude that the diﬀerence in the average midterm scores are not due to chance.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 294
 
-294                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-         We might summarize the ﬁndings of the analysis from Example 7.49 using the following notation:
+We might summarize the ﬁndings of the analysis from Example 7.49 using the following notation:
 
                         µA ?= µB             µA ?= µC                    µB̸ = µC
 
@@ -8270,13 +6236,11 @@ hypothesis and conclude that the diﬀerence in the average midterm scores are n
               comparisons, we did not have suﬃcient evidence to reject the null hypothesis. Recall that failing to
                 reject H0 does not imply H0 is true.
 
-
              REJECT H0H0H0 WITH ANOVA BUT FIND NO DIFFERENCES IN GROUP MEANS
                     It is possible to reject the null hypothesis using ANOVA and then to not subsequently identify
                  diﬀerences in the pairwise comparisons. However, this does not invalidate the ANOVA conclu-
                   sion. It only means we have not been able to successfully identify which speciﬁc groups diﬀer
                   in their means.
-
 
                The ANOVA procedure examines the big picture:  it considers all groups simultaneously to
               decipher whether there is evidence that some diﬀerence exists. Even if the test indicates that there
@@ -8290,19 +6254,9 @@ hypothesis and conclude that the diﬀerence in the average midterm scores are n
              be very strong. It is only when the SEC considers all the data that they identify the pattern. This
                    is eﬀectively the strategy of ANOVA: stand back and consider all the groups simultaneously.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 295
 
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  295
-
-
 Exercises
-
 
 7.35   Fill in the blank. When doing an ANOVA, you observe large diﬀerences in means between groups.
 Within the ANOVA framework, this would most likely be interpreted as evidence strongly favoring the
@@ -8341,7 +6295,6 @@ statistics are shown below.
         100
                      casein  horsebean  linseed  meatmeal  soybean  sunflower
 
-
 7.38  Teaching descriptive statistics. A study compared ﬁve diﬀerent methods for teaching descriptive
 statistics.  The ﬁve methods were traditional lecture and discussion, programmed textbook instruction,
 programmed text with lectures, computer instruction, and computer instruction with lectures. 45 students
@@ -8352,18 +6305,9 @@ were randomly assigned, 9 to each method. After completing the course, students 
 (b) What are the degrees of freedom associated with the F-test for evaluating these hypotheses?
 (c) Suppose the p-value for this test is 0.0168. What is the conclusion?
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 296
 
-296                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.39  Coffee, depression, and physical activity. Caﬀeine is the world’s most widely used stimulant, with
+7.39  Coffee, depression, and physical activity. Caﬀeine is the world’s most widely used stimulant, with
                approximately 80% consumed in the form of coﬀee. Participants in a study investigating the relationship
               between coﬀee consumption and exercise were asked to report the number of hours they spent per week on
               moderate (e.g., brisk walking) and vigorous (e.g., strenuous sports and jogging) exercise. Based on these
@@ -8413,23 +6357,10 @@ were randomly assigned, 9 to each method. After completing the course, students 
                 across some (or all) groups. Check conditions and describe any assumptions you must make to proceed with
                the test.
 
-
-
-
-
                  36M. Lucas et al. “Coﬀee, caﬀeine, and risk of depression among women”. In: Archives of internal medicine 171.17
                   (2011), p. 1571.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 297
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  297
-
 
 7.41 GPA and major. Undergraduate students taking an introductory statistics course at Duke University
 conducted a survey about GPA and major. The side-by-side box plots show the distribution of GPA among
@@ -8443,7 +6374,6 @@ three groups of majors. Also provided is the ANOVA output.
 
                                     2.5                                                    G
                                           Arts and Humanities   Natural Sciences     Social Sciences
-
 
                                Df  Sum Sq  Mean Sq  F value  Pr(>F)
                     major        2      0.03      0.015     0.185    0.8313
@@ -8471,7 +6401,6 @@ educational attainment and relevant summary statistics that will be helpful in c
                  0
                          Less than HS       HS               Jr Coll          Bachelor's        Graduate
 
-
 (a) Write hypotheses for evaluating whether the average number of hours worked varies across the ﬁve
     groups.
 (b) Check conditions and describe any assumptions you must make to proceed with the test.
@@ -8498,30 +6427,19 @@ explain your reasoning for statements you identify as false.
 
    37National Opinion Research Center, General Social Survey, 2018.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 298
 
-298                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.44  Child care hours. The China Health and Nutrition Survey aims to examine the eﬀects of the health,
+7.44  Child care hours. The China Health and Nutrition Survey aims to examine the eﬀects of the health,
                  nutrition, and family planning policies and programs implemented by national and local governments.38 It,
                   for example, collects information on number of hours Chinese parents spend taking care of their children
               under age 6. The side-by-side box plots below show the distribution of this variable by educational attainment
                  of the parent. Also provided below is the ANOVA output for comparing average hours across educational
                attainment categories.
 
-
                    150
                                   hours                   100
                            care
                                   Child 50
-
 
                      0
                                 Primary school     Lower middle school   Upper middle school   Technical or vocational        College
@@ -8556,7 +6474,6 @@ explain your reasoning for statements you identify as false.
                                       SD      12.3   7.94    8.57
                                               n        14    14     14
 
-
                7.46  True / False: ANOVA, Part II. Determine if the following statements are true or false, and explain
               your reasoning for statements you identify as false.
                             If the null hypothesis that the means of four groups are all the same is rejected using ANOVA at a 5%
@@ -8567,26 +6484,11 @@ explain your reasoning for statements you identify as false.
                  (c) the pairwise analysis will identify at least one pair of means that are signiﬁcantly diﬀerent.
                 (d) the appropriate α to be used in pairwise comparisons is 0.05 / 4 = 0.0125 since there are four groups.
 
-
-
-
-
               38UNC Carolina Population Center, China Health and Nutrition Survey, 2006.
-
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
 
 ### PDF page 299
 
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  299
-
-
 Chapter exercises
-
-
 
 7.47  Gaming and distracted eating, Part I. A group of researchers are interested in the possible eﬀects of
 distracting stimuli during eating, such as an increase or decrease in the amount of food consumption. To test
@@ -8634,25 +6536,12 @@ students. Sample statistics for this distribution are also provided.
     at that college. What measures do we use to quantify the variability of this estimate? Compute this
     quantity using the data from the original sample.
 
-
-
-
-
    39R.E. Oldham-Cooper et al. “Playing a computer game during lunch aﬀects fullness, memory for lunch, and later
 snack intake”. In: The American Journal of Clinical Nutrition 93.2 (2011), p. 308.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 300
 
-300                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.51 Hen eggs. The distribution of the number of eggs laid by a certain species of hen during their breeding
+7.51 Hen eggs. The distribution of the number of eggs laid by a certain species of hen during their breeding
                period has a mean of 35 eggs with a standard deviation of 18.2. Suppose a group of researchers randomly
               samples 45 hens of this species, counts the number of eggs laid during their breeding period, and records
                the sample mean. They repeat this 1,000 times, and build a distribution of sample means.
@@ -8703,23 +6592,13 @@ snack intake”. In: The American Journal of Clinical Nutrition 93.2 (2011), p. 
                 (d) Using your answer from part (c) and that the original experiment was a 1% vs 1% experiment to
                 recommend an experiment size to the team.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 301
-
-7.5. COMPARING MANY MEANS WITH ANOVA                                                  301
-
 
 7.54  Torque on a rusty bolt.  Project Farm is a YouTube channel that routinely compares diﬀerent
 products. In one episode, the channel evaluated diﬀerent options for loosening rusty bolts.40 Eight options
 were evaluated, including a control group where no treatment was given (“none” in the graph), to determine
 which was most eﬀective. For all treatments, there were four bolts tested, except for a treatment of heat
 with a blow torch, where only two data points were collected. The results are shown in the ﬁgure below:
-
 
                     Heat
               WD−40
@@ -8783,18 +6662,9 @@ assumptions you must make as you proceed with your calculations and conclusions.
 
    40Project Farm on YouTube, youtu.be/xUEob2oAKVs, April 16, 2018.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 7.5 — Comparing many means with ANOVA
-
 ### PDF page 302
 
-302                                CHAPTER 7. INFERENCE FOR NUMERICAL DATA
-
-
-               7.56  Age at ﬁrst marriage, Part I. The National Survey of Family Growth conducted by the Centers
+7.56  Age at ﬁrst marriage, Part I. The National Survey of Family Growth conducted by the Centers
                   for Disease Control gathers information on family life, marriage and divorce, pregnancy, infertility, use of
                 contraception, and men’s and women’s health. One of the variables collected on this survey is the age at
                 ﬁrst marriage. The histogram below shows the distribution of ages at ﬁrst marriage of 5,534 randomly
@@ -8834,32 +6704,16 @@ assumptions you must make as you proceed with your calculations and conclusions.
                                          H0 : ¯x̸ = 23.44 years old
                                    HA : ¯x = 23.44 years old
 
-
-
-
-
                    41Centers for Disease Control and Prevention, National Survey of Family Growth, 2010.
-
----
-
-# OpenIntro Statistics, 4th edition
 
 ## 8.1 — Fitting a line, residuals, and correlation
 
 ### PDF page 303
 
-303
-
 Chapter 8
 
 Introduction to linear
 regression
-
-
-
-
-
-8.1 Fitting a line, residuals, and correlation
 
 8.2 Least squares regression
 
@@ -8867,21 +6721,9 @@ regression
 
 8.4 Inference for linear regression
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 304
 
-304
-
-
-
-
-
-          Linear regression is a very powerful statistical technique. Many people
+Linear regression is a very powerful statistical technique. Many people
 
          have some familiarity with regression just from reading the news, where
 
@@ -8891,32 +6733,14 @@ regression
 
          two numerical variables.
 
-
-
-
-
          For videos, slides, and other resources, please visit
         www.openintro.org/os
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 305
 
-8.1. FITTING A LINE, RESIDUALS, AND CORRELATION                                         305
-
-
-8.1  Fitting a line, residuals, and correlation
-
-
-
-      It’s helpful to think deeply about the line ﬁtting process. In this section, we deﬁne the form
+It’s helpful to think deeply about the line ﬁtting process. In this section, we deﬁne the form
 of a linear model, explore criteria for what makes a good ﬁt, and introduce a new statistic called
 correlation.
-
 
 8.1.1  Fitting a line to data
 
@@ -8931,7 +6755,6 @@ value of x. This is unrealistic in almost any natural process. For example, if w
 may oﬀer a prospective student (y). However, the prediction would be far from perfect, since other
 factors play a role in ﬁnancial support beyond a family’s ﬁnances.
 
-
                      $2k                                   G G
                                                          G                                                     Purchase
                                                   G
@@ -8940,7 +6763,6 @@ factors play a role in ﬁnancial support beyond a family’s ﬁnances.
                                               G                                 Share
                      $1k                  G                    the                    G
              of
-
 
                               G                           Cost          G   G
 
@@ -8952,7 +6774,6 @@ factors play a role in ﬁnancial support beyond a family’s ﬁnances.
         a trading company to purchase Target Corporation stock (ticker TGT, December
          28th, 2018), and the total cost of the shares were reported. Because the cost is
        computed using a linear formula, the linear ﬁt is perfect.
-
 
      Linear regression is the statistical method for ﬁtting a line to data where the relationship
 between two variables, x and y, can be modeled by a straight line with some error:
@@ -8971,18 +6792,9 @@ plot shows a relatively strong downward linear trend, where the remaining variab
 around the line is minor relative to the strength of the relationship between x and y. The second
 plot shows an upward trend that, while evident, is not as strong as the ﬁrst. The last plot shows a
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 306
 
-306                            CHAPTER 8. INTRODUCTION TO LINEAR REGRESSION
-
-
-                                                                               400
+400
                50
                                              20000
                                                                                200
@@ -8990,13 +6802,11 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
                 0                            10000
                                                                                  0
 
-
                                                  0              −50                                                            −200
                     −50       0       50          500     1000     1500                 0      20     40
 
                       Figure 8.2: Three data sets where a linear model may be useful even though the
                      data do not all fall exactly on the line.
-
 
                            15                                   G  G  G  G  G
                                                                         G                 G                          (m)                                   G                                                                                              G
@@ -9015,7 +6825,6 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
                       Figure 8.3: A linear model is not useful in this nonlinear case. These data are from
                     an introductory physics experiment.
 
-
               very weak downward trend in the data, so slight we can hardly notice it. In each of these examples,
            we will have some uncertainty regarding our estimates of the model parameters, β0 and β1. For
                instance, we might wonder, should we move the line up or down a little, or should we tilt it more
@@ -9025,7 +6834,6 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
              between the variables, is not helpful. One such case is shown in Figure 8.3 where there is a very clear
                relationship between the variables even though the trend is not linear. We discuss nonlinear trends
                 in this chapter and the next, but details of ﬁtting nonlinear models are saved for a later course.
-
 
             8.1.2  Using linear regression to predict possum head lengths
 
@@ -9039,26 +6847,11 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
                relationship is not perfectly linear, it could be helpful to partially explain the connection between
                these variables with a straight line.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 307
 
-8.1. FITTING A LINE, RESIDUALS, AND CORRELATION                                         307
-
-
-
-
-
-               Figure 8.4: The common brushtail possum of Australia.
+Figure 8.4: The common brushtail possum of Australia.
        —————————–
                Photo by Greg Schechter (https://ﬂic.kr/p/9BAFbR). CC BY 2.0 license.
-
-
-
 
                100
 
@@ -9068,7 +6861,6 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
 
                 85
 
-
                     75          80          85          90          95
 
                                                     Total Length (cm)
@@ -9076,7 +6868,6 @@ plot shows an upward trend that, while evident, is not as strong as the ﬁrst. 
         Figure 8.5: A scatterplot showing head length against total length for 104 brushtail
         possums. A point representing a possum with head length 94.1mm and total length
        89cm is highlighted.
-
 
    We want to describe the relationship between the head length and total length variables in the
 possum data set using a line. In this example, we will use the total length as the predictor variable,
@@ -9097,19 +6888,9 @@ The estimate may be viewed as an average: the equation predicts that possums wit
 of 80 cm will have an average head length of 88.2 mm. Absent further information about an 80 cm
 possum, the prediction for head length that uses the average is a reasonable estimate.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 308
 
-308                            CHAPTER 8. INTRODUCTION TO LINEAR REGRESSION
-
-
-
-                            100
+100
                                           (mm)
                              95
                                                                Length
@@ -9117,14 +6898,11 @@ possum, the prediction for head length that uses the average is a reasonable est
                                           Head
                              85
 
-
                                  75         80         85         90         95
                                                                    Total Length (cm)
 
                       Figure 8.6: A reasonable linear model was ﬁt to represent the relationship between
                     head length and total length.
-
-
 
           EXAMPLE 8.1
            What other variables might help us predict the head length of a possum besides its length?
@@ -9133,8 +6911,6 @@ possum, the prediction for head length that uses the average is a reasonable est
                    it would diﬀer for possums from one region of Australia versus another region. In Chapter 9, we’ll
                learn about how we can include more than one predictor. Before we get there, we ﬁrst need to better
              understand how to best build a simple linear model with one predictor.
-
-
 
             8.1.3  Residuals
 
@@ -9153,7 +6929,6 @@ possum, the prediction for head length that uses the average is a reasonable est
              a residual is usually discussed in terms of its absolute value. For example, the residual for “△” is
                 larger than that of “×” because | −4| is larger than | −1|.
 
-
               RESIDUAL: DIFFERENCE BETWEEN OBSERVED AND EXPECTED
              The residual of the ith observation (xi, yi) is the diﬀerence of the observed response (yi) and
                 the response we would predict based on the model ﬁt (ˆyi):
@@ -9162,17 +6937,7 @@ possum, the prediction for head length that uses the average is a reasonable est
 
            We typically identify ˆyi by plugging xi into the model.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 309
-
-8.1. FITTING A LINE, RESIDUALS, AND CORRELATION                                         309
-
-
 
 EXAMPLE 8.2
 The linear ﬁt shown in Figure 8.6 is given as ˆy = 41 + 0.59x. Based on this line, formally compute
@@ -9190,17 +6955,13 @@ Next we compute the diﬀerence of the actual head length and the predicted head
 The model’s error is e× = −1.1mm, which is very close to the visual estimate of -1mm. The negative
 residual indicates that the linear model overpredicted head length for this particular possum.
 
-
 GUIDED PRACTICE 8.3
 If a model underestimates an observation, will the residual be positive or negative? What about if
 it overestimates the observation?1
 
-
-
 GUIDED PRACTICE 8.4
 Compute the residuals for the “+” observation (85.0, 98.6) and the “△” observation (95.5, 94.0) in
 the ﬁgure using the linear relationship ˆy = 41 + 0.59x.2
-
 
      Residuals are helpful in evaluating how well a linear model ﬁts a data set. We often display
 them in a residual plot such as the one shown in Figure 8.7 for the regression line in Figure 8.6.
@@ -9209,10 +6970,7 @@ the residual. For instance, the point (85.0, 98.6)+ had a residual of 7.45, so i
 is placed at (85.0, 7.45). Creating a residual plot is sort of like tipping the scatterplot over so the
 regression line is horizontal.
 
-
-
                  5
-
 
                  0                                               Residuals
 
@@ -9222,8 +6980,6 @@ regression line is horizontal.
                                                   Total Length (cm)
 
                      Figure 8.7: Residual plot for the model in Figure 8.6.
-
-
 
     1If a model underestimates an observation, then the model estimate is below the actual. The residual, which is
 the actual observation value minus the model estimate, must then be positive. The opposite is true when the model
@@ -9239,24 +6995,10 @@ Then the residual is given by
 This was close to the earlier estimate of 7.
 (△) ˆy△= 41 + 0.59x△= 97.3. e△= y△−ˆy△= −3.3, close to the estimate of -4.
 
----
-
-# OpenIntro Statistics, 4th edition
-
-## 8.1 — Fitting a line, residuals, and correlation
-
 ### PDF page 310
 
-310                            CHAPTER 8. INTRODUCTION TO LINEAR REGRESSION
-
-
-
-
-
-                      Figure 8.8: Sample data with their best ﬁtting lines (top row) and their corre-
+Figure 8.8: Sample data with their best ﬁtting lines (top row) and their corre-
                      sponding residual plots (bottom row).
-
-
 
           EXAMPLE 8.5
            One purpose of residual plots is to identify characteristics or patterns still apparent in data after
@@ -9276,19 +7018,14 @@ This was close to the earlier estimate of 7.
               parameter, labeled b1, is not zero, but we might wonder if this could just be due to chance. We will
               address this sort of scenario in Section 8.4.
 
-
-
-
             8.1.4  Describing linear relationships with correlation
 
             We’ve seen plots with strong linear relationships and others with very weak linear relationships. It
              would be useful if we could quantify the strength of these linear relationships with a statistic.
 
-
              CORRELATION: STRENGTH OF A LINEAR RELATIONSHIP
                Correlation, which always takes values between -1 and 1, describes the strength of the linear
                   relationship between two variables. We denote the correlation by R.
-
 
             We can compute the correlation using a formula, just as we did with the sample mean and stan-
              dard deviation. This formula is rather complex,3 and like with other statistics, we generally perform

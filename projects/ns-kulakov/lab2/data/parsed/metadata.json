@@ -9,5 +9,5 @@
   "nonempty_pages": 143,
   "source_url": "https://www.openintro.org/book/os/",
   "parser": "PyMuPDF page-structured",
-  "parser_version": 3
+  "parser_version": 6
 }

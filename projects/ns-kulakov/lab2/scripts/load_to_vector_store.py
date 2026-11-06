@@ -1,7 +1,6 @@
 from functools import lru_cache
 from uuid import NAMESPACE_URL, uuid5
 import numpy as np
-from qdrant_client import QdrantClient
 
 from io_utils import read_jsonl
 from build_index import build_index, index_path
@@ -21,12 +20,13 @@ def collection_name(config):
     return f"reprolab_{index_path(config).name}_m{config['hnsw_m']}_ef{config['hnsw_ef_construct']}"
 
 
-def load_to_vector_store(config, reset=False):
+def load_to_vector_store(config, reset=False, rebuild=False):
     from qdrant_client import models
-    directory = build_index(config)
+    directory = build_index(config, rebuild=rebuild)
+    reset = reset or rebuild
     chunks = read_jsonl(directory / "chunks.jsonl")
     vectors = np.load(directory / "vectors.npy", mmap_mode="r")
-    db = QdrantClient(url=config["qdrant_url"], timeout=60)
+    db = client(config)
     name = collection_name(config)
     if reset and db.collection_exists(name):
         db.delete_collection(name)

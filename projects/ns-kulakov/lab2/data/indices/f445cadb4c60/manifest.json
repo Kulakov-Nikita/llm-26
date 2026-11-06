@@ -1,0 +1,19 @@
+{
+  "document_sha256": "f0d07d331c3c551a110076f35741bc2c097f0652c2a35e7bc255f3bf896c7cba",
+  "chunking": {
+    "strategy": "markdown",
+    "chunk_size": 600,
+    "overlap": 100,
+    "include_headers": true
+  },
+  "embedding_model": "BAAI/bge-m3",
+  "pages": [
+    168,
+    310
+  ],
+  "chunk_count": 226,
+  "vectors_shape": [
+    226,
+    1024
+  ]
+}

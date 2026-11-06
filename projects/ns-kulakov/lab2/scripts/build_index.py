@@ -2,94 +2,162 @@ import re
 import hashlib
 import json
 import shutil
+import unicodedata
 
 import numpy as np
+from langchain_text_splitters import RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter
 
 from io_utils import load_json, read_jsonl, save_json, write_jsonl, file_sha256
 from config import ROOT
 from embeddings import tokenizer, embedder
 
 
+def _heading_key(value):
+    """Normalize a section heading independently of case, spacing and PDF ligatures."""
+    return " ".join(re.findall(r"[a-z0-9]+", unicodedata.normalize("NFKC", value).casefold()))
+
+
+def _is_section_heading(line, section_id, section_title, page_number):
+    # A running header can have the physical page number before or after its title:
+    # "5.3. HYPOTHESIS TESTING FOR A PROPORTION 189".
+    tokens = _heading_key(line).split()
+    page = str(page_number)
+    if tokens and tokens[0] == page:
+        tokens.pop(0)
+    if tokens and tokens[-1] == page:
+        tokens.pop()
+    normalized = " ".join(tokens)
+    title = _heading_key(section_title)
+    number = _heading_key(section_id)
+    return bool(title and normalized in (title, f"{number} {title}"))
+
+
+def _clean_page_text(text, section_id, section_title, page_number, headings=()):
+    """Remove PDF section/running headers, but keep meaningful subsection titles.
+
+    Match full headings even when PyMuPDF extracts them across 2–3 lines.
+    Only standalone heading lines are removed, never a phrase in body prose.
+    """
+    lines = text.splitlines()
+    nonempty = [(i, line.strip()) for i, line in enumerate(lines) if line.strip()]
+    all_headings = list(dict.fromkeys([(section_id, section_title), *headings]))
+    removed = set()
+
+    for i, (line_index, line) in enumerate(nonempty):
+        # Remove full main-section headings, including split headings and running
+        # section headers with a page number, anywhere in the PDF page text.
+        for width in (3, 2, 1):
+            group = nonempty[i:i + width]
+            if len(group) != width:
+                continue
+            candidate = " ".join(part for _, part in group)
+            if any(_is_section_heading(candidate, sid, title, page_number)
+                   for sid, title in all_headings):
+                removed.update(idx for idx, _ in group)
+                break
+
+        # Page number and "CHAPTER ..." in the running header occur at the edges.
+        near_edge = i < 3 or i >= len(nonempty) - 3
+        if near_edge and (line == str(page_number)
+                or re.fullmatch(rf"(?:{page_number}\s+)?CHAPTER\s+\d+(?:\.\s*|\s+).*(?:\s+{page_number})?", line, re.I)):
+            removed.add(line_index)
+
+        # Do not allow Markdown page headings from previously processed data
+        # to leak into the content sent to a LangChain splitter.
+        if re.fullmatch(r"(?:#{1,6}\s*)?PDF\s+page\s+\d+", line, re.I):
+            removed.add(line_index)
+        if re.fullmatch(r"#{1,6}\s*OpenIntro Statistics(?:,?\s*4th edition)?", line, re.I):
+            removed.add(line_index)
+
+    cleaned = "\n".join(line.rstrip() for i, line in enumerate(lines) if i not in removed)
+    return re.sub(r"\n{3,}", "\n\n", cleaned).strip()
+
+
 def make_chunks(pages, config):
-    tok = tokenizer(config["embedding_model"])
+    tok = tokenizer(config.get("llm_tokenizer", "Qwen/Qwen3-4B-Instruct-2507"))
+    count = lambda text: len(tok.encode(text, add_special_tokens=False))
     chunks = []
+    chunk_size = int(config["chunk_size"])
+    overlap = int(config["overlap"])
+    # Input pages are cleaned at parse time; clean again for callers providing
+    # already saved/legacy pages.jsonl rows.
+    section_headings = list(dict.fromkeys(
+        (row["section_id"], row["section_title"]) for row in pages
+    ))
+
     for page in pages:
-        text = page["text"].strip()
+        section_id = page["section_id"]
+        section_title = page["section_title"]
+        page_number = int(page["source_pdf_page"])
+        text = _clean_page_text(page["text"], section_id, section_title, page_number, section_headings)
         if not text:
             continue
-        header = (f"{page['section_id']} {page['section_title']} | PDF page {page['source_pdf_page']}\n"
-                  if config["include_headers"] else "")
-        limit = int(config["chunk_size"]) - len(tok.encode(header, add_special_tokens=False))
-        if limit <= int(config["overlap"]):
+
+        # Section heading is injected exactly once into every chunk. The matching
+        # heading extracted from the PDF is removed above to avoid duplication.
+        header = f"{section_id} — {section_title}\n" if config["include_headers"] else ""
+        reserve = count(header) + (4 if header else 0)
+        size = chunk_size - reserve
+        if size <= overlap:
             raise ValueError("Заголовок и overlap слишком велики для выбранного chunk_size")
-        spans = tok(text, add_special_tokens=False, return_offsets_mapping=True)["offset_mapping"]
-        start = 0
-        while start < len(spans):
-            end = min(start + limit, len(spans))
-            if end < len(spans):
-                left = spans[start + int((end - start) * 0.65)][0]
-                right = spans[end - 1][1]
-                separators = ["\n\n"] if config["strategy"] == "markdown" else ["\n\n", "\n", ". "]
-                for separator in separators:
-                    cut = text.rfind(separator, left, right)
-                    if cut >= 0:
-                        end = max(start + 1, next((i for i in range(end, start, -1)
-                                                   if spans[i - 1][1] <= cut + len(separator)), end))
-                        break
-            body = header + text[spans[start][0]:spans[end - 1][1]].strip()
-            while len(tok.encode(body, add_special_tokens=False)) > int(config["chunk_size"]) and end > start + 1:
-                end -= 1
-                body = header + text[spans[start][0]:spans[end - 1][1]].strip()
-            chunk_id = hashlib.sha256(f"{page['source_pdf_page']}:{start}:{body}".encode()).hexdigest()[:24]
+
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=size, chunk_overlap=overlap, length_function=count
+        )
+        if config["strategy"] == "markdown":
+            markdown = f"## {section_id} — {section_title}\n\n### PDF page {page_number}\n\n{text}"
+            documents = MarkdownHeaderTextSplitter(
+                headers_to_split_on=[("##", "section"), ("###", "pdf_page")],
+                strip_headers=True,
+            ).split_text(markdown)
+            parts = [part for document in documents for part in splitter.split_text(document.page_content)]
+        else:
+            parts = splitter.split_text(text)
+
+        for i, part in enumerate(parts):
+            body = header + part
+            token_count = count(body)
+            if token_count > chunk_size:
+                raise ValueError(
+                    f"Размер чанка {token_count} превышает chunk_size={chunk_size} "
+                    f"(страница PDF {page_number})"
+                )
+            chunk_id = hashlib.sha256(f"{page_number}:{i}:{body}".encode()).hexdigest()[:24]
             chunks.append({
                 "chunk_id": chunk_id, "document_id": page["document_id"],
-                "section_id": page["section_id"], "section_title": page["section_title"],
-                "pdf_page": page["source_pdf_page"], "source_url": config["source_url"],
-                "token_count": len(tok.encode(body, add_special_tokens=False)), "text": body,
+                "section_id": section_id, "section_title": section_title,
+                "pdf_page": page_number, "source_file": page.get("source_file", config["source"]),
+                "source_url": page.get("source_url", config["source_url"]),
+                "publication_year": page.get("publication_year"),
+                "token_count": token_count, "text": body,
             })
-            if end == len(spans):
-                break
-            start = max(start + 1, end - int(config["overlap"]))
     return chunks
 
 
-def index_path(config, fresh=False):
+def index_path(config):
     key = {
         "sha": file_sha256(config["source"]),
+        "document_id": config["document_id"],
+        "source_url": config["source_url"],
         "chunking": [config[k] for k in ("strategy", "chunk_size", "overlap", "include_headers")],
-        "embedding": config["embedding_model"], "pages": config["pages"], "schema": 3,
+        "embedding": config["embedding_model"],
+        "chunk_tokenizer": config.get("llm_tokenizer", "Qwen/Qwen3-4B-Instruct-2507"),
+        "pages": config["pages"], "schema": 7,
     }
     parent = ROOT / "data/indices"
     parent.mkdir(parents=True, exist_ok=True)
     digest = hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()[:12]
-    current = parent / digest
-    if fresh or current.exists():
-        return current
-    # Reuse compatible indices produced by the earlier project layout.
-    metadata_path = ROOT / "data/parsed/metadata.json"
-    if metadata_path.exists() and load_json(metadata_path).get("parser_version", 2) == 2:
-        for manifest_path in sorted(parent.glob("*/manifest.json")):
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            old_chunking = manifest.get("config", {}).get("chunking", manifest.get("chunking", {}))
-            project = manifest.get("config", {}).get("project", {})
-            if (manifest.get("document_sha256") == key["sha"]
-                    and project.get("pdf_page_start", config["pages"][0]) == config["pages"][0]
-                    and project.get("pdf_page_end", config["pages"][1]) == config["pages"][1]
-                    and old_chunking.get("strategy") == config["strategy"]
-                    and old_chunking.get("chunk_size") == config["chunk_size"]
-                    and old_chunking.get("overlap") == config["overlap"]
-                    and old_chunking.get("include_headers") == config["include_headers"]
-                    and manifest.get("embedding_model") == config["embedding_model"]):
-                return manifest_path.parent
-    return current
+    return parent / digest
 
 
 def parse_documents(config):
     import pymupdf
-    
+
     source = ROOT / config["source"]
     section_map = load_json("data/parsed/section_map.json")
-    pages, markdown = [], []
+    pages, markdown = [], ["# OpenIntro Statistics, 4th edition"]
+    section_headings = [(item["section_id"], item["title"]) for item in section_map]
+    previous_section = None
     with pymupdf.open(source) as pdf:
         first, last = map(int, config["pages"])
         if first < 1 or last > len(pdf) or last - first + 1 < int(config["min_pages"]):
@@ -100,8 +168,12 @@ def parse_documents(config):
             section_id = section["section_id"] if section else "unassigned"
             title = section["title"] if section else "Unknown section"
             text = pdf[number - 1].get_text(sort=True).replace("\u00ad", "")
-            text = re.sub(r"(?<=\w)-\n(?=\w)", "", text).strip()
-            markdown.append(f"# OpenIntro Statistics, 4th edition\n\n## {section_id} — {title}\n\n### PDF page {number}\n\n{text}")
+            text = re.sub(r"(?<=\w)-\n(?=\w)", "", text)
+            text = _clean_page_text(text, section_id, title, number, section_headings)
+            if section_id != previous_section:
+                markdown.append(f"## {section_id} — {title}")
+                previous_section = section_id
+            markdown.append(f"### PDF page {number}\n\n{text}")
             pages.append({
                 "document_id": config["document_id"], "source_file": config["source"],
                 "source_url": config["source_url"], "publication_year": 2019,
@@ -112,23 +184,24 @@ def parse_documents(config):
     if nonempty < int(config["min_pages"]):
         raise ValueError(f"Извлечено только {nonempty} непустых страниц")
     write_jsonl("data/parsed/pages.jsonl", pages)
-    (ROOT / "data/parsed/document.md").write_text("\n\n---\n\n".join(markdown), encoding="utf-8")
+    (ROOT / "data/parsed/document.md").write_text("\n\n".join(markdown), encoding="utf-8")
     save_json("data/parsed/metadata.json", {
         "document_id": config["document_id"], "pdf_sha256": file_sha256(config["source"]),
         "page_range": [first, last], "selected_pdf_pages": len(pages),
         "nonempty_pages": nonempty, "source_url": config["source_url"],
-        "parser": "PyMuPDF page-structured", "parser_version": 3,
+        "parser": "PyMuPDF page-structured", "parser_version": 6,
     })
     return nonempty
 
 
 def build_index(config, rebuild=False):
     metadata_path = ROOT / "data/parsed/metadata.json"
-    if (not metadata_path.exists()
-            or load_json(metadata_path).get("pdf_sha256") != file_sha256(config["source"])
-            or load_json(metadata_path).get("page_range") != config["pages"]):
+    metadata = load_json(metadata_path) if metadata_path.exists() else {}
+    if (metadata.get("parser_version") != 6
+            or metadata.get("pdf_sha256") != file_sha256(config["source"])
+            or metadata.get("page_range") != config["pages"]):
         parse_documents(config)
-    directory = index_path(config, fresh=rebuild)
+    directory = index_path(config)
     if rebuild and directory.exists():
         shutil.rmtree(directory)
     directory.mkdir(parents=True, exist_ok=True)
@@ -148,9 +221,13 @@ def build_index(config, rebuild=False):
     manifest_path = directory / "manifest.json"
     if not manifest_path.exists():
         save_json(relative / "manifest.json", {
-            "document_sha256": file_sha256(config["source"]),
+            "document_id": config["document_id"], "source_url": config["source_url"],
+            "document_sha256": file_sha256(config["source"]), "parser_version": 6,
             "chunking": {key: config[key] for key in ("strategy", "chunk_size", "overlap", "include_headers")},
-            "embedding_model": config["embedding_model"], "pages": config["pages"],
+            "embedding_model": config["embedding_model"],
+            "chunk_tokenizer": config.get("llm_tokenizer", "Qwen/Qwen3-4B-Instruct-2507"),
+            "pages": config["pages"],
             "chunk_count": len(chunks), "vectors_shape": list(vectors.shape),
+            "splitter_engine": "langchain-text-splitters", "schema": 7,
         })
     return directory

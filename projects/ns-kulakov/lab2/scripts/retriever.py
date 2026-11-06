@@ -7,16 +7,29 @@ from embeddings import embedder
 from load_to_vector_store import client, collection_name
 
 EN = {
-    "парн": "paired", "независим": "independent", "средн": "mean", "гипотез": "hypothesis",
-    "доверительн": "confidence interval", "значим": "significance", "корреляц": "correlation",
-    "дисперс": "variance", "тест": "test", "сравнен": "comparison", "выборк": "sample",
-    "ошиб": "error", "анова": "anova", "критери": "test", "дол": "proportion",
-    "наблюден": "observation", "распределен": "distribution",
+    "первого рода": "type i error", "второго рода": "type ii error",
+    "нулев": "null", "альтернатив": "alternative", "практическ": "practical",
+    "статистическ": "statistical", "значим": "significance significant",
+    "мощност": "power", "размер выборки": "sample size", "выборк": "sample sampling",
+    "одновыборочн": "one sample", "парн": "paired", "независим": "independent",
+    "средн": "mean", "допущен": "assumption", "предпосыл": "assumption condition",
+    "групп": "group", "анова": "anova", "категориальн": "categorical",
+    "перемен": "variable", "соглас": "goodness fit", "частот": "frequency",
+    "наблюдаем": "observed", "ожидаем": "expected", "распределен": "distribution",
+    "доверительн": "confidence interval", "уровень доверия": "confidence level",
+    "корреляц": "correlation", "дисперс": "variance", "сравнен": "compare difference",
+    "тест": "test", "критери": "test", "дол": "proportion", "ошиб": "error",
+    "эффект": "effect", "аппроксимац": "approximation", "нормальн": "normal",
+    "маленьк": "small", "мал": "small", "успешн": "success", "исход": "outcome",
+    "вывод": "inference", "точечн": "point estimate", "вероятност": "probability",
 }
 
 
 def words(text):
-    return re.findall(r"[a-z]+|\d+", text.casefold())
+    tokens = re.findall(r"[a-z]+|\d+", text.casefold())
+    if "χ" in text.casefold() or "хи-квадрат" in text.casefold():
+        tokens.extend(("chi", "square"))
+    return tokens
 
 
 class Retriever:

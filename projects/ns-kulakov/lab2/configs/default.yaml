@@ -25,6 +25,12 @@ max_context_tokens: 2000
 # OpenAI-совместимый API Ollama
 llm_url: http://127.0.0.1:11434/v1
 llm_model: qwen3:4b-instruct-2507-q4_K_M
+# Токенизатор той же LLM для подсчёта полного chat prompt (веса LLM не скачиваются)
+llm_tokenizer: Qwen/Qwen3-4B-Instruct-2507
+# Должно совпадать с фактическим размером контекстного окна Ollama (num_ctx)
+llm_context_window: 4096
+# Запас на особенности серверной шаблонизации чата
+llm_context_reserve_tokens: 256
 llm_temperature: 0.2
 llm_max_tokens: 650
 llm_timeout: 120
